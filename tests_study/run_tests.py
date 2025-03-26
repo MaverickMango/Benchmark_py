@@ -2,12 +2,15 @@ import os, sys
 from pathlib import Path
 import subprocess
 import shutil
+import pandas as pd
 
-defects4j_root = os.getenv('DEFECTS4J_HOME')
-run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
 bugs_root = '/mnt/experiments/bugs'
 tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'
 result_root = '/mnt/Benchmark_py/tests_study/buggy_result/'
+bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv'
+
+defects4j_root = os.getenv('DEFECTS4J_HOME')
+run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
 cwd = os.getcwd()
 
 
@@ -25,11 +28,11 @@ def run_tests(word_dir, proj, id, version, test_prefix, test_dir, log_file, fail
     if not os.path.exists(tmp_dir):
         shutil.copytree(word_dir, tmp_dir)
     test_dir = f'{tests_root}/{proj}/{id}/{test_dir}'
-    log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{log_file}'
+    log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{log_file}'
     if os.path.exists(log_file):
         os.remove(log_file)
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
-    failing_output = f'{result_root}/{test_prefix}/{proj}/{id}/{failing_output}'
+    failing_output = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{failing_output}'
     if os.path.exists(failing_output):
         os.remove(failing_output)
     
@@ -68,15 +71,23 @@ def run_cmd(work_dir, cmd):
     return result
 
 
-def run(bugs_root, tests_root):
-    print()
-
-
 if __name__ == '__main__':
-    proj = 'Lang'
-    id = '51'
-    word_dir = f'{bugs_root}/{proj}/{proj}_{id}_buggy'
-    test_dir = f'0'
     log_file = 'logfile.txt'
     failing_output = 'failing_tests'
-    run_tests(word_dir, proj, id, 'buggy', 'evosuite2019', test_dir, log_file, failing_output)
+    df = pd.read_csv(bugs_info)
+    proj_bugs = [item.split('_') for item in df['bug_name'].tolist()]
+    for proj_bug in proj_bugs:
+        proj = proj_bug[0]
+        id = proj_bug[1]
+        work_dir = f'{bugs_root}/{proj}/{proj}_{id}_buggy'
+        checkout(proj, id, work_dir)
+        test_dirs = [entry.name for entry in os.scandir(f'{tests_root}/{proj}/{id}') if entry.is_dir()]
+        for test_dir in test_dirs:
+            run_tests(work_dir, proj, id, 'buggy', 'evosuite2019', test_dir, log_file, failing_output)
+
+
+    # proj = 'Lang'
+    # id = '51'
+    # test_dir = f'{tests_root}/{proj}/{id}/0'
+    # word_dir = f'{bugs_root}/{proj}/{proj}_{id}_buggy'
+    # run_tests(word_dir, proj, id, 'buggy', 'evosuite2019', test_dir, log_file, failing_output)
