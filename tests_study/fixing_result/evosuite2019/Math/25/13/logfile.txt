@@ -1,85 +1,5 @@
-Running ant (compile.gen.tests)............................................ OK
-Executed command:  cd /mnt/tmp/Math_25 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Math_25 -Dbuild.compiler=javac1.7 -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Math/25/13 compile.gen.tests 2>&1
-Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
-Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
-
-init:
-     [echo] -------- Commons MATH 3.0-SNAPSHOT --------
-
-compile:
-
-compile.gen.tests:
-     [echo] classes.dir: target/classes
-     [echo] build.home: target
-   [delete] Deleting directory /mnt/tmp/Math_25/.classes_testgen
-    [mkdir] Created dir: /mnt/tmp/Math_25/.classes_testgen
-    [javac] /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/tmp/Math_25/.classes_testgen
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/runtime/EvoAssertions.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/runtime/EvoRunner.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/runtime/EvoRunnerParameters.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NullPointerException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NullPointerException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AssertionError.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AssertionError.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] 37 warnings
-
-BUILD SUCCESSFUL
-Total time: 1 second
-Use of uninitialized value $out_file in concatenation (.) or string at /mnt/Benchmark_py/defects4j/framework/core/Project.pm line 689.
-Use of uninitialized value $include in concatenation (.) or string at /mnt/Benchmark_py/defects4j/framework/core/Project.pm line 689.
 Running ant (run.gen.tests)................................................ OK
-Executed command:  cd /mnt/tmp/Math_25 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Math_25 -Dbuild.compiler=javac1.7 -DOUTFILE= -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Math/25/13 -Dd4j.test.include=  run.gen.tests 2>&1
+Executed command:  cd /mnt/tmp/Math_25 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Math_25 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//fixing_result/evosuite2019/Math/25/13/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Math/25/13 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -157,26 +77,8 @@ compile.gen.tests:
 run.gen.tests:
      [echo] classes.dir: target/classes
      [echo] build.home: target
-    [junit] Exception in thread "main" java.lang.RuntimeException: java.io.FileNotFoundException:  (No such file or directory)
-    [junit] 	at edu.washington.cs.mut.testrunner.Formatter.<init>(Formatter.java:30)
-    [junit] 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-    [junit] 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-    [junit] 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-    [junit] 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-    [junit] 	at java.lang.Class.newInstance(Class.java:442)
-    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.FormatterElement.createFormatter(FormatterElement.java:300)
-    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.FormatterElement.createFormatter(FormatterElement.java:256)
-    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.transferFormatters(JUnitTestRunner.java:963)
-    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1058)
-    [junit] 	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:911)
-    [junit] Caused by: java.io.FileNotFoundException:  (No such file or directory)
-    [junit] 	at java.io.FileOutputStream.open0(Native Method)
-    [junit] 	at java.io.FileOutputStream.open(FileOutputStream.java:270)
-    [junit] 	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
-    [junit] 	at java.io.FileOutputStream.<init>(FileOutputStream.java:133)
-    [junit] 	at edu.washington.cs.mut.testrunner.Formatter.<init>(Formatter.java:27)
-    [junit] 	... 10 more
-    [junit] Test org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest FAILED (crashed)
+    [junit] Running org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.049 sec
 
 BUILD SUCCESSFUL
 Total time: 1 second

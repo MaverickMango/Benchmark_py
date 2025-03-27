@@ -4,6 +4,9 @@ import subprocess
 import shutil
 import pandas as pd
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from util_scripts import switch
+
 bugs_root = '/mnt/experiments/bugs'
 tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'
 result_root = '/mnt/Benchmark_py/tests_study/'
@@ -59,10 +62,9 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir, include, log_fi
         version = 'f'
     else:
         version = 'b'
-
     
     print(f'running tests for {proj}_{id}{version}...')
-    cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir} -i {include}' # 加了-o之后没有junit执行的报错信息
+    cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir} -i {include} -o {failing_output}' # 加了-o之后没有junit执行的报错信息
     print(cmd)
     cmd = cmd.split(' ')
     result = run_cmd(tmp_dir, cmd)
@@ -89,38 +91,42 @@ def run_cmd(work_dir, cmd):
 
 
 if __name__ == '__main__':
+    version = 'original'
     log_file = 'logfile.txt'
     failing_output = 'failing_tests'
     test_prefix = 'evosuite2019'
     if 'evosuite' in test_prefix:
-        include = '**/*_ESTest.java'
-    version = 'fixing'
+        include = '*_ESTest.java'
     result_root = f'{result_root}/{version}_result'
 
-    # df = pd.read_csv(bugs_info)
-    # proj_bugs = [item.split('_') for item in df['bug_name'].tolist()]
-    # for proj_bug in proj_bugs:
-    #     proj = proj_bug[0]
-    #     id = proj_bug[1]
-    #     work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
-    #     test_dir_root = f'{tests_root}/{proj}/{id}'
-    #     if not os.path.exists(test_dir_root):
-    #         continue
-    #     checkout(proj, id, work_dir, version)
+    df = pd.read_csv(bugs_info)
+    proj_bugs = [item for item in df['bug_name'].tolist()]
+    for proj_bug in proj_bugs:
+        proj = proj_bug.split('_')[0]
+        id = proj_bug.split('_')[1]
+        work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
+        test_dir_root = f'{tests_root}/{proj}/{id}'
+        if not os.path.exists(test_dir_root):
+            continue
+        checkout(proj, id, work_dir, version)
+        if version == 'original':
+            sha = df.set_index('bug_name')['originalCommit'].get(proj_bug)
+            # sha = df[df['bug_name'] == proj_bug]['originalCommit']
+            switch.run(proj, id, version, work_dir, sha)
+        
+        tmp_dir = f'/mnt/tmp/{proj}_{id}'
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir)
+        shutil.copytree(work_dir, tmp_dir)
 
-    #     tmp_dir = f'/mnt/tmp/{proj}_{id}'
-    #     if os.path.exists(tmp_dir):
-    #         shutil.rmtree(tmp_dir)
-    #     shutil.copytree(work_dir, tmp_dir)
+        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
+        for test_dir in test_dirs:
+            # print(test_dir)
+            run_tests(tmp_dir, proj, id, version, test_prefix, test_dir, include, log_file, failing_output)
 
-    #     test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
-    #     for test_dir in test_dirs:
-    #         # print(test_dir)
-    #         run_tests(tmp_dir, proj, id, version, test_prefix, test_dir, include, log_file, failing_output)
-
-    proj = 'Math'
-    id = '50'
-    test_dir = f'1'
-    word_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
-    tmp_dir = f'/mnt/tmp/{proj}_{id}'
-    run_tests(tmp_dir, proj, id, version, test_prefix, test_dir, include, log_file, failing_output)
+    # proj = 'Lang'
+    # id = '51'
+    # test_dir = f'0'
+    # word_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
+    # tmp_dir = f'/mnt/tmp/{proj}_{id}'
+    # run_tests(tmp_dir, proj, id, version, test_prefix, test_dir, include, log_file, failing_output)
