@@ -1,0 +1,24 @@
+--- org.apache.commons.lang3.time.FastDateFormat_ESTest
+java.lang.VerifyError: Illegal type at constant pool entry 116 in class org.apache.commons.lang3.time.FastDateFormat_ESTest
+Exception Details:
+  Location:
+    org/apache/commons/lang3/time/FastDateFormat_ESTest.test22()V @50: invokestatic
+  Reason:
+    Constant pool index 116 is invalid
+  Bytecode:
+    0x0000000: 120f 4cbb 004c 5903 120f 0303 0311 14ab
+    0x0000010: 1114 ab03 11ff 0811 f92e b700 4d4d 032c
+    0x0000020: b800 4e57 120f b800 6a57 032c b800 7357
+    0x0000030: 120f b800 7457 1275 b800 5da7 000a 4e12
+    0x0000040: 772d b800 60b1                         
+  Exception Handler Table:
+    bci [48, 59] => handler: 62
+  Stackmap Table:
+    full_frame(@62,{Object[#278],Object[#300],Object[#301]},{Object[#302]})
+    same_frame(@69)
+
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:374)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1060)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:911)
