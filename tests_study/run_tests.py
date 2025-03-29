@@ -29,7 +29,7 @@ bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信�
 result_root = f'{result_dir_root}/{version}_result'
 # defects4j_root = os.getenv('DEFECTS4J_HOME')
 # run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
-run_tests_cmd = 'defects4j run.external'
+run_tests_cmd = 'defects4j external.test'
 cwd = os.getcwd()
 
 
@@ -124,7 +124,7 @@ def main():
             if change_res != '0':
                 print(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
                 return
-        # break
+        break
         # 创建临时工作目录
         tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
         if os.path.exists(tmp_dir):
