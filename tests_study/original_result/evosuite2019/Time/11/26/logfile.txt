@@ -1,0 +1,11 @@
+Running ant (run.gen.tests)................................................ FAIL
+Executed command:  cd /mnt/tmp/Time_11 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Time_11 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//original_result/evosuite2019/Time/11/26/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Time/11/26 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
+
+BUILD FAILED
+/mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:82: The following error occurred while executing this line:
+/mnt/Benchmark_py/defects4j/framework/projects/Time/Time.build.xml:41: Cannot find /mnt/tmp/Time_11/build.xml imported from /mnt/Benchmark_py/defects4j/framework/projects/Time/Time.build.xml
+
+Total time: 0 seconds
+0

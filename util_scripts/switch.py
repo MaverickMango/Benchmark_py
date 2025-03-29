@@ -4,10 +4,11 @@ import subprocess
 
 result_root = '/mnt/Benchmark_py/tests_study/original_result'
 
-
 jar_path = '/mnt/Benchmark_py/lib/SwitchAndClean.jar'
-cmd = f'{os.getenv('JAVA_11_HOME')}/bin/java -cp ' + '{jarPath}'\
-      ' root.script.SwitchAndClean {proj} {id} {version} {workingDir} {sha}'
+default_properties = ''
+cmd = f'{os.getenv('JAVA_11_HOME')}/bin/java -Dexternal.properties.path={default_properties} -cp '\
+      + '{jarPath} '\
+      'root.script.SwitchAndClean {proj} {id} {version} {workingDir} {sha}'
 
 def run_cmd(work_dir, cmd):
       result = subprocess.run(cmd, cwd=work_dir, capture_output=True, text=True)
@@ -25,10 +26,11 @@ def run(p, i, v, w, s):
       if not os.path.exists(work_dir):
             os.makedirs(work_dir)
       res = run_cmd(work_dir=work_dir, cmd=change_cmd.split(' '))
-      if res.stdout == '0\n':
-            print('changing successly.')
-      else:
-            print('error occurred!')
+      # if res.stdout == '0\n':
+      #       print('changing successly.')
+      # else:
+      #       print('error occurred!')
+      return res.returncode
 
 
 if __name__ == '__main__':

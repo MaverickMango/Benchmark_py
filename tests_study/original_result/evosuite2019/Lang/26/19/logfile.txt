@@ -1,0 +1,52 @@
+Running ant (run.gen.tests)................................................ FAIL
+Executed command:  cd /mnt/tmp/Lang_26 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Lang_26 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//original_result/evosuite2019/Lang/26/19/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Lang/26/19 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang 1.1-dev --------
+
+prepare:
+
+static:
+
+compile:
+    [javac] /mnt/tmp/Lang_26/build.xml:66: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 61 source files to /mnt/tmp/Lang_26/target/classes
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/Enum.java:54: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/EnumUtils.java:54: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/ValuedEnum.java:54: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/ValuedEnum.java:168: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac]             ValuedEnum enum = (ValuedEnum) it.next();
+    [javac]                        ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/ValuedEnum.java:169: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac]             if (enum.getValue() == value) {
+    [javac]                 ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/enum/ValuedEnum.java:170: error: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac]                 return enum;
+    [javac]                        ^
+    [javac]   (use -source 1.4 or lower to use 'enum' as an identifier)
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/reflect/MethodUtils.java:74: error: unmappable character for encoding UTF8
+    [javac]  * @author Rey Fran�ois
+    [javac]                    ^
+    [javac] /mnt/tmp/Lang_26/src/java/org/apache/commons/lang/reflect/MethodUtils.java:75: error: unmappable character for encoding UTF8
+    [javac]  * @author Gregor Ra�man
+    [javac]                     ^
+    [javac] 8 errors
+
+BUILD FAILED
+/mnt/tmp/Lang_26/build.xml:66: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds
+0
