@@ -18,7 +18,7 @@ displays = ['running_stat', 'numeric_stat', 'failure_error_stat'] # 希望对数
 # 需要更改的目录位置
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
 bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
-trigger_test_exceptions_file_path = '/mnt/Benchmark_py/trigger_exceptions.csv' # 存放每个缺陷触发错误的exception
+trigger_test_exceptions_file_path = '/mnt/Benchmark_py/util_scripts/trigger_exceptions.csv' # 存放每个缺陷触发错误的exception
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result/{test_prefix}'

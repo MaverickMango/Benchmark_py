@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt
+PWD.........................../mnt/Benchmark_py/tests_study
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -19,21 +19,20 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 文件: /mnt/experiments/bugs/Lang/Lang_51_original
-  Source 版本: null
+  Source 版本: 1.3
   Target 版本: 1.1
 --------------------------------------------------
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_51_FIXED_VERSION in /mnt/experiments/bugs/Lang/Lang_51_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was ea58760e Tweak deleteWhitespace to avoid creating a new String if possible
-HEAD is now at 8bc80454 D4J_Lang_51_FIXED_VERSION
+HEAD is now at f7f0e7ab D4J_Lang_51_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_51_BUGGY_VERSION in /mnt/experiments/bugs/Lang/Lang_51_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was 8bc80454 D4J_Lang_51_FIXED_VERSION
-HEAD is now at 9cc6ac02 D4J_Lang_51_BUGGY_VERSION
+Previous HEAD position was f7f0e7ab D4J_Lang_51_FIXED_VERSION
+HEAD is now at 86ebbac2 D4J_Lang_51_BUGGY_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Lang/Lang_51_original
 [main] INFO FileUtils - Command result:
@@ -64,6 +63,10 @@ init:
      [echo] -------- commons-lang 2.4-SNAPSHOT --------
 
 prepare:
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_51_original/target
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_51_original/target/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_51_original/target/conf
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
 
 static:
      [copy] Copying 1 file to /mnt/experiments/bugs/Lang/Lang_51_original/target/conf
@@ -609,13 +612,13 @@ compile.tests:
      [copy] Copying 9 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
 
 BUILD SUCCESSFUL
-Total time: 2 seconds
+Total time: 7 seconds
 
 [main] INFO Defects4JBug - Switch to commit ea58760e593ebcfca1db1d3d486ad4931afb1e41
 [main] INFO FileUtils - Running command: git checkout --force ea58760e593ebcfca1db1d3d486ad4931afb1e41 in /mnt/experiments/bugs/Lang/Lang_51_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was 9cc6ac02 D4J_Lang_51_BUGGY_VERSION
+Previous HEAD position was 86ebbac2 D4J_Lang_51_BUGGY_VERSION
 HEAD is now at ea58760e Tweak deleteWhitespace to avoid creating a new String if possible
 
 [main] INFO Defects4JBug - Output defects4j properties and config file...
@@ -625,7 +628,7 @@ HEAD is now at ea58760e Tweak deleteWhitespace to avoid creating a new String if
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt
+PWD.........................../mnt/Benchmark_py/tests_study
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -974,41 +977,9 @@ compile:
      [copy] Copying 8 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/classes
 
 BUILD SUCCESSFUL
-Total time: 4 seconds
-
-[main] INFO Defects4JBug - Execute original tests...
-[main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
-[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/experiments/bugs/Lang/Lang_51_original/failing_tests /mnt/experiments/bugs/Lang/Lang_51_original/src/test
-[main] INFO FileUtils - Command result:
-0
-
-[main] INFO Defects4JBug - Induce trigger tests and test...
-[main] INFO FileUtils - Running command: /bin/bash -c cp -r /mnt/Benchmark/data/changesInfo/Lang_51/cleaned/original/* ./ in /mnt/experiments/bugs/Lang/Lang_51_original
-[main] INFO FileUtils - Command result:
-0
-
-[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test in /mnt/experiments/bugs/Lang/Lang_51_original
-[main] INFO FileUtils - Command result:
-0
---------------------------------------------------------------------------------
-                     Defects4j Execution Environment 
---------------------------------------------------------------------------------
-PWD.........................../mnt/experiments/bugs/Lang/Lang_51_original
-SHELL........................./bin/bash
-TZ............................America/Los_Angeles
-JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
-Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
-Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
-Java Version:
-  java version "1.8.0_391"
-  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
-  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
-Git version...................git version 2.25.1
-SVN version...................1.13.0
-Perl version..................v5.30.0
---------------------------------------------------------------------------------
+Total time: 5 seconds
 Running ant (compile.tests)................................................ OK
-Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
+Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -Dbuild.compiler=javac1.1  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -1021,14 +992,17 @@ static:
 
 compile:
     [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:46: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
 
 compile.tests:
     [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:59: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
     [javac] Compiling 85 source files to /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
+    [javac] This version of java does not support the classic compiler; upgrading to modern
     [javac] 
     [javac]           WARNING
     [javac] 
-    [javac] The -source switch defaults to 1.7 in JDK 1.7.
+    [javac] The -source switch defaults to .
     [javac] If you specify -target 1.1 you now must also specify -source 1.3.
     [javac] Ant will implicitly add -source 1.3 for you.  Please change your build file.
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.3
@@ -1243,8 +1217,41 @@ compile.tests:
 
 BUILD SUCCESSFUL
 Total time: 6 seconds
-Running ant (run.dev.tests)................................................ OK
-Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/experiments/bugs/Lang/Lang_51_original/failing_tests  run.dev.tests 2>&1
+
+[main] INFO Defects4JBug - Execute original tests...
+[main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
+[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/experiments/bugs/Lang/Lang_51_original/failing_tests /mnt/experiments/bugs/Lang/Lang_51_original/src/test
+[main] INFO FileUtils - Command result:
+2
+Cannot open log file: No such file or directory at /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl line 62.
+
+[main] INFO Defects4JBug - Induce trigger tests and test...
+[main] INFO FileUtils - Running command: /bin/bash -c cp -r /mnt/Benchmark/data/changesInfo/Lang_51/cleaned/original/* ./ in /mnt/experiments/bugs/Lang/Lang_51_original
+[main] INFO FileUtils - Command result:
+0
+
+[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test in /mnt/experiments/bugs/Lang/Lang_51_original
+[main] INFO FileUtils - Command result:
+0
+--------------------------------------------------------------------------------
+                     Defects4j Execution Environment 
+--------------------------------------------------------------------------------
+PWD.........................../mnt/experiments/bugs/Lang/Lang_51_original
+SHELL........................./bin/bash
+TZ............................America/Los_Angeles
+JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
+Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Version:
+  java version "1.8.0_391"
+  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+Git version...................git version 2.25.1
+SVN version...................1.13.0
+Perl version..................v5.30.0
+--------------------------------------------------------------------------------
+Running ant (compile.tests)................................................ OK
+Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -Dbuild.compiler=javac1.1  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -1257,128 +1264,240 @@ static:
 
 compile:
     [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:46: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
 
 compile.tests:
     [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:59: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
+    [javac] Compiling 1 source file to /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
+    [javac] This version of java does not support the classic compiler; upgrading to modern
+    [javac] 
+    [javac]           WARNING
+    [javac] 
+    [javac] The -source switch defaults to .
+    [javac] If you specify -target 1.1 you now must also specify -source 1.3.
+    [javac] Ant will implicitly add -source 1.3 for you.  Please change your build file.
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.3
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Constructor.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Executable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Executable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/AccessibleObject.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/AccessibleObject.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Boolean.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Boolean.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuffer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuffer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SecurityException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SecurityException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NoClassDefFoundError.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NoClassDefFoundError.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/LinkageError.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/LinkageError.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ReflectiveOperationException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ReflectiveOperationException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] 53 warnings
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+Running ant (run.dev.tests)................................................ OK
+Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -DOUTFILE=/mnt/experiments/bugs/Lang/Lang_51_original/failing_tests  -Dbuild.compiler=javac1.1  run.dev.tests 2>&1
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
+Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang 2.0 --------
+
+prepare:
+
+static:
+
+compile:
+    [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:46: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
+
+compile.tests:
+    [javac] /mnt/experiments/bugs/Lang/Lang_51_original/build.xml:59: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] This version of java does not support the classic compiler; upgrading to modern
 
 update.all.tests:
 
 run.dev.tests:
     [junit] Running org.apache.commons.lang.ArrayUtilsTest
-    [junit] Tests run: 100, Failures: 0, Errors: 0, Time elapsed: 0.053 sec
+    [junit] Tests run: 100, Failures: 0, Errors: 0, Time elapsed: 0.068 sec
     [junit] Running org.apache.commons.lang.BitFieldTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
     [junit] Running org.apache.commons.lang.BooleanUtilsTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.CharRangeTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.164 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.147 sec
     [junit] Running org.apache.commons.lang.CharSetTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.085 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.128 sec
     [junit] Running org.apache.commons.lang.CharSetUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.lang.ClassUtilsTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang.EntitiesPerformanceTest
-    [junit] Tests run: 22, Failures: 0, Errors: 9, Time elapsed: 7.603 sec
+    [junit] Tests run: 22, Failures: 0, Errors: 9, Time elapsed: 7.954 sec
     [junit] Test org.apache.commons.lang.EntitiesPerformanceTest FAILED
     [junit] Running org.apache.commons.lang.EntitiesTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.IllegalClassExceptionTest
     [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.IncompleteArgumentExceptionTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.NotImplementedExceptionTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0 sec
     [junit] Running org.apache.commons.lang.NullArgumentExceptionTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.NumberRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
     [junit] Running org.apache.commons.lang.NumberUtilsTest
     [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang.ObjectUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang.RandomStringUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang.SerializationUtilsTest
-    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.078 sec
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.086 sec
     [junit] Running org.apache.commons.lang.StringEscapeUtilsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang.StringUtilsEqualsIndexOfTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang.StringUtilsIsTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
     [junit] Running org.apache.commons.lang.StringUtilsSubstringTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.StringUtilsTest
-    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.326 sec
     [junit] Running org.apache.commons.lang.StringUtilsTrimEmptyTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
     [junit] Running org.apache.commons.lang.SystemUtilsTest
     [junit] Can't test IS_JAVA value
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.UnhandledExceptionTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.ValidateTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
     [junit] Running org.apache.commons.lang.WordUtilsTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang.builder.CompareToBuilderTest
-    [junit] Tests run: 46, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 46, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.builder.DefaultToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.lang.builder.EqualsBuilderTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderAndEqualsBuilderTest
     [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderTest
-    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.builder.MultiLineToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.035 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.lang.builder.NoFieldNamesToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.lang.builder.SimpleToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
     [junit] Running org.apache.commons.lang.builder.StandardToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.builder.ToStringBuilderTest
-    [junit] Tests run: 63, Failures: 1, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Tests run: 63, Failures: 1, Errors: 0, Time elapsed: 0.039 sec
     [junit] Test org.apache.commons.lang.builder.ToStringBuilderTest FAILED
     [junit] Running org.apache.commons.lang.enum.EnumTest
-    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.066 sec
+    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.044 sec
     [junit] Running org.apache.commons.lang.enum.EnumUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.058 sec
     [junit] Running org.apache.commons.lang.enum.ValuedEnumTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.03 sec
     [junit] Running org.apache.commons.lang.math.DoubleRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.FloatRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.FractionTest
-    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.405 sec
+    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.398 sec
     [junit] Running org.apache.commons.lang.math.IntRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.LongRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.NumberRangeTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.NumberUtilsTest
-    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang.time.DateFormatUtilsTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang.time.DateUtilsTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.109 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.077 sec
     [junit] Running org.apache.commons.lang.time.DurationFormatUtilsTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang.time.FastDateFormatTest
-    [junit] Tests run: 6, Failures: 1, Errors: 0, Time elapsed: 0.03 sec
+    [junit] Tests run: 6, Failures: 1, Errors: 0, Time elapsed: 0.035 sec
     [junit] Test org.apache.commons.lang.time.FastDateFormatTest FAILED
     [junit] Running org.apache.commons.lang.time.StopWatchTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 4.364 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 4.362 sec
     [junit] Running org.apache.commons.lang.util.IdentifierUtilsTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
 
 BUILD SUCCESSFUL
-Total time: 15 seconds
+Total time: 16 seconds
 Failing tests: 11
   - org.apache.commons.lang.EntitiesPerformanceTest::testEscapePrimitive
   - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeBinary

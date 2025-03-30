@@ -6,6 +6,7 @@ import pandas as pd
 from tqdm import *
 import time
 import logging
+import re
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
@@ -17,18 +18,21 @@ test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Te
 
 # 可以不更改的默认值
 include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
+include_pattern = r'*\.java$'
 if 'evosuite' in test_prefix:
     include = '*_ESTest.java'
+    include_pattern = r'.*_ESTest\.java$'
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
 tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
 
 # 需要更改的目录位置
-tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
+tmp_dir_root = '/mnt/tmp' # 临时工作文件夹的根目录
 bugs_root = '/mnt/experiments/bugs' # 下载的所有bug的根目录 缺陷目录为f'{bugs_root}/{proj}/{proj}_{id}_{version}'
 tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
 bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
+util_infos_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv' # 存放mapping结果的文件
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result'
@@ -75,10 +79,12 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     if os.path.exists(last_failing_test):
         os.remove(last_failing_test)
     
-    test_dir = f'{tests_root}/{proj}/{id}/{test_dir}'
+    test_dir = f'{tests_root}/{proj}/{id}/{test_dir}' 
 
     if version == 'original':
         version = 'o'
+        # 如果是original版本的话需要对齐包名=》复制测试目录到新的包名目录
+        test_dir = mapping_test_dirs(proj, id, test_dir)
     elif version == 'inducing':
         version = 'i'
     elif 'bug' in version:
@@ -104,6 +110,87 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     with open(log_file, 'x') as f:
         f.write(result.stderr + result.stdout)
         
+
+def mapping_test_dirs(proj, id, test_dir):
+    if not os.path.exists(util_infos_file_path):
+        return test_dir
+    try:
+        # 获取df，判断是否有包名变换
+        # **df中的路径要和test_dir下的目录结构一致！！！***
+        info_df = pd.read_csv(util_infos_file_path)
+        mask = (info_df['proj'] == proj) & (info_df['id'] == int(id))
+        info_df = info_df[mask]
+        if info_df.empty:
+            return test_dir
+
+        # 复制test文件到新的目录并修改目录名
+        cp_test_dir = f'{test_dir}_original'
+        if os.path.exists(cp_test_dir):
+            return cp_test_dir
+        shutil.copytree(test_dir, cp_test_dir)
+
+        path_mappings = []
+        for index, row in info_df.iterrows():
+            buggy_test_dir = f'{cp_test_dir}/{row['buggy']}'
+            if not os.path.exists(buggy_test_dir):
+                continue
+            original_test_dir = f'{cp_test_dir}/{row['original']}'
+            path_mappings.append({
+                'buggy': row['buggy'],
+                'original': row['original']
+            })
+            parent = os.path.dirname(original_test_dir)
+            if not os.path.exists(parent):
+                os.makedirs(parent)
+            shutil.move(buggy_test_dir, original_test_dir)
+
+        # 修改java类的package和import中的包名
+        mapping_package_name(path_mappings, cp_test_dir)
+        return cp_test_dir
+    except Exception as e:
+        logging.error(f'包名转换出错: {str(e)}')
+        return test_dir
+
+
+def mapping_package_name(path_mappings, curr_dir, file_suffix=include):
+    # 1. 获取当前目录下以include结尾的文件
+    # 2. 读取文件内容
+    # 3. 匹配package和import开头的行
+    # 4. 匹配info_df['buggy']到info_df['original'](先转换文件路径为包名)
+    try:
+        for root, _, files in os.walk(curr_dir):
+            for file in files:
+                if not re.match(include_pattern, file):
+                    continue
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                except Exception as e:
+                    logging.error(f'file {file_path} reading error: {str(e)}')
+                    continue
+                find_any = [item for item in path_mappings if item['original'] in file_path]
+                if len(find_any) == 0:
+                    continue
+                
+                buggy_package = find_any[0]['buggy'].replace('/', '.').strip('.')
+                original_package = find_any[0]['original'].replace('/', '.').strip('.')
+                package_pattern = re.compile(
+                    r'^(package|import)\s+' + 
+                    re.escape(buggy_package) + 
+                    r'(\..*?|;)', 
+                    flags=re.MULTILINE
+                )
+                update_content = package_pattern.sub(
+                    fr'\1 {original_package}\2', 
+                    content
+                )
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(update_content)
+                logging.info(f'update mapping tests successfully: {buggy_package}->{original_package}')
+    except Exception as e:
+        logging.error(f'mapping tests file {file_path} error: {str(e)}')
+
 
 def run_cmd(work_dir, cmd):
     result = subprocess.run(cmd, cwd=work_dir, capture_output=True, text=True)
@@ -148,7 +235,7 @@ def main():
 
 
 def test_one(proj, id, test_dir):
-    version = 'buggy'
+    version = 'original'
     # 确认目录存在，不存在则checkout
     work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
     checkout(proj, id, work_dir, version)
@@ -161,12 +248,12 @@ def test_one(proj, id, test_dir):
 
 
 if __name__ == '__main__':
-    for task in tasks:
-        tasks.set_description('Processing for run tests for %s' % task)
-        version = str(task)
-        result_root = f'{result_dir_root}/{version}_result/'
-        logging.info(f'running for {version}...')
-        main()
-        time.sleep(.1)
-    # test_one('Lang', '26', '0')
+    # for task in tasks:
+    #     tasks.set_description('Processing for run tests for %s' % task)
+    #     version = str(task)
+    #     result_root = f'{result_dir_root}/{version}_result/'
+    #     logging.info(f'running for {version}...')
+    #     main()
+    #     time.sleep(.1)
+    test_one('Math', '2', '2')
 

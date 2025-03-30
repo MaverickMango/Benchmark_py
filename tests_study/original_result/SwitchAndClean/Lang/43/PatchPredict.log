@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt
+PWD.........................../mnt/Benchmark_py/tests_study
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -20,20 +20,19 @@ Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 文件: /mnt/experiments/bugs/Lang/Lang_43_original
   Source 版本: 1.3
-  Target 版本: 1.1
+  Target 版本: 1.2
 --------------------------------------------------
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_43_FIXED_VERSION in /mnt/experiments/bugs/Lang/Lang_43_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was b737ab76 [LANG-366] retract
-HEAD is now at c77c5ee9 D4J_Lang_43_FIXED_VERSION
+HEAD is now at e7124177 D4J_Lang_43_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_43_BUGGY_VERSION in /mnt/experiments/bugs/Lang/Lang_43_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was c77c5ee9 D4J_Lang_43_FIXED_VERSION
-HEAD is now at 68937875 D4J_Lang_43_BUGGY_VERSION
+Previous HEAD position was e7124177 D4J_Lang_43_FIXED_VERSION
+HEAD is now at 471ff01e D4J_Lang_43_BUGGY_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Lang/Lang_43_original
 [main] INFO FileUtils - Command result:
@@ -64,12 +63,17 @@ init:
      [echo] -------- commons-lang 3.0-SNAPSHOT --------
 
 prepare:
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_43_original/target
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_43_original/target/conf
+    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_43_original/target/tests
 
 static:
+     [copy] Copying 1 file to /mnt/experiments/bugs/Lang/Lang_43_original/target/conf
 
 compile:
     [javac] /mnt/experiments/bugs/Lang/Lang_43_original/build.xml:65: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 32 source files to /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
+    [javac] Compiling 85 source files to /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.3
     [javac] /mnt/experiments/bugs/Lang/Lang_43_original/src/java/org/apache/commons/lang/Entities.java:64: warning: unmappable character for encoding UTF8
     [javac]         {"copy", "169"}, // � - copyright sign
@@ -267,6 +271,14 @@ compile:
     [javac] package org.apache.commons.lang.enum;
     [javac]                                 ^
     [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /mnt/experiments/bugs/Lang/Lang_43_original/src/java/org/apache/commons/lang/enum/EnumUtils.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
+    [javac] /mnt/experiments/bugs/Lang/Lang_43_original/src/java/org/apache/commons/lang/enum/ValuedEnum.java:17: warning: as of release 5, 'enum' is a keyword, and may not be used as an identifier
+    [javac] package org.apache.commons.lang.enum;
+    [javac]                                 ^
+    [javac]   (use -source 5 or higher to use 'enum' as a keyword)
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Array.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -295,15 +307,21 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Character.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/UnsupportedEncodingException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Set.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -323,18 +341,9 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/TreeMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigDecimal.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NumberFormatException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
+    [javac] Note: Some input files additionally use or override a deprecated API.
     [javac] 100 warnings
      [copy] Copying 11 files to /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
 
@@ -615,7 +624,7 @@ Total time: 7 seconds
 [main] INFO FileUtils - Running command: git checkout --force b737ab7625da23aebe14846eacb2b3ec0e8da1c3 in /mnt/experiments/bugs/Lang/Lang_43_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was 68937875 D4J_Lang_43_BUGGY_VERSION
+Previous HEAD position was 471ff01e D4J_Lang_43_BUGGY_VERSION
 HEAD is now at b737ab76 [LANG-366] retract
 
 [main] INFO Defects4JBug - Output defects4j properties and config file...
@@ -625,7 +634,7 @@ HEAD is now at b737ab76 [LANG-366] retract
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt
+PWD.........................../mnt/Benchmark_py/tests_study
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -648,7 +657,7 @@ Perl version..................v5.30.0
 [main] INFO Defects4JBug - Compiling...
 [main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Lang/Lang_43_original
 [main] INFO FileUtils - Command result:
-0
+1
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
@@ -969,207 +978,7 @@ compile:
 BUILD FAILED
 /mnt/experiments/bugs/Lang/Lang_43_original/build.xml:65: Compile failed; see the compiler error output for details.
 
-Total time: 5 seconds
-
-[main] INFO Defects4JBug - Execute original tests...
-[main] INFO Defects4JBug - Execute original tests...
-[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test in /mnt/experiments/bugs/Lang/Lang_43_original
-[main] INFO FileUtils - Command result:
-1
---------------------------------------------------------------------------------
-                     Defects4j Execution Environment 
---------------------------------------------------------------------------------
-PWD.........................../mnt/experiments/bugs/Lang/Lang_43_original
-SHELL........................./bin/bash
-TZ............................America/Los_Angeles
-JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
-Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
-Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
-Java Version:
-  java version "1.8.0_391"
-  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
-  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
-Git version...................git version 2.25.1
-SVN version...................1.13.0
-Perl version..................v5.30.0
---------------------------------------------------------------------------------
-Running ant (compile.tests)................................................ FAIL
-Executed command:  cd /mnt/experiments/bugs/Lang/Lang_43_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_43_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
-Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
-Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
-
-init:
-     [echo] -------- commons-lang 2.4-SNAPSHOT --------
-
-prepare:
-
-static:
-
-compile:
-    [javac] /mnt/experiments/bugs/Lang/Lang_43_original/build.xml:65: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 15 source files to /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
-    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.3
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/Format.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParsePosition.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/FieldPosition.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuffer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/MessageFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/InvocationTargetException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormatSymbols.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/NumberFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Reader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Writer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ListIterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Readable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Closeable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Appendable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Flushable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DateFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Calendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Date.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/TimeZone.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DateFormatSymbols.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/SimpleDateFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/GregorianCalendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParseException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/Format.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParsePosition.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/FieldPosition.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/StringBuffer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/MessageFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/InvocationTargetException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Modifier.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormatSymbols.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/NumberFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Reader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Writer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collections.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ListIterator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Readable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Closeable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Appendable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Flushable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DateFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Calendar.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Date.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/TimeZone.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DateFormatSymbols.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/SimpleDateFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/GregorianCalendar.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParseException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractMap.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AbstractStringBuilder.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /mnt/experiments/bugs/Lang/Lang_43_original/src/java/org/apache/commons/lang/text/DefaultMetaFormatFactory.java:117: error: cannot find symbol
-    [javac]         return new MultiFormat(new Format[] {
-    [javac]                    ^
-    [javac]   symbol:   class MultiFormat
-    [javac]   location: class DefaultMetaFormatFactory
-    [javac] 1 error
-    [javac] 100 warnings
-
-BUILD FAILED
-/mnt/experiments/bugs/Lang/Lang_43_original/build.xml:65: Compile failed; see the compiler error output for details.
-
-Total time: 3 seconds
-Cannot compile test suite! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-test line 134.
+Total time: 6 seconds
+Cannot compile sources! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-compile line 89.
 Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.
 
