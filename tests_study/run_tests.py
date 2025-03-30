@@ -11,7 +11,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
 
 # 默认参数
-py_log_file_name = 'pylog.txt'
+py_log_file_name = 'run_test.log'
 version = 'buggy' #执行测试的缺陷版本
 test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
@@ -21,6 +21,7 @@ if 'evosuite' in test_prefix:
     include = '*_ESTest.java'
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
+tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
 
 # 需要更改的目录位置
 tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
@@ -31,6 +32,10 @@ bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信�
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result'
+py_log_file = f'{result_dir_root}/{py_log_file_name}'
+if os.path.exists(py_log_file):
+    os.remove(py_log_file)
+logging.basicConfig(filename=py_log_file, level=logging.INFO)
 # defects4j_root = os.getenv('DEFECTS4J_HOME')
 # run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
 run_tests_cmd = 'defects4j external.test'
@@ -156,15 +161,11 @@ def test_one(proj, id, test_dir):
 
 
 if __name__ == '__main__':
-    tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
     for task in tasks:
         tasks.set_description('Processing for run tests for %s' % task)
         version = str(task)
         result_root = f'{result_dir_root}/{version}_result/'
-        py_log_file = f'{result_root}/{py_log_file_name}'
-        if os.path.exists(py_log_file):
-            os.remove(py_log_file)
-        logging.basicConfig(filename=py_log_file, level=logging.INFO)
+        logging.info(f'running for {version}...')
         main()
         time.sleep(.1)
     # test_one('Lang', '26', '0')

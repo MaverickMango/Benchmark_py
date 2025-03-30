@@ -3,6 +3,7 @@ import sys,os
 import pandas as pd
 import time
 from tqdm import *
+import logging
 
 # 默认参数
 version = 'fixing' #执行测试的缺陷版本
@@ -12,6 +13,7 @@ test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Te
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
 analysis_output = 'build_results.csv'
+tasks = tqdm(['buggy', 'fixing', 'original'])
 
 # 需要更改的目录位置
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
@@ -19,6 +21,10 @@ bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信�
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+py_log_file = f'{result_dir_root}/analysis.log'
+if os.path.exists(py_log_file):
+    os.remove(py_log_file)
+logging.basicConfig(filename=py_log_file, level=logging.INFO)
 
 log_file_patterns = {
     'build_status': re.compile(r"BUILD SUCCESSFUL"),
@@ -100,7 +106,7 @@ def parse_log(file_path):
                     else:
                         result['tests_errors'] += int(match.group(1))
     except Exception as e:
-        print(f'解析文件{file_path}出错: {str(e)}')
+        logging.error(f'解析文件{file_path}出错: {str(e)}')
         result['error'] = str(e)
     return result
 
@@ -148,12 +154,15 @@ def get_result():
 
 
 if __name__ == '__main__':
-    tasks = tqdm(['buggy', 'fixing', 'original'])
     for task in tasks:
         tasks.set_description('Processing for %s analysis' % task)
         version = str(task)
+        logging.info(f'running for {version}...')
         result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
         df = get_result()
-        df.to_csv(f'{result_root}/{analysis_output}', index=False)
+
+        output_file = f'{result_root}/{analysis_output}'
+        logging.info(f'分析结果结果存放在：{output_file}')
+        df.to_csv(output_file, index=False)
         time.sleep(.1)
         

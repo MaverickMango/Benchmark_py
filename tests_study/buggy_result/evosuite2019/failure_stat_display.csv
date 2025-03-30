@@ -30,7 +30,6 @@ Math,28,buggy_result/evosuite2019/Math/28/27,1,True,3.0,6,0,org.apache.commons.m
 Math,28,buggy_result/evosuite2019/Math/28/0,1,True,3.0,6,0,org.apache.commons.math3.optimization.linear.SimplexSolver_ESTest::test5::org.apache.commons.math3.optimization.linear.UnboundedSolutionException,1,2.209
 Math,50,buggy_result/evosuite2019/Math/50/8,1,True,3.0,18,1,org.apache.commons.math.analysis.solvers.BaseSecantSolver_ESTest::test11::junit.framework.AssertionFailedError,0,0.782
 Math,50,buggy_result/evosuite2019/Math/50/29,1,True,3.0,18,1,org.apache.commons.math.analysis.solvers.BaseSecantSolver_ESTest::test04::junit.framework.AssertionFailedError,0,0.784
-Math,50,buggy_result/evosuite2019/Math/50/0,0,False,3.0,0,0,,6,0.0
 Math,53,buggy_result/evosuite2019/Math/53/2,1,True,9.0,45,1,org.apache.commons.math.complex.Complex_ESTest::test35::junit.framework.AssertionFailedError,0,1.58
 Math,53,buggy_result/evosuite2019/Math/53/24,1,True,3.0,47,2,org.apache.commons.math.complex.Complex_ESTest::test27::junit.framework.AssertionFailedError#org.apache.commons.math.complex.Complex_ESTest::test31::junit.framework.AssertionFailedError,0,1.492
 Math,53,buggy_result/evosuite2019/Math/53/12,1,True,3.0,51,1,org.apache.commons.math.complex.Complex_ESTest::test09::junit.framework.AssertionFailedError,0,1.632

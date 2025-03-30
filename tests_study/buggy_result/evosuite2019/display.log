@@ -13,3 +13,4 @@ INFO:root:按缺陷统计数值类型数据的结果存放在：/mnt/Benchmark_p
 INFO:root:按项目统计数值类型数据的结果存放在：/mnt/Benchmark_py/tests_study//original_result/evosuite2019/proj_numeric_stat_display.csv
 INFO:root:有失败测试的结果存放在：/mnt/Benchmark_py/tests_study//original_result/evosuite2019/failure_stat_display.csv
 INFO:root:测试执行错误的结果存放在：/mnt/Benchmark_py/tests_study//original_result/evosuite2019/error_stat_display.csv
+INFO:root:所有生成的测试中是揭错测试的有：0/358, 0.0
