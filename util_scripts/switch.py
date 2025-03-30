@@ -2,11 +2,14 @@ import os
 import sys
 import subprocess
 
-result_root = '/mnt/Benchmark_py/tests_study/original_result'
+# 需要更改的目录位置
+result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
+jar_path = '/mnt/Benchmark_py/lib/SwitchAndClean.jar'#jar包的路径
 
-jar_path = '/mnt/Benchmark_py/lib/SwitchAndClean.jar'
-default_properties = ''
-cmd = f'{os.getenv('JAVA_11_HOME')}/bin/java -Dexternal.properties.path={default_properties} -cp '\
+########## 以下均不要更改 ##########
+result_root = f'{result_dir_root}/original_result'
+# default_properties = '/mnt/Benchmark_py/lib/default.properties'#  -Dexternal.properties.path={default_properties}
+cmd = f'{os.getenv('JAVA_11_HOME')}/bin/java -cp '\
       + '{jarPath} '\
       'root.script.SwitchAndClean {proj} {id} {version} {workingDir} {sha}'
 

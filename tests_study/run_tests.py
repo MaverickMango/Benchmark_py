@@ -3,23 +3,25 @@ from pathlib import Path
 import subprocess
 import shutil
 import pandas as pd
+from tqdm import *
+import time
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
 
 # 默认参数
-version = 'original' #执行测试的缺陷版本
+version = 'buggy' #执行测试的缺陷版本
 test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
 include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
 if 'evosuite' in test_prefix:
     include = '*_ESTest.java'
-log_file = 'logfile.txt'
-failing_output = 'failing_tests'
+log_file_name = 'logfile.txt'
+failing_output_name = 'failing_tests'
 
 # 需要更改的目录位置
-tmp_dir_root = '/mnt/tmp' # 临时工作文件夹的根目录
+tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
 bugs_root = '/mnt/experiments/bugs' # 下载的所有bug的根目录 缺陷目录为f'{bugs_root}/{proj}/{proj}_{id}_{version}'
 tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
@@ -54,12 +56,12 @@ def checkout(proj, id, work_dir, version):
 
 def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
 
-    log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{log_file}'
+    log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{log_file_name}'
     if os.path.exists(log_file):
         os.remove(log_file)
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
     # print(log_file)
-    failing_output = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{failing_output}'
+    failing_output = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{failing_output_name}'
     if os.path.exists(failing_output):
         os.remove(failing_output)
     last_failing_test = f'{tmp_dir}/failing-tests.txt'
@@ -108,7 +110,7 @@ def run_cmd(work_dir, cmd):
 def main(): 
     df = pd.read_csv(bugs_info)
     proj_bugs = [item for item in df['bug_name'].tolist()]
-    for proj_bug in proj_bugs:
+    for proj_bug in tqdm(proj_bugs):
         proj = proj_bug.split('_')[0]
         id = proj_bug.split('_')[1]
         test_dir_root = f'{tests_root}/{proj}/{id}'
@@ -123,8 +125,8 @@ def main():
             change_res = switch.run(proj, id, version, work_dir, sha)
             if change_res != '0':
                 print(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
-                return
-        break
+                continue
+        
         # 创建临时工作目录
         tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
         if os.path.exists(tmp_dir):
@@ -152,6 +154,12 @@ def test_one(proj, id, test_dir):
 
 
 if __name__ == '__main__':
-    main()
+    tasks = tqdm(['fixing', 'original', 'buggy'])
+    for task in tasks:
+        tasks.set_description('Processing for run tests for %s' % task)
+        version = str(task)
+        result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+        main()
+        time.sleep(.1)
     # test_one('Lang', '26', '0')
 
