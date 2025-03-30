@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -339,7 +339,7 @@ compile:
      [copy] Copying 11 files to /mnt/experiments/bugs/Lang/Lang_43_original/target/classes
 
 BUILD SUCCESSFUL
-Total time: 4 seconds
+Total time: 5 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Lang/Lang_43_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_43_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -625,7 +625,7 @@ HEAD is now at b737ab76 [LANG-366] retract
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391

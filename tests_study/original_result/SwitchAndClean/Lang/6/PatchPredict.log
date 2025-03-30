@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -267,7 +267,7 @@ compile:
     [javac] 100 warnings
 
 BUILD SUCCESSFUL
-Total time: 6 seconds
+Total time: 4 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Lang/Lang_6_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_6_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -485,7 +485,7 @@ compile.tests:
      [copy] Copying 6 files to /mnt/experiments/bugs/Lang/Lang_6_original/target/tests
 
 BUILD SUCCESSFUL
-Total time: 7 seconds
+Total time: 5 seconds
 
 [main] INFO Defects4JBug - Switch to commit a7e90b2ffa23ab60c7022e2f94a12651b4fb8ec0
 [main] INFO FileUtils - Running command: git checkout --force a7e90b2ffa23ab60c7022e2f94a12651b4fb8ec0 in /mnt/experiments/bugs/Lang/Lang_6_original
@@ -501,7 +501,7 @@ HEAD is now at a7e90b2f Removing unused imports
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -821,7 +821,7 @@ compile:
      [copy] Copying 13 files to /mnt/experiments/bugs/Lang/Lang_6_original/target/classes
 
 BUILD SUCCESSFUL
-Total time: 6 seconds
+Total time: 5 seconds
 
 [main] INFO Defects4JBug - Execute original tests...
 [main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
@@ -1071,10 +1071,9 @@ compile.tests:
     [javac] Note: /mnt/experiments/bugs/Lang/Lang_6_original/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
     [javac] 100 warnings
-     [copy] Copying 1 file to /mnt/experiments/bugs/Lang/Lang_6_original/target/tests
 
 BUILD SUCCESSFUL
-Total time: 8 seconds
+Total time: 3 seconds
 Running ant (run.dev.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Lang/Lang_6_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_6_original -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/experiments/bugs/Lang/Lang_6_original/failing_tests  run.dev.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -1091,210 +1090,212 @@ update.all.tests:
 
 run.dev.tests:
     [junit] Running org.apache.commons.lang3.AnnotationUtilsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.108 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.123 sec
     [junit] Running org.apache.commons.lang3.ArrayUtilsAddTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.ArrayUtilsRemoveTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang3.ArrayUtilsTest
-    [junit] Tests run: 146, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
+    [junit] Tests run: 146, Failures: 0, Errors: 0, Time elapsed: 0.097 sec
     [junit] Running org.apache.commons.lang3.BitFieldTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.038 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.BooleanUtilsTest
-    [junit] Tests run: 43, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 43, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang3.CharEncodingTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang3.CharRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.203 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.183 sec
     [junit] Running org.apache.commons.lang3.CharSequenceUtilsTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.CharSetTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang3.CharSetUtilsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.CharUtilsTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.lang3.ClassUtilsTest
-    [junit] Tests run: 49, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
+    [junit] Tests run: 49, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
     [junit] Running org.apache.commons.lang3.EnumUtilsTest
     [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang3.JavaVersionTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.LocaleUtilsTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.076 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.093 sec
     [junit] Running org.apache.commons.lang3.ObjectUtilsTest
-    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.RandomStringUtilsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.099 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
     [junit] Running org.apache.commons.lang3.RangeTest
-    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang3.SerializationUtilsTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.103 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
     [junit] Running org.apache.commons.lang3.StringEscapeUtilsTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.493 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.453 sec
     [junit] Running org.apache.commons.lang3.StringUtilsEqualsIndexOfTest
-    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.03 sec
     [junit] Running org.apache.commons.lang3.StringUtilsIsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.03 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.lang3.StringUtilsStartsEndsWithTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang3.StringUtilsSubstringTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
     [junit] Running org.apache.commons.lang3.StringUtilsTest
-    [junit] Tests run: 83, Failures: 0, Errors: 0, Time elapsed: 0.096 sec
+    [junit] Tests run: 83, Failures: 0, Errors: 0, Time elapsed: 0.104 sec
     [junit] Running org.apache.commons.lang3.StringUtilsTrimEmptyTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.098 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.074 sec
     [junit] Running org.apache.commons.lang3.SystemUtilsTest
     [junit] Can't test IS_JAVA value
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang3.ValidateTest
-    [junit] Tests run: 52, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
+    [junit] Tests run: 52, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
     [junit] Running org.apache.commons.lang3.builder.CompareToBuilderTest
-    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.057 sec
+    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.lang3.builder.DefaultToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.lang3.builder.EqualsBuilderTest
-    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
     [junit] Running org.apache.commons.lang3.builder.HashCodeBuilderAndEqualsBuilderTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang3.builder.HashCodeBuilderTest
-    [junit] Tests run: 42, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 42, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang3.builder.MultiLineToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest
     [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang3.builder.SimpleToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang3.builder.StandardToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang3.builder.ToStringBuilderTest
-    [junit] Tests run: 74, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
+    [junit] Tests run: 74, Failures: 1, Errors: 0, Time elapsed: 0.03 sec
+    [junit] Test org.apache.commons.lang3.builder.ToStringBuilderTest FAILED
     [junit] Running org.apache.commons.lang3.builder.ToStringStyleTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang3.concurrent.AtomicInitializerTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.135 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
     [junit] Running org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.403 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.073 sec
     [junit] Running org.apache.commons.lang3.concurrent.BackgroundInitializerTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.577 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.052 sec
     [junit] Running org.apache.commons.lang3.concurrent.BasicThreadFactoryTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.204 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.089 sec
     [junit] Running org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.concurrent.ConcurrentUtilsTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.114 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.063 sec
     [junit] Running org.apache.commons.lang3.concurrent.ConstantInitializerTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang3.concurrent.LazyInitializerTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.288 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 1.292 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.04 sec
     [junit] Running org.apache.commons.lang3.concurrent.TimedSemaphoreTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 1.473 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 1.345 sec
     [junit] Running org.apache.commons.lang3.event.EventListenerSupportTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.136 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.114 sec
     [junit] Running org.apache.commons.lang3.event.EventUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.059 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
     [junit] Running org.apache.commons.lang3.exception.ContextedExceptionTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
-    [junit] Running org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest
     [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
+    [junit] Running org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.lang3.exception.DefaultExceptionContextTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.lang3.exception.ExceptionUtilsTest
     [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
     [junit] Running org.apache.commons.lang3.math.FractionTest
-    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.139 sec
+    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.104 sec
     [junit] Running org.apache.commons.lang3.math.IEEE754rUtilsTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.math.NumberUtilsTest
-    [junit] Tests run: 51, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Tests run: 51, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableBooleanTest
     [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableByteTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableDoubleTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
-    [junit] Running org.apache.commons.lang3.mutable.MutableFloatTest
     [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Running org.apache.commons.lang3.mutable.MutableFloatTest
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableIntTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableLongTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableObjectTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.mutable.MutableShortTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.reflect.ConstructorUtilsTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang3.reflect.FieldUtilsTest
-    [junit] Tests run: 42, Failures: 0, Errors: 0, Time elapsed: 0.048 sec
+    [junit] Tests run: 42, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
     [junit] Running org.apache.commons.lang3.reflect.MethodUtilsTest
     [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.lang3.reflect.TypeUtilsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.09 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.04 sec
     [junit] Running org.apache.commons.lang3.text.CompositeFormatTest
     [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang3.text.ExtendedMessageFormatTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 1.504 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 2.388 sec
     [junit] Running org.apache.commons.lang3.text.FormattableUtilsTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.text.StrBuilderAppendInsertTest
-    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang3.text.StrBuilderTest
-    [junit] Tests run: 77, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 77, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
     [junit] Running org.apache.commons.lang3.text.StrLookupTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.StrMatcherTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang3.text.StrSubstitutorTest
-    [junit] Tests run: 36, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
+    [junit] Tests run: 36, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.lang3.text.StrTokenizerTest
     [junit] Tests run: 55, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
     [junit] Running org.apache.commons.lang3.text.WordUtilsTest
     [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang3.text.translate.EntityArraysTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.translate.LookupTranslatorTest
     [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang3.text.translate.NumericEntityEscaperTest
     [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.translate.OctalUnescaperTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.translate.UnicodeEscaperTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.text.translate.UnicodeUnescaperTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang3.time.DateFormatUtilsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang3.time.DateUtilsFragmentTest
     [junit] Tests run: 52, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang3.time.DateUtilsRoundingTest
-    [junit] Tests run: 22, Failures: 0, Errors: 0, Time elapsed: 0.139 sec
+    [junit] Tests run: 22, Failures: 0, Errors: 0, Time elapsed: 0.079 sec
     [junit] Running org.apache.commons.lang3.time.DateUtilsTest
-    [junit] Tests run: 33, Failures: 0, Errors: 0, Time elapsed: 0.241 sec
+    [junit] Tests run: 33, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
     [junit] Running org.apache.commons.lang3.time.DurationFormatUtilsTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.93 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.717 sec
     [junit] Running org.apache.commons.lang3.time.FastDateFormatTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
     [junit] Running org.apache.commons.lang3.time.StopWatchTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 4.769 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 4.763 sec
     [junit] Running org.apache.commons.lang3.tuple.ImmutablePairTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang3.tuple.MutablePairTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang3.tuple.PairTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
 
 BUILD SUCCESSFUL
-Total time: 18 seconds
-Failing tests: 0
+Total time: 14 seconds
+Failing tests: 1
+  - org.apache.commons.lang3.builder.ToStringBuilderTest::testReflectionHierarchyArrayList
 
 [main] INFO Defects4JBug - Writing failing_tests info...
 [main] INFO Defects4JBug - git int ...

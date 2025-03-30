@@ -1,0 +1,7 @@
+proj,id,test,cmd_status,build_status,total_time_seconds,tests_run,tests_failures,failing_tests,tests_errors,test_time_elapsed_seconds
+Math,50,fixing_result/evosuite2019/Math/50/0,0,False,3.0,0,0,,6,0.0
+Time,11,fixing_result/evosuite2019/Time/11/20,1,True,4.0,44,0,org.joda.time.tz.ZoneInfoCompiler_ESTest::test38::java.io.IOException,1,1.667
+Time,11,fixing_result/evosuite2019/Time/11/26,1,True,4.0,31,1,org.joda.time.tz.ZoneInfoCompiler_ESTest::test27::junit.framework.AssertionFailedError,0,1.108
+Lang,21,fixing_result/evosuite2019/Lang/21/16,1,True,2.0,1,0,,1,0.0
+Lang,26,fixing_result/evosuite2019/Lang/26/26,1,True,2.0,1,0,,1,0.0
+Lang,61,fixing_result/evosuite2019/Lang/61/25,1,True,2.0,1,0,,1,0.0

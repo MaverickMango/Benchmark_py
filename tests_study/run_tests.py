@@ -5,11 +5,13 @@ import shutil
 import pandas as pd
 from tqdm import *
 import time
+import logging
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
 
 # 默认参数
+py_log_file_name = 'pylog.txt'
 version = 'buggy' #执行测试的缺陷版本
 test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
@@ -48,7 +50,7 @@ def checkout(proj, id, work_dir, version):
         version = 'f'
     else:
         version = 'b'
-    print(f'checking out {proj}_{id}{version}...')
+    logging.info(f'checking out {proj}_{id}{version}...')
     checkout_cmd = f'defects4j checkout -p {proj} -v {id}{version} -w {work_dir}'
     checkout_cmd = checkout_cmd.split(' ')
     run_cmd(cwd, checkout_cmd)
@@ -60,7 +62,7 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     if os.path.exists(log_file):
         os.remove(log_file)
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
-    # print(log_file)
+    # logging.info(log_file)
     failing_output = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{failing_output_name}'
     if os.path.exists(failing_output):
         os.remove(failing_output)
@@ -81,19 +83,19 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     else:
         version = 'b'
     
-    print(f'running tests for {proj}_{id}{version}...')
+    logging.info(f'running tests for {proj}_{id}{version}...')
     cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir} -i {include} -o {failing_output}' # 加了-o之后没有junit执行的报错信息
-    print(cmd)
+    logging.info(cmd)
     cmd = cmd.split(' ')
     result = run_cmd(tmp_dir, cmd)
     if os.path.exists(last_failing_test):
         shutil.copyfile(last_failing_test, failing_output)
 
-    # print(result.stderr + result.stdout)
+    # logging.info(result.stderr + result.stdout)
     if result.stdout == '0\n':
-        print('tests running success.')
+        logging.info('tests running success.')
     else:
-        print('tests running failied.')
+        logging.info('tests running failied.')
     with open(log_file, 'x') as f:
         f.write(result.stderr + result.stdout)
         
@@ -101,9 +103,9 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
 def run_cmd(work_dir, cmd):
     result = subprocess.run(cmd, cwd=work_dir, capture_output=True, text=True)
     if result.returncode == 0:
-        print('EXECUTION SUCCESS!')
+        logging.info('EXECUTION SUCCESS!')
     else:
-        print('EXECUTION FAILED!')
+        logging.info('EXECUTION FAILED!')
     return result
 
 
@@ -124,7 +126,7 @@ def main():
             sha = df.set_index('bug_name')['originalCommit'].get(proj_bug)
             change_res = switch.run(proj, id, version, work_dir, sha)
             if change_res != '0':
-                print(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
+                logging.info(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
                 continue
         
         # 创建临时工作目录
@@ -136,7 +138,7 @@ def main():
         test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
         # 对每个测试目录运行测试
         for test_dir in test_dirs:
-            # print(test_dir)
+            # logging.info(test_dir)
             run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
 
 
@@ -154,11 +156,15 @@ def test_one(proj, id, test_dir):
 
 
 if __name__ == '__main__':
-    tasks = tqdm(['fixing', 'original', 'buggy'])
+    tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
     for task in tasks:
         tasks.set_description('Processing for run tests for %s' % task)
         version = str(task)
-        result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+        result_root = f'{result_dir_root}/{version}_result/'
+        py_log_file = f'{result_root}/{py_log_file_name}'
+        if os.path.exists(py_log_file):
+            os.remove(py_log_file)
+        logging.basicConfig(filename=py_log_file, level=logging.INFO)
         main()
         time.sleep(.1)
     # test_one('Lang', '26', '0')

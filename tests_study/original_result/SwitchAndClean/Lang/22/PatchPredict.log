@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -510,7 +510,7 @@ HEAD is now at 7f89bd48 checkstyle
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -1085,9 +1085,9 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SecurityException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NoSuchMethodException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalAccessException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1170,209 +1170,189 @@ update.all.tests:
 
 run.dev.tests:
     [junit] Running org.apache.commons.lang.ArrayUtilsAddTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang.ArrayUtilsRemoveTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang.ArrayUtilsTest
-    [junit] Tests run: 120, Failures: 0, Errors: 0, Time elapsed: 0.106 sec
+    [junit] Tests run: 120, Failures: 0, Errors: 0, Time elapsed: 0.051 sec
     [junit] Running org.apache.commons.lang.BitFieldTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang.BooleanUtilsTest
-    [junit] Tests run: 44, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 44, Failures: 0, Errors: 0, Time elapsed: 0.062 sec
     [junit] Running org.apache.commons.lang.CharEncodingTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.lang.CharRangeTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.163 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.137 sec
     [junit] Running org.apache.commons.lang.CharSetTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang.CharSetUtilsTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.CharUtilsPerfTest
-    [junit] Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 0.012 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 0.011 sec
     [junit] Test org.apache.commons.lang.CharUtilsPerfTest FAILED
     [junit] Running org.apache.commons.lang.CharUtilsTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.ClassUtilsTest
-    [junit] Tests run: 34, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
+    [junit] Tests run: 34, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
     [junit] Running org.apache.commons.lang.EntitiesPerformanceTest
-    [junit] Tests run: 22, Failures: 0, Errors: 9, Time elapsed: 7.66 sec
-    [junit] Test org.apache.commons.lang.EntitiesPerformanceTest FAILED
+    [junit] Tests run: 22, Failures: 0, Errors: 0, Time elapsed: 7.749 sec
     [junit] Running org.apache.commons.lang.EntitiesTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
     [junit] Running org.apache.commons.lang.IllegalClassExceptionTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.IncompleteArgumentExceptionTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.IntHashMapTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang.LocaleUtilsTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.119 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.094 sec
     [junit] Running org.apache.commons.lang.NotImplementedExceptionTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.lang.NullArgumentExceptionTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0 sec
     [junit] Running org.apache.commons.lang.NumberRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.NumberUtilsTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.lang.ObjectUtilsTest
     [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang.RandomStringUtilsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
     [junit] Running org.apache.commons.lang.SerializationUtilsTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.111 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.064 sec
     [junit] Running org.apache.commons.lang.StringEscapeUtilsTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.317 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.356 sec
     [junit] Running org.apache.commons.lang.StringUtilsEqualsIndexOfTest
-    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.lang.StringUtilsIsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.066 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.03 sec
     [junit] Running org.apache.commons.lang.StringUtilsStartsEndsWithTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.StringUtilsSubstringTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.StringUtilsTest
     [junit] 
-    [junit] Tests run: 63, Failures: 0, Errors: 0, Time elapsed: 0.067 sec
+    [junit] Tests run: 63, Failures: 0, Errors: 0, Time elapsed: 0.061 sec
     [junit] Running org.apache.commons.lang.StringUtilsTrimEmptyTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.lang.SystemUtilsTest
     [junit] Can't test IS_JAVA value
     [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.UnhandledExceptionTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.ValidateTest
-    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.WordUtilsTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang.builder.CompareToBuilderTest
-    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang.builder.DefaultToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.lang.builder.EqualsBuilderTest
-    [junit] Tests run: 44, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 44, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderAndEqualsBuilderTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
     [junit] Running org.apache.commons.lang.builder.MultiLineToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.lang.builder.NoFieldNamesToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.builder.ReflectionToStringBuilderExcludeTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.lang.builder.ShortPrefixToStringStyleTest
-    [junit] Tests run: 8, Failures: 1, Errors: 0, Time elapsed: 0.017 sec
-    [junit] Test org.apache.commons.lang.builder.ShortPrefixToStringStyleTest FAILED
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.builder.SimpleToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.builder.StandardToStringStyleTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.builder.ToStringBuilderTest
-    [junit] Tests run: 71, Failures: 1, Errors: 0, Time elapsed: 0.028 sec
-    [junit] Test org.apache.commons.lang.builder.ToStringBuilderTest FAILED
+    [junit] Tests run: 71, Failures: 0, Errors: 0, Time elapsed: 0.076 sec
     [junit] Running org.apache.commons.lang.builder.ToStringStyleTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.lang.enum.EnumTest
-    [junit] Tests run: 41, Failures: 1, Errors: 0, Time elapsed: 0.077 sec
-    [junit] Test org.apache.commons.lang.enum.EnumTest FAILED
+    [junit] Tests run: 41, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
     [junit] Running org.apache.commons.lang.enum.EnumUtilsTest
     [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.lang.enum.ValuedEnumTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.enums.EnumEqualsTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.enums.EnumTest
-    [junit] Tests run: 41, Failures: 1, Errors: 0, Time elapsed: 0.061 sec
-    [junit] Test org.apache.commons.lang.enums.EnumTest FAILED
+    [junit] Tests run: 41, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
     [junit] Running org.apache.commons.lang.enums.EnumUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.enums.ValuedEnumTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.lang.math.DoubleRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.math.FloatRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.lang.math.FractionTest
-    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.095 sec
+    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.138 sec
     [junit] Running org.apache.commons.lang.math.IntRangeTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.lang.math.LongRangeTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang.math.NumberRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.math.NumberUtilsTest
-    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang.math.RangeTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.mutable.MutableBooleanTest
     [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.mutable.MutableByteTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.mutable.MutableDoubleTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang.mutable.MutableFloatTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.mutable.MutableIntTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.mutable.MutableLongTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.mutable.MutableObjectTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.mutable.MutableShortTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.text.CompositeFormatTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang.text.ExtendedMessageFormatBaselineTest
-    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.106 sec
+    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.089 sec
     [junit] Running org.apache.commons.lang.text.MessageFormatExtensionTest
-    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.081 sec
+    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.071 sec
     [junit] Running org.apache.commons.lang.text.MessageFormatTest
-    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
     [junit] Running org.apache.commons.lang.text.MultiFormatTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.lang.text.StrBuilderAppendInsertTest
     [junit] Tests run: 43, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.lang.text.StrBuilderTest
-    [junit] Tests run: 74, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 74, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang.text.StrLookupTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.text.StrMatcherTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.text.StrSubstitutorTest
-    [junit] Tests run: 32, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 32, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.text.StrTokenizerTest
     [junit] Tests run: 55, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
     [junit] Running org.apache.commons.lang.time.DateFormatUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.time.DateUtilsTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.252 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.202 sec
     [junit] Running org.apache.commons.lang.time.DurationFormatUtilsTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 1 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.73 sec
     [junit] Running org.apache.commons.lang.time.FastDateFormatTest
-    [junit] Tests run: 13, Failures: 1, Errors: 0, Time elapsed: 0.038 sec
-    [junit] Test org.apache.commons.lang.time.FastDateFormatTest FAILED
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.038 sec
     [junit] Running org.apache.commons.lang.time.StopWatchTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 4.76 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 4.768 sec
 
 BUILD SUCCESSFUL
 Total time: 19 seconds
-Failing tests: 15
+Failing tests: 1
   - org.apache.commons.lang.CharUtilsPerfTest
-  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapePrimitive
-  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeBinary
-  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeLookup
-  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeHash
-  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeTree
-  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeBinary
-  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeHash
-  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeTree
-  - org.apache.commons.lang.EntitiesPerformanceTest::testLookupBinary
-  - org.apache.commons.lang.builder.ShortPrefixToStringStyleTest::testPerson
-  - org.apache.commons.lang.builder.ToStringBuilderTest::testReflectionHierarchyArrayList
-  - org.apache.commons.lang.enum.EnumTest::testColorEnumEqualsWithDifferentClassLoaders
-  - org.apache.commons.lang.enums.EnumTest::testColorEnumEqualsWithDifferentClassLoaders
-  - org.apache.commons.lang.time.FastDateFormatTest::testFormat
 
 [main] INFO Defects4JBug - Writing failing_tests info...
 [main] INFO Defects4JBug - git int ...

@@ -1,6 +1,9 @@
 import os
 import sys
 import subprocess
+import logging
+
+py_log_file_name = 'pylog.txt'
 
 # 需要更改的目录位置
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
@@ -16,23 +19,28 @@ cmd = f'{os.getenv('JAVA_11_HOME')}/bin/java -cp '\
 def run_cmd(work_dir, cmd):
       result = subprocess.run(cmd, cwd=work_dir, capture_output=True, text=True)
       if result.returncode == 0:
-            print('EXECUTION SUCCESS!')
+            logging.info('EXECUTION SUCCESS!')
       else:
-            print('EXECUTION FAILED!')
+            logging.info('EXECUTION FAILED!')
       return result
 
 
 def run(p, i, v, w, s):
+      py_log_file = f'{result_root}/{py_log_file_name}'
+      if os.path.exists(py_log_file):
+            os.remove(py_log_file)
+      logging.basicConfig(filename=py_log_file, level=logging.INFO)
+      
       change_cmd = cmd.format(jarPath=jar_path, proj=p, id=i, version=v, workingDir=w, sha=s)
-      print(change_cmd)
+      logging.info(change_cmd)
       work_dir = f'{result_root}/SwitchAndClean/{p}/{i}/'
       if not os.path.exists(work_dir):
             os.makedirs(work_dir)
       res = run_cmd(work_dir=work_dir, cmd=change_cmd.split(' '))
       # if res.stdout == '0\n':
-      #       print('changing successly.')
+      #       logging.info('changing successly.')
       # else:
-      #       print('error occurred!')
+      #       logging.info('error occurred!')
       return res.returncode
 
 

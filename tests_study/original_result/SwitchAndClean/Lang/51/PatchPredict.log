@@ -4,7 +4,7 @@
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -344,7 +344,7 @@ compile:
      [copy] Copying 10 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/classes
 
 BUILD SUCCESSFUL
-Total time: 5 seconds
+Total time: 4 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Lang/Lang_51_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Lang/Lang_51_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -609,7 +609,7 @@ compile.tests:
      [copy] Copying 9 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
 
 BUILD SUCCESSFUL
-Total time: 7 seconds
+Total time: 2 seconds
 
 [main] INFO Defects4JBug - Switch to commit ea58760e593ebcfca1db1d3d486ad4931afb1e41
 [main] INFO FileUtils - Running command: git checkout --force ea58760e593ebcfca1db1d3d486ad4931afb1e41 in /mnt/experiments/bugs/Lang/Lang_51_original
@@ -625,7 +625,7 @@ HEAD is now at ea58760e Tweak deleteWhitespace to avoid creating a new String if
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -974,7 +974,7 @@ compile:
      [copy] Copying 8 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/classes
 
 BUILD SUCCESSFUL
-Total time: 5 seconds
+Total time: 4 seconds
 
 [main] INFO Defects4JBug - Execute original tests...
 [main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
@@ -1240,7 +1240,6 @@ compile.tests:
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
     [javac] 100 warnings
-     [copy] Copying 3 files to /mnt/experiments/bugs/Lang/Lang_51_original/target/tests
 
 BUILD SUCCESSFUL
 Total time: 6 seconds
@@ -1266,118 +1265,132 @@ update.all.tests:
 
 run.dev.tests:
     [junit] Running org.apache.commons.lang.ArrayUtilsTest
-    [junit] Tests run: 100, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
+    [junit] Tests run: 100, Failures: 0, Errors: 0, Time elapsed: 0.053 sec
     [junit] Running org.apache.commons.lang.BitFieldTest
     [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.BooleanUtilsTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.lang.CharRangeTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.114 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.164 sec
     [junit] Running org.apache.commons.lang.CharSetTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.079 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.085 sec
     [junit] Running org.apache.commons.lang.CharSetUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.lang.ClassUtilsTest
     [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.lang.EntitiesPerformanceTest
-    [junit] Tests run: 22, Failures: 0, Errors: 0, Time elapsed: 7.582 sec
+    [junit] Tests run: 22, Failures: 0, Errors: 9, Time elapsed: 7.603 sec
+    [junit] Test org.apache.commons.lang.EntitiesPerformanceTest FAILED
     [junit] Running org.apache.commons.lang.EntitiesTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.lang.IllegalClassExceptionTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.IncompleteArgumentExceptionTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0 sec
     [junit] Running org.apache.commons.lang.NotImplementedExceptionTest
     [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.NullArgumentExceptionTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.NumberRangeTest
     [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.lang.NumberUtilsTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang.ObjectUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.lang.RandomStringUtilsTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
     [junit] Running org.apache.commons.lang.SerializationUtilsTest
-    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.09 sec
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 0.078 sec
     [junit] Running org.apache.commons.lang.StringEscapeUtilsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
     [junit] Running org.apache.commons.lang.StringUtilsEqualsIndexOfTest
     [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.StringUtilsIsTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
     [junit] Running org.apache.commons.lang.StringUtilsSubstringTest
     [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.lang.StringUtilsTest
-    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.053 sec
+    [junit] Tests run: 47, Failures: 0, Errors: 0, Time elapsed: 0.05 sec
     [junit] Running org.apache.commons.lang.StringUtilsTrimEmptyTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
     [junit] Running org.apache.commons.lang.SystemUtilsTest
     [junit] Can't test IS_JAVA value
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang.UnhandledExceptionTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.lang.ValidateTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.lang.WordUtilsTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.lang.builder.CompareToBuilderTest
     [junit] Tests run: 46, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.lang.builder.DefaultToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.lang.builder.EqualsBuilderTest
-    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 40, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderAndEqualsBuilderTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.lang.builder.HashCodeBuilderTest
-    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.builder.MultiLineToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.035 sec
     [junit] Running org.apache.commons.lang.builder.NoFieldNamesToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
     [junit] Running org.apache.commons.lang.builder.SimpleToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
     [junit] Running org.apache.commons.lang.builder.StandardToStringStyleTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.lang.builder.ToStringBuilderTest
-    [junit] Tests run: 63, Failures: 0, Errors: 0, Time elapsed: 0.035 sec
+    [junit] Tests run: 63, Failures: 1, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Test org.apache.commons.lang.builder.ToStringBuilderTest FAILED
     [junit] Running org.apache.commons.lang.enum.EnumTest
-    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.054 sec
+    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.066 sec
     [junit] Running org.apache.commons.lang.enum.EnumUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.174 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
     [junit] Running org.apache.commons.lang.enum.ValuedEnumTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.lang.math.DoubleRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.math.FloatRangeTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.lang.math.FractionTest
-    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.432 sec
+    [junit] Tests run: 25, Failures: 0, Errors: 0, Time elapsed: 0.405 sec
     [junit] Running org.apache.commons.lang.math.IntRangeTest
     [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.math.LongRangeTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.math.NumberRangeTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.lang.math.NumberUtilsTest
-    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 45, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.lang.time.DateFormatUtilsTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.time.DateUtilsTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.134 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.109 sec
     [junit] Running org.apache.commons.lang.time.DurationFormatUtilsTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.lang.time.FastDateFormatTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 6, Failures: 1, Errors: 0, Time elapsed: 0.03 sec
+    [junit] Test org.apache.commons.lang.time.FastDateFormatTest FAILED
     [junit] Running org.apache.commons.lang.time.StopWatchTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 4.359 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 4.364 sec
     [junit] Running org.apache.commons.lang.util.IdentifierUtilsTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
 
 BUILD SUCCESSFUL
 Total time: 15 seconds
-Failing tests: 0
+Failing tests: 11
+  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapePrimitive
+  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeBinary
+  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeLookup
+  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeHash
+  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeTree
+  - org.apache.commons.lang.EntitiesPerformanceTest::testUnescapeBinary
+  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeHash
+  - org.apache.commons.lang.EntitiesPerformanceTest::testEscapeTree
+  - org.apache.commons.lang.EntitiesPerformanceTest::testLookupBinary
+  - org.apache.commons.lang.builder.ToStringBuilderTest::testReflectionHierarchyArrayList
+  - org.apache.commons.lang.time.FastDateFormatTest::testFormat
 
 [main] INFO Defects4JBug - Writing failing_tests info...
 [main] INFO Defects4JBug - git int ...
