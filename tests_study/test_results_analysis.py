@@ -32,7 +32,7 @@ log_file_patterns = {
     'junit_result': re.compile(
         r"\[junit\] Tests run:\s+(\d+),\s+Failures:\s+(\d+),\s+Errors:\s+(\d+),\s+Time elapsed:\s+([\d.]+)\s+sec"
     ),
-    'build_error': re.compile(r"\[javac\]\s+([\d.]+)\s+error[s]") # [javac] 2 errors
+    'build_error': re.compile(r"\[javac\]\s+([\d.]+)\s+error[s]?") # [javac] 2 errors
 }
 test_case_pattern = re.compile(r'^--- ([\w.]+)::(\w+).*')
 error_pattern = re.compile(r'^\s*([\w.]+(?:Error|Exception)):')
