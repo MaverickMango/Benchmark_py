@@ -1,5 +1,22 @@
-Running ant (run.gen.tests)................................................ FAIL
-Executed command:  cd /mnt/tmp/Lang_22 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Lang_22 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//original_result/evosuite2019/Lang/22/26/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
+--------------------------------------------------------------------------------
+                     Defects4j Execution Environment 
+--------------------------------------------------------------------------------
+PWD.........................../mnt/Benchmark_py/tests_study
+SHELL........................./bin/bash
+TZ............................America/Los_Angeles
+JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
+Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Version:
+  java version "1.8.0_391"
+  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+Git version...................git version 2.25.1
+SVN version...................1.13.0
+Perl version..................v5.30.0
+--------------------------------------------------------------------------------
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/Lang_22 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/tmp/Lang_22 -Dbuild.compiler=javac1.7 -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original compile.gen.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -11,20 +28,20 @@ prepare:
 static:
 
 compile:
-    [javac] /mnt/tmp/Lang_22/build.xml:65: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /tmp/Lang_22/build.xml:65: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile.gen.tests:
      [echo] classes.dir: target/classes
      [echo] build.home: target
-   [delete] Deleting directory /mnt/tmp/Lang_22/.classes_testgen
-    [mkdir] Created dir: /mnt/tmp/Lang_22/.classes_testgen
+   [delete] Deleting directory /tmp/Lang_22/.classes_testgen
+    [mkdir] Created dir: /tmp/Lang_22/.classes_testgen
     [javac] /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/tmp/Lang_22/.classes_testgen
+    [javac] Compiling 1 source file to /tmp/Lang_22/.classes_testgen
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/runtime/EvoAssertions.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:11: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:11: error: cannot find symbol
     [javac] import org.apache.commons.lang3.math.Fraction;
     [javac]                                     ^
     [javac]   symbol:   class Fraction
@@ -55,82 +72,82 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:21: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:21: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:21: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:21: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:28: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:28: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:28: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:28: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:29: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:29: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.add(fraction0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:36: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:36: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:36: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:36: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:37: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:37: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.ONE_THIRD;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:37: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:37: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.ONE_THIRD;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:38: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:38: error: cannot find symbol
     [javac]       Fraction fraction2 = fraction1.ONE_THIRD.subtract(fraction0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:40: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:40: error: cannot find symbol
     [javac]       Fraction fraction3 = Fraction.getFraction((-3578), (-3578));
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:40: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:40: error: cannot find symbol
     [javac]       Fraction fraction3 = Fraction.getFraction((-3578), (-3578));
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:43: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:43: error: cannot find symbol
     [javac]       Fraction fraction4 = fraction0.ONE_FIFTH.multiplyBy(fraction1);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:44: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:44: error: cannot find symbol
     [javac]       Fraction fraction5 = Fraction.getFraction(2168, (-863));
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:44: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:44: error: cannot find symbol
     [javac]       Fraction fraction5 = Fraction.getFraction(2168, (-863));
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:47: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:47: error: cannot find symbol
     [javac]       Fraction fraction6 = fraction2.subtract(fraction4);
     [javac]       ^
     [javac]   symbol:   class Fraction
@@ -138,37 +155,37 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:54: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:54: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.TWO_THIRDS;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:54: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:54: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.TWO_THIRDS;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:61: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:61: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_HALF;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:61: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:61: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_HALF;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:68: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:68: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:68: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:68: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:78: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:78: error: cannot find symbol
     [javac]         Fraction.getFraction(1, 0);
     [javac]         ^
     [javac]   symbol:   variable Fraction
@@ -185,82 +202,82 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:93: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:93: error: cannot find symbol
     [javac]         Fraction.getFraction(Integer.MIN_VALUE, Integer.MIN_VALUE);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:108: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:108: error: cannot find symbol
     [javac]         Fraction.getFraction(45, Integer.MIN_VALUE);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:121: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:121: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction("-4 136/237");
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:121: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:121: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction("-4 136/237");
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:129: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:129: error: cannot find symbol
     [javac]         Fraction.getFraction((-3569), 0, 0);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:144: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:144: error: cannot find symbol
     [javac]         Fraction.getFraction((-1), (-697), (-1403));
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:159: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:159: error: cannot find symbol
     [javac]         Fraction.getFraction(0, (-1992), 4599);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:174: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:174: error: cannot find symbol
     [javac]         Fraction.getFraction((-30), 955, Integer.MAX_VALUE);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:189: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:189: error: cannot find symbol
     [javac]         Fraction.getFraction(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:204: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:204: error: cannot find symbol
     [javac]         Fraction.getReducedFraction((-1610), 0);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:217: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:217: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction(Integer.MIN_VALUE, Integer.MIN_VALUE);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:217: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:217: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction(Integer.MIN_VALUE, Integer.MIN_VALUE);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:226: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:226: error: cannot find symbol
     [javac]         Fraction.getReducedFraction(5, Integer.MIN_VALUE);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:241: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:241: error: cannot find symbol
     [javac]         Fraction.getReducedFraction(Integer.MIN_VALUE, (-1100));
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:256: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:256: error: cannot find symbol
     [javac]         Fraction.getFraction(1.7976931348623157E308);
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:271: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:271: error: cannot find symbol
     [javac]         Fraction.getFraction((String) null);
     [javac]         ^
     [javac]   symbol:   variable Fraction
@@ -268,7 +285,7 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:286: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:286: error: cannot find symbol
     [javac]         Fraction.getFraction("^\"p[\"p.EKA&|Ax");
     [javac]         ^
     [javac]   symbol:   variable Fraction
@@ -276,297 +293,297 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NumberFormatException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NumberFormatException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:297: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:297: error: cannot find symbol
     [javac]         Fraction.getFraction("VXG<m5:C$b-B':=q:");
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:312: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:312: error: cannot find symbol
     [javac]         Fraction.getFraction("8 x3FS)h2w23");
     [javac]         ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:325: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:325: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction("2/4");
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:325: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:325: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction("2/4");
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:332: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:332: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(247, 247);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:332: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:332: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(247, 247);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:333: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:333: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.THREE_QUARTERS.reduce();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:341: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:341: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction((-1228), 1158);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:341: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:341: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction((-1228), 1158);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:342: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:342: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.ZERO.negate();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:343: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:343: error: cannot find symbol
     [javac]       Fraction fraction2 = fraction1.reduce();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:352: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:352: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_HALF;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:352: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:352: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_HALF;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:353: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:353: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.TWO_QUARTERS;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:353: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:353: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.TWO_QUARTERS;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:354: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:354: error: cannot find symbol
     [javac]       Fraction fraction2 = fraction0.subtract(fraction1);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:355: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:355: error: cannot find symbol
     [javac]       Fraction fraction3 = fraction2.reduce();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:364: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:364: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.TWO_THIRDS;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:364: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:364: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.TWO_THIRDS;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:365: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:365: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.TWO_QUARTERS.abs();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:366: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:366: error: cannot find symbol
     [javac]       Fraction fraction2 = fraction1.reduce();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:373: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:373: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(247, 247);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:373: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:373: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(247, 247);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:374: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:374: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.TWO_FIFTHS.divideBy(fraction0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:382: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:382: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(Integer.MIN_VALUE, 629);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:382: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:382: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(Integer.MIN_VALUE, 629);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:398: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:398: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(Integer.MIN_VALUE, 216);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:398: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:398: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(Integer.MIN_VALUE, 216);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:414: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:414: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:414: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:414: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ONE_THIRD;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:415: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:415: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.negate();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:416: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:416: error: cannot find symbol
     [javac]       Fraction fraction2 = fraction1.abs();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:423: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:423: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(859.0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:423: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:423: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(859.0);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:424: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:424: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.pow(0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:432: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:432: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((-473), 1, 1);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:432: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:432: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((-473), 1, 1);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:448: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:448: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ZERO;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:448: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:448: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.ZERO;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:464: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:464: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction(1, 1262);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:464: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:464: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getReducedFraction(1, 1262);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:465: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:465: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.getFraction((-670.4457607148485));
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:465: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:465: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.getFraction((-670.4457607148485));
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:481: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:481: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.THREE_QUARTERS;
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:481: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:481: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.THREE_QUARTERS;
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:482: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:482: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.getFraction(2.147483647E9);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:482: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:482: error: cannot find symbol
     [javac]       Fraction fraction1 = Fraction.getFraction(2.147483647E9);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:498: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:498: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:498: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:498: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction(2536.0478154);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:499: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:499: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.THREE_QUARTERS.add(fraction0);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:505: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:505: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) (-2147483647));
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:505: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:505: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) (-2147483647));
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:506: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:506: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.negate();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:522: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:522: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) 2147483641);
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:522: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:522: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) 2147483641);
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:523: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:523: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.negate();
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:539: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:539: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) (-2147483647));
     [javac]       ^
     [javac]   symbol:   class Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:539: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:539: error: cannot find symbol
     [javac]       Fraction fraction0 = Fraction.getFraction((double) (-2147483647));
     [javac]                            ^
     [javac]   symbol:   variable Fraction
     [javac]   location: class Fraction_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26/org/apache/commons/lang3/math/Fraction_ESTest.java:540: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/22/26_original/org/apache/commons/lang3/math/Fraction_ESTest.java:540: error: cannot find symbol
     [javac]       Fraction fraction1 = fraction0.negate();
     [javac]       ^
     [javac]   symbol:   class Fraction
@@ -577,5 +594,6 @@ compile.gen.tests:
 BUILD FAILED
 /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: Compile failed; see the compiler error output for details.
 
-Total time: 0 seconds
-0
+Total time: 2 seconds
+Cannot compile external tests! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-external.test line 59.
+Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.

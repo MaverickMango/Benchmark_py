@@ -26,6 +26,7 @@ Perl version..................v5.30.0
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_35_FIXED_VERSION in /mnt/experiments/bugs/Math/Math_35_original
 [main] INFO FileUtils - Command result:
 0
+Previous HEAD position was 62bed05b1 removed remaining references to DenseXxx{Matrix/Vector}
 HEAD is now at 20fdfe022 D4J_Math_35_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_35_BUGGY_VERSION in /mnt/experiments/bugs/Math/Math_35_original
@@ -61,9 +62,6 @@ Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
 init:
      [echo] -------- Commons MATH 3.0-SNAPSHOT --------
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_35_original/target
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_35_original/target/classes
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_35_original/target/test-classes
      [copy] Copying 1 file to /mnt/experiments/bugs/Math/Math_35_original/target/classes
 
 compile:
@@ -300,7 +298,7 @@ compile:
     [javac] Creating empty /mnt/experiments/bugs/Math/Math_35_original/target/classes/org/apache/commons/math3/fraction/package-info.class
 
 BUILD SUCCESSFUL
-Total time: 10 seconds
+Total time: 8 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Math/Math_35_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Math/Math_35_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -506,7 +504,7 @@ compile.tests:
      [copy] Copying 13 files to /mnt/experiments/bugs/Math/Math_35_original/target/test-classes
 
 BUILD SUCCESSFUL
-Total time: 12 seconds
+Total time: 10 seconds
 
 [main] INFO Defects4JBug - Switch to commit 62bed05b1491a68d1416392e3e4cb2665f995010
 [main] INFO FileUtils - Running command: git checkout --force 62bed05b1491a68d1416392e3e4cb2665f995010 in /mnt/experiments/bugs/Math/Math_35_original
@@ -756,7 +754,7 @@ compile:
     [javac] 100 warnings
 
 BUILD SUCCESSFUL
-Total time: 10 seconds
+Total time: 9 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Math/Math_35_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Math/Math_35_original -Dbuild.compiler=javac1.5  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0

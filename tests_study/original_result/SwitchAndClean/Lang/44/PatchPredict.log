@@ -19,13 +19,14 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 文件: /mnt/experiments/bugs/Lang/Lang_44_original
-  Source 版本: 1.3
-  Target 版本: 1.2
+  Source 版本: 未找到
+  Target 版本: 未找到
 --------------------------------------------------
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_44_FIXED_VERSION in /mnt/experiments/bugs/Lang/Lang_44_original
 [main] INFO FileUtils - Command result:
 0
+Previous HEAD position was fe460cb4 New repository initialized by cvs2svn.
 HEAD is now at 5764f7a9 D4J_Lang_44_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_44_BUGGY_VERSION in /mnt/experiments/bugs/Lang/Lang_44_original
@@ -618,7 +619,7 @@ compile.tests:
      [copy] Copying 10 files to /mnt/experiments/bugs/Lang/Lang_44_original/target/tests
 
 BUILD SUCCESSFUL
-Total time: 6 seconds
+Total time: 5 seconds
 
 [main] INFO Defects4JBug - Switch to commit fe460cb485a9d224b37a521b0ccef616ff786876
 [main] INFO FileUtils - Running command: git checkout --force fe460cb485a9d224b37a521b0ccef616ff786876 in /mnt/experiments/bugs/Lang/Lang_44_original
@@ -686,7 +687,7 @@ BUILD FAILED
 /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:82: The following error occurred while executing this line:
 /mnt/Benchmark_py/defects4j/framework/projects/Lang/Lang.build.xml:43: Cannot find /mnt/experiments/bugs/Lang/Lang_44_original/build.xml imported from /mnt/Benchmark_py/defects4j/framework/projects/Lang/Lang.build.xml
 
-Total time: 1 second
+Total time: 0 seconds
 Cannot compile sources! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-compile line 93.
 Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.
 

@@ -1,5 +1,2 @@
-INFO:root:update mapping tests successfully: org.apache.commons.math3->org.apache.commons.math
-INFO:root:running tests for Math_2o...
-INFO:root:defects4j external.test -p Math -v 2o -w /mnt/tmp/Math_2 -t /mnt/experiments/APCA21/RGT/2019/evosuite/Math/2/2_original -i *_ESTest.java -o /mnt/Benchmark_py/tests_study//buggy_result/evosuite2019/Math/2/2/failing_tests
-INFO:root:EXECUTION FAILED!
-INFO:root:tests running failied.
+/usr/lib/oracleJdk/jdk-11.0.21/bin/java -cp /mnt/Benchmark_py/lib/SwitchAndClean.jar root.script.SwitchAndClean Time 7 original /mnt/experiments/bugs/Time/Time_7_original/ e1225752
+EXECUTION FAILED!

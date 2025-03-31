@@ -1,5 +1,22 @@
-Running ant (run.gen.tests)................................................ FAIL
-Executed command:  cd /mnt/tmp/Math_3 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Math_3 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//original_result/evosuite2019/Math/3/18/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
+--------------------------------------------------------------------------------
+                     Defects4j Execution Environment 
+--------------------------------------------------------------------------------
+PWD.........................../mnt/Benchmark_py/tests_study
+SHELL........................./bin/bash
+TZ............................America/Los_Angeles
+JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
+Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Version:
+  java version "1.8.0_391"
+  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+Git version...................git version 2.25.1
+SVN version...................1.13.0
+Perl version..................v5.30.0
+--------------------------------------------------------------------------------
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/Math_3 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/tmp/Math_3 -Dbuild.compiler=javac1.7 -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original compile.gen.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -11,10 +28,10 @@ compile:
 compile.gen.tests:
      [echo] classes.dir: target/classes
      [echo] build.home: target
-   [delete] Deleting directory /mnt/tmp/Math_3/.classes_testgen
-    [mkdir] Created dir: /mnt/tmp/Math_3/.classes_testgen
+   [delete] Deleting directory /tmp/Math_3/.classes_testgen
+    [mkdir] Created dir: /tmp/Math_3/.classes_testgen
     [javac] /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/tmp/Math_3/.classes_testgen
+    [javac] Compiling 1 source file to /tmp/Math_3/.classes_testgen
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/shaded/org/mockito/Mockito.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -23,17 +40,17 @@ compile.gen.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/runtime/EvoAssertions.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:12: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:12: error: cannot find symbol
     [javac] import org.apache.commons.math3.Field;
     [javac]                                ^
     [javac]   symbol:   class Field
     [javac]   location: package org.apache.commons.math3
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:13: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:13: error: cannot find symbol
     [javac] import org.apache.commons.math3.FieldElement;
     [javac]                                ^
     [javac]   symbol:   class FieldElement
     [javac]   location: package org.apache.commons.math3
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:14: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:14: error: cannot find symbol
     [javac] import org.apache.commons.math3.util.MathArrays;
     [javac]                                     ^
     [javac]   symbol:   class MathArrays
@@ -66,7 +83,7 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:27: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:27: error: cannot find symbol
     [javac]         MathArrays.checkOrder((double[]) null);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
@@ -83,12 +100,12 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:41: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:41: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.copyOf(doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:50: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:50: error: cannot find symbol
     [javac]         MathArrays.buildArray((Field<Integer>) null, 0, (-1));
     [javac]                                ^
     [javac]   symbol:   class Field
@@ -96,17 +113,17 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:50: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:50: error: cannot find symbol
     [javac]         MathArrays.buildArray((Field<Integer>) null, 0, (-1));
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:64: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:64: error: cannot find symbol
     [javac]       int[] intArray1 = MathArrays.copyOf(intArray0);
     [javac]                         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:74: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:74: error: cannot find symbol
     [javac]         MathArrays.sortInPlace(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
@@ -114,83 +131,83 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:90: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:90: error: cannot find symbol
     [javac]       MathArrays.sortInPlace(doubleArray0, doubleArray1);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:101: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:101: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:101: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:101: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:102: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:102: error: cannot find symbol
     [javac]       MathArrays.sortInPlace(doubleArray0, mathArrays_OrderDirection0, doubleArray1);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:109: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:109: error: cannot find symbol
     [javac]       MathArrays.scaleInPlace(242.68689369601, doubleArray0);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:116: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:116: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.ebeAdd(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:126: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:126: error: cannot find symbol
     [javac]         MathArrays.ebeAdd(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:140: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:140: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.ebeSubtract(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:150: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:150: error: cannot find symbol
     [javac]         MathArrays.ebeSubtract(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:164: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:164: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.ebeMultiply(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:174: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:174: error: cannot find symbol
     [javac]         MathArrays.ebeMultiply(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:188: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:188: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.ebeMultiply(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:189: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:189: error: cannot find symbol
     [javac]       double[] doubleArray2 = MathArrays.ebeDivide(doubleArray1, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:190: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:190: error: cannot find symbol
     [javac]       double double0 = MathArrays.distance(doubleArray2, doubleArray1);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:202: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:202: error: cannot find symbol
     [javac]         MathArrays.ebeDivide(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:216: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:216: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.ebeDivide(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:217: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:217: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.equals(doubleArray1, doubleArray1);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
@@ -198,308 +215,308 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:225: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:225: error: cannot find symbol
     [javac]       double double0 = MathArrays.distance1(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:232: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:232: error: cannot find symbol
     [javac]       int int0 = MathArrays.distance1(intArray0, intArray0);
     [javac]                  ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:239: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:239: error: cannot find symbol
     [javac]       double double0 = MathArrays.distance(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:246: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:246: error: cannot find symbol
     [javac]       double double0 = MathArrays.distance(intArray0, intArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:253: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:253: error: cannot find symbol
     [javac]       double double0 = MathArrays.distanceInf(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:260: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:260: error: cannot find symbol
     [javac]       int int0 = MathArrays.distanceInf(intArray0, intArray0);
     [javac]                  ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:269: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:269: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:269: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:269: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:270: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:270: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:279: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:279: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:279: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:279: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:280: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:280: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, true);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:291: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:291: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:291: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:291: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:294: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:294: error: cannot find symbol
     [javac]         MathArrays.isMonotonic(integerArray0, mathArrays_OrderDirection0, true);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:309: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:309: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:309: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:309: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:312: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:312: error: cannot find symbol
     [javac]         MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, false);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:324: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:324: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:324: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:324: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:328: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:328: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:337: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:337: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:337: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:337: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:338: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:338: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, true);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:347: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:347: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:347: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:347: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:350: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:350: error: cannot find symbol
     [javac]         MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, true);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:367: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:367: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:367: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:367: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:368: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:368: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(stringArray0, mathArrays_OrderDirection0, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:375: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:375: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:375: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:375: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:376: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:376: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(doubleArray0, mathArrays_OrderDirection0, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:384: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:384: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:384: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:384: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:385: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:385: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.checkOrder(doubleArray0, mathArrays_OrderDirection0, true, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:393: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:393: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:393: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:393: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:394: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:394: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(doubleArray0, mathArrays_OrderDirection0, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:401: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:401: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:401: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:401: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:403: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:403: error: cannot find symbol
     [javac]         MathArrays.checkOrder(doubleArray0, mathArrays_OrderDirection0, true);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:418: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:418: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:418: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:418: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:419: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:419: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.isMonotonic(doubleArray0, mathArrays_OrderDirection0, true);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:425: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:425: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:425: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:425: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:428: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:428: error: cannot find symbol
     [javac]       boolean boolean0 = MathArrays.checkOrder(doubleArray0, mathArrays_OrderDirection0, false, false);
     [javac]                          ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:435: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:435: error: cannot find symbol
     [javac]       MathArrays.checkRectangular(longArray0);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:445: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:445: error: cannot find symbol
     [javac]         MathArrays.checkRectangular(longArray0);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:459: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:459: error: cannot find symbol
     [javac]       MathArrays.checkPositive(doubleArray0);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:468: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:468: error: cannot find symbol
     [javac]         MathArrays.checkPositive(doubleArray0);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:482: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:482: error: cannot find symbol
     [javac]       MathArrays.checkNonNegative(longArray0);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:491: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:491: error: cannot find symbol
     [javac]         MathArrays.checkNonNegative(longArray0);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:505: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:505: error: cannot find symbol
     [javac]       MathArrays.checkNonNegative(longArray0);
     [javac]       ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:516: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:516: error: cannot find symbol
     [javac]         MathArrays.checkNonNegative(longArray0);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:531: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:531: error: cannot find symbol
     [javac]       double double0 = MathArrays.safeNorm(doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:540: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:540: error: cannot find symbol
     [javac]       double double0 = MathArrays.safeNorm(doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:548: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:548: error: cannot find symbol
     [javac]       double double0 = MathArrays.safeNorm(doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:556: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:556: error: cannot find symbol
     [javac]       double double0 = MathArrays.safeNorm(doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:562: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:562: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:562: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:562: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.INCREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:564: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:564: error: cannot find symbol
     [javac]         MathArrays.sortInPlace((double[]) null, mathArrays_OrderDirection0, (double[][]) null);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:578: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:578: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                 ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:578: error: package MathArrays does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:578: error: package MathArrays does not exist
     [javac]       MathArrays.OrderDirection mathArrays_OrderDirection0 = MathArrays.OrderDirection.DECREASING;
     [javac]                                                                        ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:582: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:582: error: cannot find symbol
     [javac]         MathArrays.sortInPlace(doubleArray0, mathArrays_OrderDirection0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:596: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:596: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:603: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:603: error: cannot find symbol
     [javac]       double[] doubleArray1 = MathArrays.convolve(doubleArray0, doubleArray0);
     [javac]                               ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:605: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:605: error: cannot find symbol
     [javac]         MathArrays.linearCombination(doubleArray0, doubleArray1);
     [javac]         ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:619: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:619: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:627: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:627: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination(doubleArray0, doubleArray0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:633: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:633: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination((-2003.077676847326), (-2003.077676847326), 0.0, -0.0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:639: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:639: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination(1520.8040351010516, Double.NaN, Double.NaN, 1520.8040351010516);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
     [javac]   location: class MathArrays_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18/org/apache/commons/math3/util/MathArrays_ESTest.java:645: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Math/3/18_original/org/apache/commons/math3/util/MathArrays_ESTest.java:645: error: cannot find symbol
     [javac]       double double0 = MathArrays.linearCombination(0.0, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0.0, 0.0);
     [javac]                        ^
     [javac]   symbol:   variable MathArrays
@@ -524,5 +541,6 @@ compile.gen.tests:
 BUILD FAILED
 /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: Compile failed; see the compiler error output for details.
 
-Total time: 0 seconds
-0
+Total time: 3 seconds
+Cannot compile external tests! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-external.test line 59.
+Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.

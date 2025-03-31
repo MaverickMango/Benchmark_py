@@ -12,8 +12,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
 
 # 默认参数
-py_log_file_name = 'run_test.log'
-version = 'buggy' #执行测试的缺陷版本
+run_tests_log_file_name = 'run_test.log'
+version = 'original' #执行测试的缺陷版本
 test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
@@ -27,7 +27,7 @@ failing_output_name = 'failing_tests'
 tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
 
 # 需要更改的目录位置
-tmp_dir_root = '/mnt/tmp' # 临时工作文件夹的根目录
+tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
 bugs_root = '/mnt/experiments/bugs' # 下载的所有bug的根目录 缺陷目录为f'{bugs_root}/{proj}/{proj}_{id}_{version}'
 tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
@@ -36,10 +36,11 @@ util_infos_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv' # 存放m
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result'
-py_log_file = f'{result_dir_root}/{py_log_file_name}'
+py_log_file = f'{result_dir_root}/{run_tests_log_file_name}'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logging.basicConfig(filename=py_log_file, level=logging.INFO)
+# print(logging.getLogger().handlers[0].baseFilename)
 # defects4j_root = os.getenv('DEFECTS4J_HOME')
 # run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
 run_tests_cmd = 'defects4j external.test'
@@ -85,6 +86,8 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         version = 'o'
         # 如果是original版本的话需要对齐包名=》复制测试目录到新的包名目录
         test_dir = mapping_test_dirs(proj, id, test_dir)
+        if proj == 'Time' and os.path.exists(f'{tmp_dir}/JodaTime'):
+            tmp_dir = f'{tmp_dir}/JodaTime'
     elif version == 'inducing':
         version = 'i'
     elif 'bug' in version:
@@ -247,13 +250,39 @@ def test_one(proj, id, test_dir):
     run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
 
 
-if __name__ == '__main__':
-    # for task in tasks:
-    #     tasks.set_description('Processing for run tests for %s' % task)
-    #     version = str(task)
-    #     result_root = f'{result_dir_root}/{version}_result/'
-    #     logging.info(f'running for {version}...')
-    #     main()
-    #     time.sleep(.1)
-    test_one('Math', '2', '2')
+def rerun(df):
+    for _, row in tqdm(df.iterrows()):
+        proj = row['proj']
+        id = row['id']
+        version = 'original'
+        # 确认目录存在，不存在则checkout
+        work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
+        test_dir_root = f'{tests_root}/{proj}/{id}'
+        
+        # 创建临时工作目录
+        tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir)
+        shutil.copytree(work_dir, tmp_dir)
 
+        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
+        # 对每个测试目录运行测试
+        for test_dir in test_dirs:
+            # logging.info(test_dir)
+            run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
+
+
+if __name__ == '__main__':
+    for task in tasks:
+        tasks.set_description('Processing for run tests for %s' % task)
+        version = str(task)
+        result_root = f'{result_dir_root}/{version}_result/'
+        logging.info(f'running for {version}...')
+        main()
+        time.sleep(.1)
+
+    # test_one('Math', '2', '2')
+
+    # df = pd.read_csv('/mnt/Benchmark_py/tests_study/original_result/SwitchAndClean/switch_analysis.csv')
+    # df = df[df['error_reason'].isna()]
+    # rerun(df)

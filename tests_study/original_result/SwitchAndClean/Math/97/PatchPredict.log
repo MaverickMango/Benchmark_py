@@ -26,6 +26,7 @@ Perl version..................v5.30.0
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_97_FIXED_VERSION in /mnt/experiments/bugs/Math/Math_97_original
 [main] INFO FileUtils - Command result:
 0
+Previous HEAD position was 01aa3293c Dropped serialization.
 HEAD is now at 6cbb70422 D4J_Math_97_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_97_BUGGY_VERSION in /mnt/experiments/bugs/Math/Math_97_original
@@ -65,7 +66,6 @@ init:
 get-deps:
 
 compile:
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_97_original/target/classes
     [javac] /mnt/experiments/bugs/Math/Math_97_original/build.xml:46: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
     [javac] Compiling 231 source files to /mnt/experiments/bugs/Math/Math_97_original/target/classes
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -234,7 +234,7 @@ compile:
      [copy] Copying 1 file to /mnt/experiments/bugs/Math/Math_97_original/target/classes/META-INF
 
 BUILD SUCCESSFUL
-Total time: 6 seconds
+Total time: 9 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Math/Math_97_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Math/Math_97_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -412,7 +412,7 @@ compile-tests:
 compile.tests:
 
 BUILD SUCCESSFUL
-Total time: 8 seconds
+Total time: 7 seconds
 
 [main] INFO Defects4JBug - Switch to commit 01aa3293c5238d5300300d93f5fe8253a8c668bc
 [main] INFO FileUtils - Running command: git checkout --force 01aa3293c5238d5300300d93f5fe8253a8c668bc in /mnt/experiments/bugs/Math/Math_97_original
@@ -486,7 +486,7 @@ compile:
 BUILD FAILED
 /mnt/experiments/bugs/Math/Math_97_original/build.xml:36: Class not found: javacnull
 
-Total time: 2 seconds
+Total time: 1 second
 Cannot compile sources! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-compile line 89.
 Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.
 

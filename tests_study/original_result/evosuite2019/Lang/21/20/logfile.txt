@@ -1,5 +1,22 @@
-Running ant (run.gen.tests)................................................ FAIL
-Executed command:  cd /mnt/tmp/Lang_21 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/tmp/Lang_21 -Dbuild.compiler=javac1.7 -DOUTFILE=/mnt/Benchmark_py/tests_study//original_result/evosuite2019/Lang/21/20/failing_tests -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20 -Dd4j.test.include=*_ESTest.java  run.gen.tests 2>&1
+--------------------------------------------------------------------------------
+                     Defects4j Execution Environment 
+--------------------------------------------------------------------------------
+PWD.........................../mnt/Benchmark_py/tests_study
+SHELL........................./bin/bash
+TZ............................America/Los_Angeles
+JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
+Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Version:
+  java version "1.8.0_391"
+  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+Git version...................git version 2.25.1
+SVN version...................1.13.0
+Perl version..................v5.30.0
+--------------------------------------------------------------------------------
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/Lang_21 && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/tmp/Lang_21 -Dbuild.compiler=javac1.7 -Dd4j.test.dir=/mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original compile.gen.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -11,15 +28,15 @@ prepare:
 static:
 
 compile:
-    [javac] /mnt/tmp/Lang_21/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /tmp/Lang_21/build.xml:63: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile.gen.tests:
      [echo] classes.dir: target/classes
      [echo] build.home: target
-   [delete] Deleting directory /mnt/tmp/Lang_21/.classes_testgen
-    [mkdir] Created dir: /mnt/tmp/Lang_21/.classes_testgen
+   [delete] Deleting directory /tmp/Lang_21/.classes_testgen
+    [mkdir] Created dir: /tmp/Lang_21/.classes_testgen
     [javac] /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/tmp/Lang_21/.classes_testgen
+    [javac] Compiling 1 source file to /tmp/Lang_21/.classes_testgen
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/shaded/org/mockito/Mockito.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -50,7 +67,7 @@ compile.gen.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/function/Consumer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:23: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:23: error: cannot find symbol
     [javac] import org.apache.commons.lang3.time.DateUtils;
     [javac]                                     ^
     [javac]   symbol:   class DateUtils
@@ -71,7 +88,7 @@ compile.gen.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/sun/util/calendar/ZoneInfo.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:32: warning: ZoneInfo is internal proprietary API and may be removed in a future release
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:32: warning: ZoneInfo is internal proprietary API and may be removed in a future release
     [javac] import sun.util.calendar.ZoneInfo;
     [javac]                         ^
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -108,10 +125,10 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:40: error: package DateUtils does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:40: error: package DateUtils does not exist
     [javac]       DateUtils.DateIterator dateUtils_DateIterator0 = new DateUtils.DateIterator(mockGregorianCalendar0, mockGregorianCalendar0);
     [javac]                ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:40: error: package DateUtils does not exist
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:40: error: package DateUtils does not exist
     [javac]       DateUtils.DateIterator dateUtils_DateIterator0 = new DateUtils.DateIterator(mockGregorianCalendar0, mockGregorianCalendar0);
     [javac]                                                                     ^
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -126,12 +143,12 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:57: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:57: error: cannot find symbol
     [javac]       Date date0 = DateUtils.addMilliseconds(mockDate0, 1);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:64: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:64: error: cannot find symbol
     [javac]       long long0 = DateUtils.getFragmentInHours((Date) mockDate0, 1);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
@@ -139,12 +156,12 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/GregorianCalendar.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/GregorianCalendar.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:72: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:72: error: cannot find symbol
     [javac]       Date date1 = DateUtils.setHours(date0, 5);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:79: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:79: error: cannot find symbol
     [javac]       Date date0 = DateUtils.addHours(mockDate0, 0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
@@ -162,7 +179,7 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:90: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:90: error: cannot find symbol
     [javac]         DateUtils.getFragmentInSeconds(calendar0, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
@@ -170,323 +187,323 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:104: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:104: error: cannot find symbol
     [javac]       long long0 = DateUtils.getFragmentInMilliseconds((Date) mockDate0, 2);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:111: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:111: error: cannot find symbol
     [javac]       Date date0 = DateUtils.setMonths(mockDate0, 517);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:118: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:118: error: cannot find symbol
     [javac]       Date date0 = DateUtils.addMinutes(mockDate0, 536);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:126: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:126: error: cannot find symbol
     [javac]         DateUtils.getFragmentInSeconds((Date) null, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:141: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:141: error: cannot find symbol
     [javac]       long long0 = DateUtils.getFragmentInMilliseconds(calendar0, 5);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:148: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:148: error: cannot find symbol
     [javac]       long long0 = DateUtils.getFragmentInDays((Calendar) mockGregorianCalendar0, 14);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:156: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:156: error: cannot find symbol
     [javac]       long long0 = DateUtils.getFragmentInDays((Date) mockDate0, 6);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:164: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:164: error: cannot find symbol
     [javac]       Date date0 = DateUtils.parseDate("", stringArray0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:165: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:165: error: cannot find symbol
     [javac]       Date date1 = DateUtils.addMonths(date0, 12);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:172: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:172: error: cannot find symbol
     [javac]       Date date0 = DateUtils.ceiling((Object) mockGregorianCalendar0, 1);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:173: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:173: error: cannot find symbol
     [javac]       Date date1 = DateUtils.addYears(date0, 1);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:181: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:181: error: cannot find symbol
     [javac]       Date date0 = DateUtils.parseDate("", stringArray0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:184: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:184: error: cannot find symbol
     [javac]         DateUtils.getFragmentInMinutes(date0, 7);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:198: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:198: error: cannot find symbol
     [javac]       Date date0 = DateUtils.addWeeks(mockDate0, 20);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:202: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:202: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.toCalendar(date0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:203: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:203: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameDay((Calendar) mockGregorianCalendar0, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:211: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:211: error: cannot find symbol
     [javac]       Date date0 = DateUtils.setDays(mockDate0, 1582);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:218: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:218: error: cannot find symbol
     [javac]       Date date0 = DateUtils.addSeconds(mockDate0, 1143);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:224: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:224: error: cannot find symbol
     [javac]       DateUtils dateUtils0 = new DateUtils();
     [javac]       ^
     [javac]   symbol:   class DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:224: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:224: error: cannot find symbol
     [javac]       DateUtils dateUtils0 = new DateUtils();
     [javac]                                  ^
     [javac]   symbol:   class DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:227: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:227: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.truncate((Calendar) mockGregorianCalendar0, 14);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:235: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:235: error: cannot find symbol
     [javac]       Date date0 = DateUtils.setSeconds(mockDate0, 12);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:245: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:245: error: cannot find symbol
     [javac]         DateUtils.getFragmentInMinutes(calendar0, 1140);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:259: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:259: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.truncatedEquals((Date) mockDate0, (Date) mockDate0, 1001);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:266: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:266: error: cannot find symbol
     [javac]       Date date0 = DateUtils.setMilliseconds(mockDate0, 1582);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:273: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:273: error: cannot find symbol
     [javac]       Date date0 = DateUtils.setYears(mockDate0, (-1112));
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:281: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:281: error: cannot find symbol
     [javac]         DateUtils.isSameDay((Date) null, (Date) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:295: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:295: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameDay((Date) mockDate0, (Date) mockDate0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:302: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:302: error: cannot find symbol
     [javac]       Date date0 = DateUtils.round((Object) mockGregorianCalendar0, 0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:305: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:305: error: cannot find symbol
     [javac]         DateUtils.isSameDay(date0, (Date) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:320: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:320: error: cannot find symbol
     [javac]         DateUtils.isSameDay((Calendar) null, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:337: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:337: error: cannot find symbol
     [javac]         DateUtils.isSameDay(calendar0, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:352: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:352: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameDay((Calendar) mockGregorianCalendar1, (Calendar) mockGregorianCalendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:360: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:360: error: cannot find symbol
     [javac]       Date date1 = DateUtils.ceiling(date0, 0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:361: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:361: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameDay(date1, date0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:372: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:372: error: cannot find symbol
     [javac]         DateUtils.isSameInstant((Date) null, date0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:387: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:387: error: cannot find symbol
     [javac]       Date date0 = DateUtils.parseDateStrictly("4", stringArray0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:388: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:388: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameInstant(date0, date0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:397: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:397: error: cannot find symbol
     [javac]         DateUtils.isSameInstant((Date) mockDate0, (Date) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:412: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:412: error: cannot find symbol
     [javac]       Date date1 = DateUtils.ceiling(date0, 0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:413: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:413: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameInstant(date1, date0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:422: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:422: error: cannot find symbol
     [javac]         DateUtils.isSameInstant((Calendar) null, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:436: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:436: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameInstant(calendar0, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:443: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:443: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.toCalendar(mockDate0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:446: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:446: error: cannot find symbol
     [javac]         DateUtils.isSameInstant(calendar0, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:460: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:460: error: cannot find symbol
     [javac]       Calendar calendar1 = DateUtils.truncate(calendar0, 0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:461: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:461: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameInstant(calendar1, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:470: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:470: error: cannot find symbol
     [javac]         DateUtils.isSameLocalTime((Calendar) null, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:484: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:484: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(mockGregorianCalendar0, mockGregorianCalendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:493: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:493: error: cannot find symbol
     [javac]         DateUtils.isSameLocalTime(calendar0, (Calendar) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:508: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:508: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(mockGregorianCalendar0, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:517: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:517: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(mockGregorianCalendar0, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:524: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:524: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.truncate((Calendar) mockGregorianCalendar0, 0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:525: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:525: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(mockGregorianCalendar0, calendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:534: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:534: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(mockGregorianCalendar0, mockGregorianCalendar1);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:541: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:541: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.ceiling((Calendar) mockGregorianCalendar0, 0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:543: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:543: error: cannot find symbol
     [javac]       DateUtils.isSameLocalTime(calendar0, mockGregorianCalendar1);
     [javac]       ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: warning: ZoneInfo is internal proprietary API and may be removed in a future release
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: warning: ZoneInfo is internal proprietary API and may be removed in a future release
     [javac]       ZoneInfo zoneInfo0 = (ZoneInfo)DateUtils.UTC_TIME_ZONE;
     [javac]       ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: warning: ZoneInfo is internal proprietary API and may be removed in a future release
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: warning: ZoneInfo is internal proprietary API and may be removed in a future release
     [javac]       ZoneInfo zoneInfo0 = (ZoneInfo)DateUtils.UTC_TIME_ZONE;
     [javac]                             ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:549: error: cannot find symbol
     [javac]       ZoneInfo zoneInfo0 = (ZoneInfo)DateUtils.UTC_TIME_ZONE;
     [javac]                                      ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:551: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:551: error: cannot find symbol
     [javac]       Calendar calendar1 = DateUtils.ceiling(calendar0, 0);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:555: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:555: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.isSameLocalTime(calendar1, mockGregorianCalendar0);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:565: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:565: error: cannot find symbol
     [javac]         DateUtils.parseDate((String) null, stringArray0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:580: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:580: error: cannot find symbol
     [javac]         DateUtils.parseDate("=@n5ZvXh_~]\u0001", (String[]) null);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:597: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:597: error: cannot find symbol
     [javac]         DateUtils.parseDateStrictly("ZZ", stringArray0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
@@ -494,37 +511,37 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NullPointerException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/NullPointerException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:619: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:619: error: cannot find symbol
     [javac]         DateUtils.parseDateStrictly(")zX^)", stringArray0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:634: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:634: error: cannot find symbol
     [javac]         DateUtils.addDays((Date) null, (-281));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:649: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:649: error: cannot find symbol
     [javac]         DateUtils.setMinutes((Date) null, (-1));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:664: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:664: error: cannot find symbol
     [javac]         DateUtils.round((Date) null, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:679: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:679: error: cannot find symbol
     [javac]         DateUtils.round((Calendar) null, (-12));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:694: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:694: error: cannot find symbol
     [javac]         DateUtils.round((Object) null, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:710: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:710: error: cannot find symbol
     [javac]         DateUtils.round(object0, (-1));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
@@ -532,67 +549,67 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassCastException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassCastException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:725: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:725: error: cannot find symbol
     [javac]         DateUtils.truncate((Date) null, (-19));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:740: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:740: error: cannot find symbol
     [javac]         DateUtils.truncatedCompareTo((Calendar) null, (Calendar) null, (-929));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:755: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:755: error: cannot find symbol
     [javac]       Date date0 = DateUtils.parseDateStrictly("", stringArray0);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:758: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:758: error: cannot find symbol
     [javac]         DateUtils.truncate((Object) date0, 6);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:773: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:773: error: cannot find symbol
     [javac]         DateUtils.truncate((Object) null, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:789: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:789: error: cannot find symbol
     [javac]         DateUtils.truncate(object0, 12);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:807: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:807: error: cannot find symbol
     [javac]         DateUtils.truncate((Object) mockGregorianCalendar0, (-15));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:822: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:822: error: cannot find symbol
     [javac]         DateUtils.ceiling((Date) null, 2);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:837: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:837: error: cannot find symbol
     [javac]         DateUtils.ceiling((Calendar) null, 2017);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:852: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:852: error: cannot find symbol
     [javac]         DateUtils.ceiling((Object) null, 0);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:868: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:868: error: cannot find symbol
     [javac]         DateUtils.ceiling((Object) mockDate0, (-1947));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:883: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:883: error: cannot find symbol
     [javac]         DateUtils.ceiling((Object) "", (-2603));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:899: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:899: error: cannot find symbol
     [javac]         DateUtils.truncate((Calendar) mockGregorianCalendar0, 280000000);
     [javac]         ^
     [javac]   symbol:   variable DateUtils
@@ -600,55 +617,55 @@ compile.gen.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:915: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:915: error: cannot find symbol
     [javac]         DateUtils.ceiling((Date) mockDate0, (-1));
     [javac]         ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:930: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:930: error: cannot find symbol
     [javac]       Calendar calendar1 = DateUtils.round(calendar0, 13);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:937: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:937: error: cannot find symbol
     [javac]       boolean boolean0 = DateUtils.truncatedEquals(calendar0, calendar0, 12);
     [javac]                          ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:944: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:944: error: cannot find symbol
     [javac]       Calendar calendar0 = DateUtils.round((Calendar) mockGregorianCalendar0, 1);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:951: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:951: error: cannot find symbol
     [javac]       Date date0 = DateUtils.round((Object) mockDate0, 1001);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:958: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:958: error: cannot find symbol
     [javac]       Date date0 = DateUtils.round((Object) mockDate0, 1001);
     [javac]                    ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:965: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:965: error: cannot find symbol
     [javac]       Calendar calendar1 = DateUtils.ceiling(calendar0, 9);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:973: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:973: error: cannot find symbol
     [javac]       Calendar calendar1 = DateUtils.ceiling(calendar0, 9);
     [javac]                            ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:981: error: cannot find symbol
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:981: error: cannot find symbol
     [javac]       Iterator<Calendar> iterator0 = DateUtils.iterator(date0, 5);
     [javac]                                      ^
     [javac]   symbol:   variable DateUtils
     [javac]   location: class DateUtils_ESTest
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:1246: warning: ZoneInfo is internal proprietary API and may be removed in a future release
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:1246: warning: ZoneInfo is internal proprietary API and may be removed in a future release
     [javac]       ZoneInfo zoneInfo0 = (ZoneInfo)DateUtils.UTC_TIME_ZONE;
     [javac]       ^
-    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java:1246: warning: ZoneInfo is internal proprietary API and may be removed in a future release
+    [javac] /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java:1246: warning: ZoneInfo is internal proprietary API and may be removed in a future release
     [javac]       ZoneInfo zoneInfo0 = (ZoneInfo)DateUtils.UTC_TIME_ZONE;
     [javac]                             ^
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -658,7 +675,7 @@ compile.gen.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /mnt/Benchmark_py/defects4j/framework/lib/test_generation/runtime/evosuite-rt.jar(org/evosuite/shaded/org/mockito/MockSettings.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] Note: /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20/org/apache/commons/lang3/time/DateUtils_ESTest.java uses unchecked or unsafe operations.
+    [javac] Note: /mnt/experiments/APCA21/RGT/2019/evosuite/Lang/21/20_original/org/apache/commons/lang3/time/DateUtils_ESTest.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
     [javac] 100 errors
     [javac] 85 warnings
@@ -666,5 +683,6 @@ compile.gen.tests:
 BUILD FAILED
 /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml:265: Compile failed; see the compiler error output for details.
 
-Total time: 0 seconds
-0
+Total time: 3 seconds
+Cannot compile external tests! at /mnt/Benchmark_py/defects4j/framework/bin/d4j/d4j-external.test line 59.
+Compilation failed in require at /mnt/Benchmark_py/defects4j/framework/bin/defects4j line 213.

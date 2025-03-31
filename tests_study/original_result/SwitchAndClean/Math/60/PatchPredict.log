@@ -26,6 +26,7 @@ Perl version..................v5.30.0
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_60_FIXED_VERSION in /mnt/experiments/bugs/Math/Math_60_original
 [main] INFO FileUtils - Command result:
 0
+Previous HEAD position was 46af8180a Re-generate the download pages using the new commons-build-plugin .12 (via commons-parent version 13)
 HEAD is now at f22810dd8 D4J_Math_60_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Math_60_BUGGY_VERSION in /mnt/experiments/bugs/Math/Math_60_original
@@ -61,15 +62,12 @@ Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
 init:
      [echo] -------- Commons MATH 3.0-SNAPSHOT --------
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_60_original/target
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_60_original/target/classes
-    [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_60_original/target/test-classes
     [mkdir] Created dir: /mnt/experiments/bugs/Math/Math_60_original/target/classes/META-INF
      [copy] Copying 1 file to /mnt/experiments/bugs/Math/Math_60_original/target/classes/META-INF
 
 compile:
     [javac] /mnt/experiments/bugs/Math/Math_60_original/build.xml:158: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 493 source files to /mnt/experiments/bugs/Math/Math_60_original/target/classes
+    [javac] Compiling 407 source files to /mnt/experiments/bugs/Math/Math_60_original/target/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -91,8 +89,6 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Deprecated.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/EOFException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -104,6 +100,8 @@ compile:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArrayIndexOutOfBoundsException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -193,15 +191,15 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Set.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/net/URL.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/BufferedReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/FileReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStreamReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/net/URL.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -241,13 +239,13 @@ compile:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Deprecated.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/EOFException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParseException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ConcurrentModificationException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArrayIndexOutOfBoundsException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] Note: Some input files use or override a deprecated API.
@@ -257,7 +255,7 @@ compile:
     [javac] 100 warnings
 
 BUILD SUCCESSFUL
-Total time: 10 seconds
+Total time: 9 seconds
 Running ant (compile.tests)................................................ OK
 Executed command:  cd /mnt/experiments/bugs/Math/Math_60_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Math/Math_60_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
@@ -279,7 +277,7 @@ download-junit:
 
 compile.tests:
     [javac] /mnt/experiments/bugs/Math/Math_60_original/build.xml:172: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 289 source files to /mnt/experiments/bugs/Math/Math_60_original/target/test-classes
+    [javac] Compiling 207 source files to /mnt/experiments/bugs/Math/Math_60_original/target/test-classes
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -290,10 +288,6 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintWriter.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -303,6 +297,8 @@ compile.tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectOutputStream.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormat.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -328,19 +324,15 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/LinkedList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/LinkedList.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Comparator.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Field.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/UnsupportedOperationException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -354,10 +346,6 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/Point2D$Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Collection.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/BufferedReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -366,48 +354,33 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/net/URL.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/EOFException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/StringReader.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/InvocationTargetException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Method.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/MathContext.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/MathContext.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ArithmeticException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ConcurrentModificationException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/NoSuchElementException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Set.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map$Entry.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Locale.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayOutputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/PrintWriter.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Override.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ByteArrayInputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/IOException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectOutputStream.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/DecimalFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -417,6 +390,8 @@ compile.tests:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Random.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.
@@ -425,33 +400,46 @@ compile.tests:
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/NumberFormat.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParseException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/text/ParsePosition.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Override.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/List.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/ArrayList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigDecimal.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/BigInteger.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/LinkedList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/LinkedList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Comparator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
-    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
-    [javac]   It is recommended that the compiler be upgraded.
-    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Field.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/UnsupportedOperationException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Array.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/SuppressWarnings.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/ClassNotFoundException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Externalizable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/Point2D.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/BufferedReader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/InputStreamReader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/net/URL.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashSet.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/EOFException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/StringReader.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/math/MathContext.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/HashMap.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Map.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
     [javac] 100 warnings
-     [copy] Copying 11 files to /mnt/experiments/bugs/Math/Math_60_original/target/test-classes
 
 BUILD SUCCESSFUL
-Total time: 11 seconds
+Total time: 10 seconds
 
 [main] INFO Defects4JBug - Switch to commit 46af8180a7dca91b3a59d587b35ddcb56d508dc4
 [main] INFO FileUtils - Running command: git checkout --force 46af8180a7dca91b3a59d587b35ddcb56d508dc4 in /mnt/experiments/bugs/Math/Math_60_original
@@ -902,8 +890,7 @@ Total time: 11 seconds
 [main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
 [main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/experiments/bugs/Math/Math_60_original/failing_tests /mnt/experiments/bugs/Math/Math_60_original/src/test/java
 [main] INFO FileUtils - Command result:
-2
-Cannot open log file: No such file or directory at /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl line 62.
+0
 
 [main] INFO Defects4JBug - Induce trigger tests and test...
 [main] INFO FileUtils - Running command: /bin/bash -c cp -r /mnt/Benchmark/data/changesInfo/Math_60/cleaned/original/* ./ in /mnt/experiments/bugs/Math/Math_60_original
@@ -951,6 +938,53 @@ download-junit:
 
 compile.tests:
     [javac] /mnt/experiments/bugs/Math/Math_60_original/build.xml:168: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /mnt/experiments/bugs/Math/Math_60_original/target/test-classes
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Retention.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/RetentionPolicy.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Target.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/ElementType.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/annotation/Annotation.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Externalizable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Externalizable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.
+    [javac]   It is recommended that the compiler be upgraded.
+    [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
+    [javac] 30 warnings
 
 BUILD SUCCESSFUL
 Total time: 3 seconds
@@ -980,87 +1014,87 @@ update.all.tests:
 
 run.dev.tests:
     [junit] Running org.apache.commons.math.ArgumentOutsideDomainExceptionTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.math.ConvergenceExceptionTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.DuplicateSampleAbscissaExceptionTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.FunctionEvaluationExceptionTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.071 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.math.MathConfigurationExceptionTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.035 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.MathExceptionTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.143 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.159 sec
     [junit] Running org.apache.commons.math.MaxIterationsExceededExceptionTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.analysis.BinaryFunctionTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.078 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.086 sec
     [junit] Running org.apache.commons.math.analysis.ComposableFunctionTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.069 sec
     [junit] Running org.apache.commons.math.analysis.integration.LegendreGaussIntegratorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
     [junit] Running org.apache.commons.math.analysis.integration.RombergIntegratorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.analysis.integration.SimpsonIntegratorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.analysis.integration.TrapezoidIntegratorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
-    [junit] Running org.apache.commons.math.analysis.interpolation.DividedDifferenceInterpolatorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
-    [junit] Running org.apache.commons.math.analysis.interpolation.LoessInterpolatorTest
-    [junit] Tests run: 20, Failures: 0, Errors: 0, Time elapsed: 0.074 sec
-    [junit] Running org.apache.commons.math.analysis.interpolation.MicrosphereInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.107 sec
-    [junit] Running org.apache.commons.math.analysis.interpolation.NevilleInterpolatorTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Running org.apache.commons.math.analysis.interpolation.DividedDifferenceInterpolatorTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Running org.apache.commons.math.analysis.interpolation.LoessInterpolatorTest
+    [junit] Tests run: 20, Failures: 0, Errors: 0, Time elapsed: 0.038 sec
+    [junit] Running org.apache.commons.math.analysis.interpolation.MicrosphereInterpolatorTest
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.15 sec
+    [junit] Running org.apache.commons.math.analysis.interpolation.NevilleInterpolatorTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.math.analysis.interpolation.SplineInterpolatorTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.analysis.polynomials.PolynomialFunctionLagrangeFormTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.analysis.polynomials.PolynomialFunctionNewtonFormTest
     [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.analysis.polynomials.PolynomialFunctionTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.analysis.polynomials.PolynomialSplineFunctionTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.math.analysis.polynomials.PolynomialsUtilsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.117 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.084 sec
     [junit] Running org.apache.commons.math.analysis.solvers.BisectionSolverTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.analysis.solvers.BrentSolverTest
     [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.analysis.solvers.LaguerreSolverTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.math.analysis.solvers.MullerSolverTest
     [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.analysis.solvers.NewtonSolverTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.analysis.solvers.RiddersSolverTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.86 sec
     [junit] Running org.apache.commons.math.analysis.solvers.UnivariateRealSolverFactoryImplTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 1.07 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtilsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.057 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.complex.ComplexFieldTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.complex.ComplexFormatTest
-    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.368 sec
+    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.math.complex.ComplexTest
-    [junit] Tests run: 98, Failures: 0, Errors: 0, Time elapsed: 0.056 sec
+    [junit] Tests run: 98, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
     [junit] Running org.apache.commons.math.complex.ComplexUtilsTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.complex.FrenchComplexFormatTest
-    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
+    [junit] Tests run: 35, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
     [junit] Running org.apache.commons.math.distribution.BetaDistributionTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.169 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.138 sec
     [junit] Running org.apache.commons.math.distribution.BinomialDistributionTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.distribution.CauchyDistributionTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.distribution.ChiSquareDistributionTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.math.distribution.ExponentialDistributionTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.math.distribution.FDistributionTest
     [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.math.distribution.GammaDistributionTest
@@ -1068,363 +1102,361 @@ run.dev.tests:
     [junit] Running org.apache.commons.math.distribution.HypergeometricDistributionTest
     [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.249 sec
     [junit] Running org.apache.commons.math.distribution.NormalDistributionTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.03 sec
     [junit] Running org.apache.commons.math.distribution.PascalDistributionTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.math.distribution.PoissonDistributionTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.052 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.048 sec
     [junit] Running org.apache.commons.math.distribution.TDistributionTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.039 sec
     [junit] Running org.apache.commons.math.distribution.WeibullDistributionTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.math.distribution.ZipfDistributionTest
     [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.estimation.EstimatedParameterTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.math.estimation.GaussNewtonEstimatorTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.076 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.068 sec
     [junit] Running org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.151 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.128 sec
     [junit] Running org.apache.commons.math.estimation.MinpackTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 2.109 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 2.032 sec
     [junit] Running org.apache.commons.math.estimation.WeightedMeasurementTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.math.fraction.BigFractionFieldTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.math.fraction.BigFractionFormatTest
-    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 19, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
     [junit] Running org.apache.commons.math.fraction.BigFractionTest
-    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
+    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
     [junit] Running org.apache.commons.math.fraction.FractionFieldTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.044 sec
     [junit] Running org.apache.commons.math.fraction.FractionFormatTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.math.fraction.FractionTest
-    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
+    [junit] Tests run: 23, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
     [junit] Running org.apache.commons.math.genetics.BinaryChromosomeTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.genetics.BinaryMutationTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.048 sec
     [junit] Running org.apache.commons.math.genetics.ChromosomeTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.math.genetics.ElitisticListPopulationTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.math.genetics.FitnessCachingTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.math.genetics.FixedGenerationCountTest
     [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.math.genetics.GeneticAlgorithmTestBinary
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.069 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.032 sec
     [junit] Running org.apache.commons.math.genetics.GeneticAlgorithmTestPermutations
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.188 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.203 sec
     [junit] Running org.apache.commons.math.genetics.ListPopulationTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.math.genetics.OnePointCrossoverTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.math.genetics.RandomKeyMutationTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
-    [junit] Running org.apache.commons.math.genetics.RandomKeyTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
-    [junit] Running org.apache.commons.math.genetics.TournamentSelectionTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
-    [junit] Running org.apache.commons.math.geometry.FrenchVector3DFormatTest
-    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
-    [junit] Running org.apache.commons.math.geometry.RotationOrderTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
-    [junit] Running org.apache.commons.math.geometry.RotationTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.149 sec
-    [junit] Running org.apache.commons.math.geometry.Vector3DFormatTest
-    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.054 sec
-    [junit] Running org.apache.commons.math.geometry.Vector3DTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
-    [junit] Running org.apache.commons.math.linear.Array2DRowRealMatrixTest
-    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
-    [junit] Running org.apache.commons.math.linear.ArrayFieldVectorTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
-    [junit] Running org.apache.commons.math.linear.ArrayRealVectorTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
-    [junit] Running org.apache.commons.math.linear.BiDiagonalTransformerTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
-    [junit] Running org.apache.commons.math.linear.BigMatrixImplTest
-    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
-    [junit] Running org.apache.commons.math.linear.BlockFieldMatrixTest
-    [junit] Tests run: 46, Failures: 0, Errors: 0, Time elapsed: 0.687 sec
-    [junit] Running org.apache.commons.math.linear.BlockRealMatrixTest
-    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.296 sec
-    [junit] Running org.apache.commons.math.linear.CholeskyDecompositionImplTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
-    [junit] Running org.apache.commons.math.linear.CholeskySolverTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
-    [junit] Running org.apache.commons.math.linear.EigenDecompositionImplTest
-    [junit] Tests run: 20, Failures: 0, Errors: 0, Time elapsed: 0.419 sec
-    [junit] Running org.apache.commons.math.linear.EigenSolverTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
-    [junit] Running org.apache.commons.math.linear.FieldLUDecompositionImplTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
-    [junit] Running org.apache.commons.math.linear.FieldMatrixImplTest
-    [junit] Tests run: 36, Failures: 0, Errors: 0, Time elapsed: 0.103 sec
-    [junit] Running org.apache.commons.math.linear.FrenchRealVectorFormatTest
-    [junit] Tests run: 30, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
-    [junit] Running org.apache.commons.math.linear.InvalidMatrixExceptionTest
     [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Running org.apache.commons.math.genetics.RandomKeyTest
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Running org.apache.commons.math.genetics.TournamentSelectionTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Running org.apache.commons.math.geometry.FrenchVector3DFormatTest
+    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
+    [junit] Running org.apache.commons.math.geometry.RotationOrderTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
+    [junit] Running org.apache.commons.math.geometry.RotationTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.11 sec
+    [junit] Running org.apache.commons.math.geometry.Vector3DFormatTest
+    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Running org.apache.commons.math.geometry.Vector3DTest
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Running org.apache.commons.math.linear.Array2DRowRealMatrixTest
+    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Running org.apache.commons.math.linear.ArrayFieldVectorTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
+    [junit] Running org.apache.commons.math.linear.ArrayRealVectorTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Running org.apache.commons.math.linear.BiDiagonalTransformerTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Running org.apache.commons.math.linear.BigMatrixImplTest
+    [junit] Tests run: 28, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
+    [junit] Running org.apache.commons.math.linear.BlockFieldMatrixTest
+    [junit] Tests run: 46, Failures: 0, Errors: 0, Time elapsed: 0.5 sec
+    [junit] Running org.apache.commons.math.linear.BlockRealMatrixTest
+    [junit] Tests run: 48, Failures: 0, Errors: 0, Time elapsed: 0.231 sec
+    [junit] Running org.apache.commons.math.linear.CholeskyDecompositionImplTest
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
+    [junit] Running org.apache.commons.math.linear.CholeskySolverTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
+    [junit] Running org.apache.commons.math.linear.EigenDecompositionImplTest
+    [junit] Tests run: 20, Failures: 0, Errors: 0, Time elapsed: 0.438 sec
+    [junit] Running org.apache.commons.math.linear.EigenSolverTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
+    [junit] Running org.apache.commons.math.linear.FieldLUDecompositionImplTest
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Running org.apache.commons.math.linear.FieldMatrixImplTest
+    [junit] Tests run: 36, Failures: 0, Errors: 0, Time elapsed: 0.089 sec
+    [junit] Running org.apache.commons.math.linear.FrenchRealVectorFormatTest
+    [junit] Tests run: 30, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
+    [junit] Running org.apache.commons.math.linear.InvalidMatrixExceptionTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.linear.LUDecompositionImplTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.math.linear.LUSolverTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.math.linear.MatrixIndexExceptionTest
     [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.math.linear.MatrixUtilsTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.043 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
     [junit] Running org.apache.commons.math.linear.QRDecompositionImplTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.189 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.151 sec
     [junit] Running org.apache.commons.math.linear.QRSolverTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.107 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.142 sec
     [junit] Running org.apache.commons.math.linear.RealMatrixImplTest
-    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
+    [junit] Tests run: 38, Failures: 0, Errors: 0, Time elapsed: 0.059 sec
     [junit] Running org.apache.commons.math.linear.RealVectorFormatTest
-    [junit] Tests run: 30, Failures: 0, Errors: 0, Time elapsed: 1.357 sec
+    [junit] Tests run: 30, Failures: 0, Errors: 0, Time elapsed: 0.056 sec
     [junit] Running org.apache.commons.math.linear.SingularValueDecompositionImplTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.064 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
     [junit] Running org.apache.commons.math.linear.SingularValueSolverTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.035 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.037 sec
     [junit] Running org.apache.commons.math.linear.SparseFieldMatrixTest
-    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
+    [junit] Tests run: 24, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
     [junit] Running org.apache.commons.math.linear.SparseFieldVectorTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.041 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
     [junit] Running org.apache.commons.math.linear.SparseRealMatrixTest
-    [junit] Tests run: 27, Failures: 0, Errors: 0, Time elapsed: 0.077 sec
+    [junit] Tests run: 27, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
     [junit] Running org.apache.commons.math.linear.SparseRealVectorTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.091 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.08 sec
     [junit] Running org.apache.commons.math.linear.TriDiagonalTransformerTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.04 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
     [junit] Running org.apache.commons.math.ode.ContinuousOutputModelTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.122 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.097 sec
     [junit] Running org.apache.commons.math.ode.FirstOrderConverterTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.093 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.135 sec
     [junit] Running org.apache.commons.math.ode.events.EventStateTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
     [junit] Running org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest
-    [junit] Tests run: 7, Failures: 1, Errors: 0, Time elapsed: 0.791 sec
-    [junit] Test org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest FAILED
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.516 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.AdamsBashforthIntegratorTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.497 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.493 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.AdamsMoultonIntegratorTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.17 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.161 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.285 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.271 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaStepInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.231 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.252 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.115 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.109 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.DormandPrince54StepInterpolatorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.171 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.119 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.064 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.088 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.DormandPrince853StepInterpolatorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.096 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.092 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.EulerIntegratorTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.131 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.132 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.EulerStepInterpolatorTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.09 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.087 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.GillIntegratorTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.303 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.184 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.GillStepInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.159 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.173 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.276 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.329 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.GraggBulirschStoerStepInterpolatorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.067 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.073 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.061 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.HighamHall54StepInterpolatorTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.161 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.164 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.192 sec
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.18 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.MidpointStepInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.105 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.119 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.332 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.276 sec
     [junit] Running org.apache.commons.math.ode.nonstiff.ThreeEighthesStepInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.199 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.151 sec
     [junit] Running org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
     [junit] Running org.apache.commons.math.ode.sampling.NordsieckStepInterpolatorTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.165 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.172 sec
     [junit] Running org.apache.commons.math.ode.sampling.StepNormalizerTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.069 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.047 sec
     [junit] Running org.apache.commons.math.optimization.MultiStartDifferentiableMultivariateRealOptimizerTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.029 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.math.optimization.MultiStartDifferentiableMultivariateVectorialOptimizerTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
     [junit] Running org.apache.commons.math.optimization.MultiStartMultivariateRealOptimizerTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.optimization.MultiStartUnivariateRealOptimizerTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.optimization.direct.MultiDirectionalTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
     [junit] Running org.apache.commons.math.optimization.direct.NelderMeadTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
     [junit] Running org.apache.commons.math.optimization.fitting.CurveFitterTest
     [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.math.optimization.fitting.HarmonicFitterTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
     [junit] Running org.apache.commons.math.optimization.fitting.PolynomialFitterTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.083 sec
     [junit] Running org.apache.commons.math.optimization.general.GaussNewtonOptimizerTest
-    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.077 sec
+    [junit] Tests run: 15, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
     [junit] Running org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.06 sec
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.044 sec
     [junit] Running org.apache.commons.math.optimization.general.MinpackTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.186 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.15 sec
     [junit] Running org.apache.commons.math.optimization.general.NonLinearConjugateGradientOptimizerTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.046 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
     [junit] Running org.apache.commons.math.optimization.linear.SimplexSolverTest
-    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.305 sec
+    [junit] Tests run: 18, Failures: 0, Errors: 0, Time elapsed: 0.352 sec
     [junit] Running org.apache.commons.math.optimization.linear.SimplexTableauTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.043 sec
     [junit] Running org.apache.commons.math.optimization.univariate.BrentMinimizerTest
     [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.special.BetaTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.special.ErfTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
     [junit] Running org.apache.commons.math.special.GammaTest
-    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 14, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.stat.CertifiedDataTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.053 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.08 sec
     [junit] Running org.apache.commons.math.stat.FrequencyTest
     [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
     [junit] Running org.apache.commons.math.stat.StatUtilsTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
     [junit] Running org.apache.commons.math.stat.clustering.EuclideanIntegerPointTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest
     [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.stat.correlation.CovarianceTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.039 sec
-    [junit] Running org.apache.commons.math.stat.correlation.PearsonsCorrelationTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.075 sec
-    [junit] Running org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
-    [junit] Running org.apache.commons.math.stat.data.LewTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
-    [junit] Running org.apache.commons.math.stat.data.LotteryTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.AggregateSummaryStatisticsTest
     [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.025 sec
+    [junit] Running org.apache.commons.math.stat.correlation.PearsonsCorrelationTest
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
+    [junit] Running org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.056 sec
+    [junit] Running org.apache.commons.math.stat.data.LewTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.031 sec
+    [junit] Running org.apache.commons.math.stat.data.LotteryTest
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.033 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.AggregateSummaryStatisticsTest
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
     [junit] Running org.apache.commons.math.stat.descriptive.DescriptiveStatisticsTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.math.stat.descriptive.InteractionTest
-    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.math.stat.descriptive.ListUnivariateImplTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.09 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.074 sec
     [junit] Running org.apache.commons.math.stat.descriptive.MixedListUnivariateImplTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
     [junit] Running org.apache.commons.math.stat.descriptive.MultivariateSummaryStatisticsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.042 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.052 sec
     [junit] Running org.apache.commons.math.stat.descriptive.StatisticalSummaryValuesTest
-    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.stat.descriptive.SummaryStatisticsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.039 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.068 sec
     [junit] Running org.apache.commons.math.stat.descriptive.SynchronizedDescriptiveStatisticsTest
     [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
     [junit] Running org.apache.commons.math.stat.descriptive.SynchronizedMultivariateSummaryStatisticsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.047 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.062 sec
     [junit] Running org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.FirstMomentTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.FourthMomentTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.GeometricMeanTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.KurtosisTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.MeanTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.SecondMomentTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.SemiVarianceTest
-    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 9, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.SkewnessTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
     [junit] Running org.apache.commons.math.stat.descriptive.moment.StandardDeviationTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.moment.ThirdMomentTest
-    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.014 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.moment.VarianceTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.moment.VectorialCovarianceTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.moment.VectorialMeanTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.rank.MaxTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.049 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.rank.MedianTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.002 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.rank.MinTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.rank.PercentileTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
-    [junit] Running org.apache.commons.math.stat.descriptive.summary.ProductTest
     [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.moment.ThirdMomentTest
+    [junit] Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.moment.VarianceTest
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.moment.VectorialCovarianceTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.moment.VectorialMeanTest
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.rank.MaxTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.rank.MedianTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.rank.MinTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.rank.PercentileTest
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Running org.apache.commons.math.stat.descriptive.summary.ProductTest
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.stat.descriptive.summary.SumLogTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.stat.descriptive.summary.SumSqTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.stat.descriptive.summary.SumTest
-    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.018 sec
+    [junit] Tests run: 12, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
     [junit] Running org.apache.commons.math.stat.inference.ChiSquareFactoryTest
     [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
     [junit] Running org.apache.commons.math.stat.inference.ChiSquareTestTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.stat.inference.OneWayAnovaTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.016 sec
-    [junit] Running org.apache.commons.math.stat.inference.TTestFactoryTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
-    [junit] Running org.apache.commons.math.stat.inference.TTestTest
-    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.039 sec
-    [junit] Running org.apache.commons.math.stat.inference.TestUtilsTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.024 sec
-    [junit] Running org.apache.commons.math.stat.ranking.NaturalRankingTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
-    [junit] Running org.apache.commons.math.stat.regression.GLSMultipleLinearRegressionTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.044 sec
-    [junit] Running org.apache.commons.math.stat.regression.OLSMultipleLinearRegressionTest
-    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.043 sec
-    [junit] Running org.apache.commons.math.stat.regression.SimpleRegressionTest
-    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
-    [junit] Running org.apache.commons.math.transform.FastCosineTransformerTest
     [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.01 sec
+    [junit] Running org.apache.commons.math.stat.inference.TTestFactoryTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+    [junit] Running org.apache.commons.math.stat.inference.TTestTest
+    [junit] Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Running org.apache.commons.math.stat.inference.TestUtilsTest
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+    [junit] Running org.apache.commons.math.stat.ranking.NaturalRankingTest
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Running org.apache.commons.math.stat.regression.GLSMultipleLinearRegressionTest
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.045 sec
+    [junit] Running org.apache.commons.math.stat.regression.OLSMultipleLinearRegressionTest
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.038 sec
+    [junit] Running org.apache.commons.math.stat.regression.SimpleRegressionTest
+    [junit] Tests run: 16, Failures: 0, Errors: 0, Time elapsed: 0.027 sec
+    [junit] Running org.apache.commons.math.transform.FastCosineTransformerTest
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
     [junit] Running org.apache.commons.math.transform.FastFourierTransformerTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.021 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.022 sec
     [junit] Running org.apache.commons.math.transform.FastHadamardTransformerTest
-    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
     [junit] Running org.apache.commons.math.transform.FastSineTransformerTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.036 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
     [junit] Running org.apache.commons.math.util.BigRealFieldTest
-    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.007 sec
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
     [junit] Running org.apache.commons.math.util.BigRealTest
-    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
     [junit] Running org.apache.commons.math.util.ContinuedFractionTest
     [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.001 sec
     [junit] Running org.apache.commons.math.util.DefaultTransformerTest
-    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+    [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.004 sec
     [junit] Running org.apache.commons.math.util.MathUtilsTest
-    [junit] Tests run: 57, Failures: 0, Errors: 0, Time elapsed: 0.608 sec
+    [junit] Tests run: 57, Failures: 0, Errors: 0, Time elapsed: 0.586 sec
     [junit] Running org.apache.commons.math.util.OpenIntToDoubleHashMapTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.149 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.138 sec
     [junit] Running org.apache.commons.math.util.OpenIntToFieldTest
-    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.057 sec
+    [junit] Tests run: 17, Failures: 0, Errors: 0, Time elapsed: 0.087 sec
     [junit] Running org.apache.commons.math.util.ResizableDoubleArrayTest
-    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.028 sec
+    [junit] Tests run: 13, Failures: 0, Errors: 0, Time elapsed: 0.019 sec
     [junit] Running org.apache.commons.math.util.TransformerMapTest
-    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+    [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
 
 BUILD SUCCESSFUL
-Total time: 26 seconds
-Failing tests: 1
-  - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testInternalDifferentiation
+Total time: 20 seconds
+Failing tests: 0
 
 [main] INFO Defects4JBug - Writing failing_tests info...
 [main] INFO Defects4JBug - git int ...

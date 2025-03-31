@@ -19,13 +19,14 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 文件: /mnt/experiments/bugs/Lang/Lang_26_original
-  Source 版本: 1.5
-  Target 版本: 1.5
+  Source 版本: null
+  Target 版本: null
 --------------------------------------------------
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_26_FIXED_VERSION in /mnt/experiments/bugs/Lang/Lang_26_original
 [main] INFO FileUtils - Command result:
 0
+Previous HEAD position was f27d1ba5 Fix to enable anonymous inner classes as Enums for functionality
 HEAD is now at 7cad31ba D4J_Lang_26_FIXED_VERSION
 
 [main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Lang_26_BUGGY_VERSION in /mnt/experiments/bugs/Lang/Lang_26_original
@@ -64,7 +65,6 @@ test-offline:
 get-deps:
 
 compile:
-    [mkdir] Created dir: /mnt/experiments/bugs/Lang/Lang_26_original/target/classes
     [javac] /mnt/experiments/bugs/Lang/Lang_26_original/maven-build.xml:75: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
     [javac] Compiling 90 source files to /mnt/experiments/bugs/Lang/Lang_26_original/target/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
@@ -494,7 +494,7 @@ compile-tests:
 compile.tests:
 
 BUILD SUCCESSFUL
-Total time: 7 seconds
+Total time: 6 seconds
 
 [main] INFO Defects4JBug - Switch to commit f27d1ba5f785534a08072b819f2507b056a7ce16
 [main] INFO FileUtils - Running command: git checkout --force f27d1ba5f785534a08072b819f2507b056a7ce16 in /mnt/experiments/bugs/Lang/Lang_26_original

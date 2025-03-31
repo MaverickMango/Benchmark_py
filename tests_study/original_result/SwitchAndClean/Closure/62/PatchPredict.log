@@ -1,10 +1,10 @@
-[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/bin/defects4j write.properties -p Closure -v 62b -w /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/bin/defects4j checkout -p Closure -v 62b -w /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -18,29 +18,161 @@ Git version...................git version 2.25.1
 SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
-文件: /mnt/experiments/bugs/Closure/Closure_62_original
-  Source 版本: 1.6
-  Target 版本: 1.6
---------------------------------------------------
+Checking out b12d1d64 to /mnt/experiments/bugs/Closure/62/Closure_62_origin OK
+Executed command: git clone /mnt/Benchmark_py/defects4j/project_repos/closure-compiler.git /mnt/experiments/bugs/Closure/62/Closure_62_original 2>&1 && cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git checkout b12d1d6489329c989b15635f6f7f06681b3f6582 2>&1
+Cloning into '/mnt/experiments/bugs/Closure/62/Closure_62_original'...
+done.
+Note: switching to 'b12d1d6489329c989b15635f6f7f06681b3f6582'.
 
-[main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Closure_62_FIXED_VERSION in /mnt/experiments/bugs/Closure/Closure_62_original
-[main] INFO FileUtils - Command result:
-0
-HEAD is now at 909fb104 D4J_Closure_62_FIXED_VERSION
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
 
-[main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Closure_62_BUGGY_VERSION in /mnt/experiments/bugs/Closure/Closure_62_original
-[main] INFO FileUtils - Command result:
-0
-Previous HEAD position was 909fb104 D4J_Closure_62_FIXED_VERSION
-HEAD is now at 2208f1f2 D4J_Closure_62_BUGGY_VERSION
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
 
-[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Closure/Closure_62_original
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b12d1d64 Automated g4 rollback.
+Init local repository...................................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git init 2>&1 && git config user.name defects4j 2>&1 && git config user.email defects4j@localhost 2>&1 && git config core.autocrlf false 2>&1
+Reinitialized existing Git repository in /mnt/experiments/bugs/Closure/62/Closure_62_original/.git/
+Tag post-fix revision...................................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git init 2>&1 && echo ".svn" > .gitignore && git add -A 2>&1 && git commit -a -m D4J_Closure_62_POST_FIX_REVISION 2>&1 && git tag D4J_Closure_62_POST_FIX_REVISION 2>&1
+Reinitialized existing Git repository in /mnt/experiments/bugs/Closure/62/Closure_62_original/.git/
+[detached HEAD 92482fa5] D4J_Closure_62_POST_FIX_REVISION
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .defects4j.config
+ create mode 100644 .gitignore
+Run post-checkout hook..................................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git add -A 2>&1 && git commit -a -m "D4J_Closure_62_POST_FIX_COMPILABLE" 2>&1 && git tag D4J_Closure_62_POST_FIX_COMPILABLE 2>&1
+[detached HEAD 723df0c7] D4J_Closure_62_POST_FIX_COMPILABLE
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+Excluding broken/flaky tests............................................... OK
+Executed command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/Benchmark_py/defects4j/framework/projects/Closure/failing_tests/b12d1d6489329c989b15635f6f7f06681b3f6582 /mnt/experiments/bugs/Closure/62/Closure_62_original/test
+Excluding broken/flaky tests............................................... OK
+Executed command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/Benchmark_py/defects4j/framework/projects/Closure/dependent_tests /mnt/experiments/bugs/Closure/62/Closure_62_original/test
+Initialize fixed program version........................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git add -A 2>&1 && git commit -a -m "D4J_Closure_62_FIXED_VERSION" 2>&1 && git tag D4J_Closure_62_FIXED_VERSION 2>&1
+[detached HEAD 81f52a41] D4J_Closure_62_FIXED_VERSION
+ 5 files changed, 644 insertions(+), 79 deletions(-)
+ create mode 100644 defects4j.build.properties
+ create mode 100644 test/com/google/debugging/sourcemap/Base64VLQTest.java.bak
+ create mode 100644 test/com/google/javascript/jscomp/CrossModuleMethodMotionTest.java.bak
+Apply patch................................................................ OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original; git apply -p1 /mnt/Benchmark_py/defects4j/framework/projects/Closure/patches/62.src.patch 2>&1
+Initialize buggy program version........................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git add -A 2>&1 && git commit -a -m "D4J_Closure_62_BUGGY_VERSION" 2>&1 && git tag D4J_Closure_62_BUGGY_VERSION 2>&1
+[detached HEAD defd31fa] D4J_Closure_62_BUGGY_VERSION
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+Diff b12d1d64:1e070472..................................................... OK
+Executed command: git --git-dir=/mnt/Benchmark_py/defects4j/project_repos/closure-compiler.git diff --no-ext-diff --binary b12d1d6489329c989b15635f6f7f06681b3f6582 1e07047234938543ea364f68ec0f29686dbc12f1 
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index 420dbc07..f529b7d0 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -92,10 +92,8 @@ public class LightweightMessageFormatter extends AbstractMessageFormatter {
+       int charno = error.getCharno();
+ 
+       // padding equal to the excerpt and arrow at the end
+-      // charno == sourceExpert.length() means something is missing
+-      // at the end of the line
+       if (excerpt.equals(LINE)
+-          && 0 <= charno && charno <= sourceExcerpt.length()) {
++          && 0 <= charno && charno < sourceExcerpt.length()) {
+         for (int i = 0; i < charno; i++) {
+           char c = sourceExcerpt.charAt(i);
+           if (Character.isWhitespace(c)) {
+diff --git a/test/com/google/javascript/jscomp/LightweightMessageFormatterTest.java b/test/com/google/javascript/jscomp/LightweightMessageFormatterTest.java
+index 6cc204fe..0c432a10 100644
+--- a/test/com/google/javascript/jscomp/LightweightMessageFormatterTest.java
++++ b/test/com/google/javascript/jscomp/LightweightMessageFormatterTest.java
+@@ -84,24 +84,6 @@ public class LightweightMessageFormatterTest extends TestCase {
+         "\t\t    ^\n", formatter.formatError(error));
+   }
+ 
+-  public void testFormatErrorSpaceEndOfLine1() throws Exception {
+-    JSError error = JSError.make("javascript/complex.js",
+-        1, 10, FOO_TYPE);
+-    LightweightMessageFormatter formatter = formatter("assert (1;");
+-    assertEquals("javascript/complex.js:1: ERROR - error description here\n" +
+-        "assert (1;\n" +
+-        "          ^\n", formatter.formatError(error));
+-  }
+-
+-  public void testFormatErrorSpaceEndOfLine2() throws Exception {
+-    JSError error = JSError.make("javascript/complex.js",
+-        6, 7, FOO_TYPE);
+-    LightweightMessageFormatter formatter = formatter("if (foo");
+-    assertEquals("javascript/complex.js:6: ERROR - error description here\n" +
+-        "if (foo\n" +
+-        "       ^\n", formatter.formatError(error));
+-  }
+-
+   private LightweightMessageFormatter formatter(String string) {
+     return new LightweightMessageFormatter(source(string));
+   }
+Apply patch................................................................ OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original; git apply -p1 /mnt/experiments/bugs/Closure/62/Closure_62_original/.defects4j.diff 2>&1
+Tag pre-fix revision....................................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git add -A 2>&1 && git commit -a -m "D4J_Closure_62_PRE_FIX_REVISION" 2>&1 && git tag D4J_Closure_62_PRE_FIX_REVISION 2>&1
+[detached HEAD 425f58a7] D4J_Closure_62_PRE_FIX_REVISION
+ 2 files changed, 1 insertion(+), 21 deletions(-)
+Check out program version: Closure-62b..................................... OK
+Executed command: cd /mnt/experiments/bugs/Closure/62/Closure_62_original && git checkout D4J_Closure_62_BUGGY_VERSION 2>&1
+Previous HEAD position was 425f58a7 D4J_Closure_62_PRE_FIX_REVISION
+HEAD is now at defd31fa D4J_Closure_62_BUGGY_VERSION
+
+[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/bin/defects4j write.properties -p Closure -v 62b -w /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/experiments/bugs/Closure/Closure_62_original
+PWD.........................../mnt
+SHELL........................./bin/bash
+TZ............................America/Los_Angeles
+JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
+Java Exec...................../usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Exec Resolved............/usr/lib/oracleJdk/jdk1.8.0_391/bin/java
+Java Version:
+  java version "1.8.0_391"
+  Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+Git version...................git version 2.25.1
+SVN version...................1.13.0
+Perl version..................v5.30.0
+--------------------------------------------------------------------------------
+文件: /mnt/experiments/bugs/Closure/62/Closure_62_original
+  Source 版本: 1.6
+  Target 版本: 1.6
+--------------------------------------------------
+
+[main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Closure_62_FIXED_VERSION in /mnt/experiments/bugs/Closure/62/Closure_62_original
+[main] INFO FileUtils - Command result:
+0
+Previous HEAD position was defd31fa D4J_Closure_62_BUGGY_VERSION
+HEAD is now at 81f52a41 D4J_Closure_62_FIXED_VERSION
+
+[main] INFO FileUtils - Running command: /bin/bash -c git checkout -f D4J_Closure_62_BUGGY_VERSION in /mnt/experiments/bugs/Closure/62/Closure_62_original
+[main] INFO FileUtils - Command result:
+0
+Previous HEAD position was 81f52a41 D4J_Closure_62_FIXED_VERSION
+HEAD is now at defd31fa D4J_Closure_62_BUGGY_VERSION
+
+[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Closure/62/Closure_62_original
+[main] INFO FileUtils - Command result:
+0
+--------------------------------------------------------------------------------
+                     Defects4j Execution Environment 
+--------------------------------------------------------------------------------
+PWD.........................../mnt/experiments/bugs/Closure/62/Closure_62_original
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -55,7 +187,7 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 Running ant (compile)...................................................... OK
-Executed command:  cd /mnt/experiments/bugs/Closure/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/Closure_62_original -Dbuild.compiler=javac1.7  compile 2>&1
+Executed command:  cd /mnt/experiments/bugs/Closure/62/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/62/Closure_62_original -Dbuild.compiler=javac1.7  compile 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -64,15 +196,15 @@ rhino:
 properties:
 
 init:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino1_7R3pre
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino1_7R3pre
 
 compile:
 
 compile-most:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 191 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 191 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -273,11 +405,11 @@ compile-most:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/regex/Pattern.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-     [copy] Copying 2 files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+     [copy] Copying 2 files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
 
 compile-jdk15:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Member.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -364,8 +496,8 @@ compile:
 properties:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 28 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 28 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -565,22 +697,22 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/javax/swing/event/DocumentEvent.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] Note: /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses or overrides a deprecated API.
-    [javac] Note: /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses unchecked or unsafe operations.
+    [javac] Note: /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses or overrides a deprecated API.
+    [javac] Note: /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
     [javac] 100 warnings
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
 
 xmlimplsrc-compile:
-     [echo] Calling /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
+     [echo] Calling /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
 
 compile:
 
 compile-all:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 3 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 3 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -606,17 +738,17 @@ compile:
     [javac] 15 warnings
 
 jar:
-      [jar] Building jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino1_7R3pre/js.jar
+      [jar] Building jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino1_7R3pre/js.jar
 
 rhino-jarjar:
-   [jarjar] Building jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino.jar
+   [jarjar] Building jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino.jar
 
 svnversion:
 
 compile:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 5 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 5 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -694,8 +826,8 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] 51 warnings
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 377 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 377 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -896,17 +1028,17 @@ compile:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing
-[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/js
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/js
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing
+[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/js
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/js
 
 BUILD SUCCESSFUL
-Total time: 18 seconds
+Total time: 19 seconds
 Running ant (compile.tests)................................................ OK
-Executed command:  cd /mnt/experiments/bugs/Closure/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/Closure_62_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
+Executed command:  cd /mnt/experiments/bugs/Closure/62/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/62/Closure_62_original -Dbuild.compiler=javac1.7  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -919,44 +1051,44 @@ init:
 compile:
 
 compile-most:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile-jdk15:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile:
 
 properties:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 xmlimplsrc-compile:
-     [echo] Calling /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
+     [echo] Calling /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
 
 compile:
 
 compile-all:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 jar:
 
 rhino-jarjar:
-   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino.jar
+   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino.jar
 
 svnversion:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
 
 compile-tests:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/test
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 396 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/test
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 396 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1157,8 +1289,8 @@ compile-tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 212 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/test
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 212 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1314,23 +1446,23 @@ compile-tests:
 compile.tests:
 
 BUILD SUCCESSFUL
-Total time: 17 seconds
+Total time: 16 seconds
 
 [main] INFO Defects4JBug - Switch to commit 245362ac3a7374a5e3a2ecdd63f6f2a58a4c5cb2
-[main] INFO FileUtils - Running command: git checkout --force 245362ac3a7374a5e3a2ecdd63f6f2a58a4c5cb2 in /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: git checkout --force 245362ac3a7374a5e3a2ecdd63f6f2a58a4c5cb2 in /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
-Previous HEAD position was 2208f1f2 D4J_Closure_62_BUGGY_VERSION
+Previous HEAD position was defd31fa D4J_Closure_62_BUGGY_VERSION
 HEAD is now at 245362ac enable collapseObjectLiterals for the rest of the world.
 
 [main] INFO Defects4JBug - Output defects4j properties and config file...
-[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/bin/defects4j write.properties -p Closure -v 62o -w /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/bin/defects4j write.properties -p Closure -v 62o -w /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/Benchmark_py/tests_study
+PWD.........................../mnt
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -1344,20 +1476,20 @@ Git version...................git version 2.25.1
 SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
-文件: /mnt/experiments/bugs/Closure/Closure_62_original
+文件: /mnt/experiments/bugs/Closure/62/Closure_62_original
   Source 版本: 1.6
   Target 版本: 1.6
 --------------------------------------------------
 
 [main] INFO Defects4JBug - Checking build.xml file...
 [main] INFO Defects4JBug - Compiling...
-[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j compile in /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/experiments/bugs/Closure/Closure_62_original
+PWD.........................../mnt/experiments/bugs/Closure/62/Closure_62_original
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -1372,7 +1504,7 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 Running ant (compile)...................................................... OK
-Executed command:  cd /mnt/experiments/bugs/Closure/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/Closure_62_original -Dbuild.compiler=javac1.6  compile 2>&1
+Executed command:  cd /mnt/experiments/bugs/Closure/62/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/62/Closure_62_original -Dbuild.compiler=javac1.6  compile 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -1381,15 +1513,15 @@ rhino:
 properties:
 
 init:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino1_7R3pre
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino1_7R3pre
 
 compile:
 
 compile-most:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 191 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 191 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1590,11 +1722,11 @@ compile-most:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/regex/Pattern.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-     [copy] Copying 2 files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+     [copy] Copying 2 files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
 
 compile-jdk15:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/reflect/Member.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1681,8 +1813,8 @@ compile:
 properties:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 28 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 28 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/io/File.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1882,22 +2014,22 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/javax/swing/event/DocumentEvent.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
-    [javac] Note: /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses or overrides a deprecated API.
-    [javac] Note: /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses unchecked or unsafe operations.
+    [javac] Note: /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses or overrides a deprecated API.
+    [javac] Note: /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/org/mozilla/javascript/tools/debugger/SwingGui.java uses unchecked or unsafe operations.
     [javac] Note: Recompile with -Xlint:unchecked for details.
     [javac] 100 warnings
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
 
 xmlimplsrc-compile:
-     [echo] Calling /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
+     [echo] Calling /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
 
 compile:
 
 compile-all:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 3 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 3 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.5
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -1923,17 +2055,17 @@ compile:
     [javac] 15 warnings
 
 jar:
-      [jar] Building jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino1_7R3pre/js.jar
+      [jar] Building jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino1_7R3pre/js.jar
 
 rhino-jarjar:
-   [jarjar] Building jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino.jar
+   [jarjar] Building jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino.jar
 
 svnversion:
 
 compile:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 5 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 5 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -2011,8 +2143,8 @@ compile:
     [javac]   It is recommended that the compiler be upgraded.
     [javac] /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Iterator.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'
     [javac] 51 warnings
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 377 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 377 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -2213,17 +2345,17 @@ compile:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing
-[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/js
-     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/js
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/rhino_ast/java/com/google/javascript/rhino
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing
+[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/js
+     [copy] Copying 1 file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/js
 
 BUILD SUCCESSFUL
-Total time: 18 seconds
+Total time: 19 seconds
 Running ant (compile.tests)................................................ OK
-Executed command:  cd /mnt/experiments/bugs/Closure/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/Closure_62_original -Dbuild.compiler=javac1.6  compile.tests 2>&1
+Executed command:  cd /mnt/experiments/bugs/Closure/62/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/62/Closure_62_original -Dbuild.compiler=javac1.6  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -2236,44 +2368,44 @@ init:
 compile:
 
 compile-most:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile-jdk15:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile:
 
 properties:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 xmlimplsrc-compile:
-     [echo] Calling /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
+     [echo] Calling /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
 
 compile:
 
 compile-all:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 jar:
 
 rhino-jarjar:
-   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino.jar
+   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino.jar
 
 svnversion:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
 
 compile-tests:
-    [mkdir] Created dir: /mnt/experiments/bugs/Closure/Closure_62_original/build/test
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 396 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/test
+    [mkdir] Created dir: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 396 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/Arrays.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -2474,8 +2606,8 @@ compile-tests:
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractSet.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
     [javac] 100 warnings
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 212 source files to /mnt/experiments/bugs/Closure/Closure_62_original/build/test
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 212 source files to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -2631,28 +2763,28 @@ compile-tests:
 compile.tests:
 
 BUILD SUCCESSFUL
-Total time: 16 seconds
+Total time: 19 seconds
 
 [main] INFO Defects4JBug - Execute original tests...
 [main] INFO Defects4JBug - Read failing tests and Exclude flaky/broken tests...
-[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/experiments/bugs/Closure/Closure_62_original/failing_tests /mnt/experiments/bugs/Closure/Closure_62_original/test
+[main] INFO FileUtils - Running command: /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl /mnt/experiments/bugs/Closure/62/Closure_62_original/failing_tests /mnt/experiments/bugs/Closure/62/Closure_62_original/test
 [main] INFO FileUtils - Command result:
 2
 Cannot open log file: No such file or directory at /mnt/Benchmark_py/defects4j/framework/util/rm_broken_tests.pl line 62.
 
 [main] INFO Defects4JBug - Induce trigger tests and test...
-[main] INFO FileUtils - Running command: /bin/bash -c cp -r /mnt/Benchmark/data/changesInfo/Closure_62/cleaned/original/* ./ in /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: /bin/bash -c cp -r /mnt/Benchmark/data/changesInfo/Closure_62/cleaned/original/* ./ in /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] INFO FileUtils - Command result:
 0
 
-[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test in /mnt/experiments/bugs/Closure/Closure_62_original
+[main] INFO FileUtils - Running command: /bin/bash -c timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test in /mnt/experiments/bugs/Closure/62/Closure_62_original
 [main] ERROR FileUtils - Command [/bin/bash, -c, timeout 100000 /mnt/Benchmark_py/defects4j/framework/bin/defects4j test] Timeout!
 [main] INFO FileUtils - Command result:
 143
 --------------------------------------------------------------------------------
                      Defects4j Execution Environment 
 --------------------------------------------------------------------------------
-PWD.........................../mnt/experiments/bugs/Closure/Closure_62_original
+PWD.........................../mnt/experiments/bugs/Closure/62/Closure_62_original
 SHELL........................./bin/bash
 TZ............................America/Los_Angeles
 JAVA_HOME...................../usr/lib/oracleJdk/jdk1.8.0_391
@@ -2667,7 +2799,7 @@ SVN version...................1.13.0
 Perl version..................v5.30.0
 --------------------------------------------------------------------------------
 Running ant (compile.tests)................................................ OK
-Executed command:  cd /mnt/experiments/bugs/Closure/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/Closure_62_original -Dbuild.compiler=javac1.6  compile.tests 2>&1
+Executed command:  cd /mnt/experiments/bugs/Closure/62/Closure_62_original && /mnt/Benchmark_py/defects4j/major/bin/ant -f /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/mnt/Benchmark_py/defects4j -Dd4j.dir.projects=/mnt/Benchmark_py/defects4j/framework/projects -Dbasedir=/mnt/experiments/bugs/Closure/62/Closure_62_original -Dbuild.compiler=javac1.6  compile.tests 2>&1
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0
 Buildfile: /mnt/Benchmark_py/defects4j/framework/projects/defects4j.build.xml
 
@@ -2680,44 +2812,44 @@ init:
 compile:
 
 compile-most:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile-jdk15:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/src/build.xml:87: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 compile:
 
 properties:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/toolsrc/build.xml:55: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 xmlimplsrc-compile:
-     [echo] Calling /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
+     [echo] Calling /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/xmlimplsrc/build.xml
 
 compile:
 
 compile-all:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/lib/rhino/src/mozilla/js/rhino/deprecatedsrc/build.xml:49: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
 
 jar:
 
 rhino-jarjar:
-   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/Closure_62_original/build/lib/rhino.jar
+   [jarjar] Updating jar: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/lib/rhino.jar
 
 svnversion:
 
 compile:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:218: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:224: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[propertyfile] Updating property file: /mnt/experiments/bugs/Closure/62/Closure_62_original/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
 
 compile-tests:
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] /mnt/experiments/bugs/Closure/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
-    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/Closure_62_original/build/test
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:289: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /mnt/experiments/bugs/Closure/62/Closure_62_original/build.xml:294: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /mnt/experiments/bugs/Closure/62/Closure_62_original/build/test
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] warning: /usr/lib/oracleJdk/jdk1.8.0_391/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): major version 52 is newer than 51, the highest major version supported by this compiler.
     [javac]   It is recommended that the compiler be upgraded.
@@ -2778,7 +2910,6 @@ compile-tests:
 compile.tests:
 
 BUILD SUCCESSFUL
-Total time: 6 seconds
-Running ant (run.dev.tests)................................................ 
+Total time: 5 seconds
 
 [main] INFO Defects4JBug - test Timeout!
