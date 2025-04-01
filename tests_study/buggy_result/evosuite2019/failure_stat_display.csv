@@ -134,8 +134,8 @@ Time,15,buggy_result/evosuite2019/Time/15/1,1,True,4.0,43,1,org.joda.time.field.
 Time,15,buggy_result/evosuite2019/Time/15/26,1,True,4.0,45,1,org.joda.time.field.FieldUtils_ESTest::test20::junit.framework.AssertionFailedError,0,1.262
 Time,15,buggy_result/evosuite2019/Time/15/0,1,True,4.0,45,1,org.joda.time.field.FieldUtils_ESTest::test19::junit.framework.AssertionFailedError,0,1.095
 Lang,21,buggy_result/evosuite2019/Lang/21/6,1,True,2.0,70,1,org.apache.commons.lang3.time.DateUtils_ESTest::test051::,0,1.628
-Lang,21,buggy_result/evosuite2019/Lang/21/16,1,True,2.0,1,0,,1,0.0
-Lang,26,buggy_result/evosuite2019/Lang/26/26,1,True,2.0,1,0,,1,0.0
+Lang,21,buggy_result/evosuite2019/Lang/21/16,1,True,2.0,1,0,org.apache.commons.lang3.time.DateUtils_ESTest::::java.lang.VerifyError,1,0.0
+Lang,26,buggy_result/evosuite2019/Lang/26/26,1,True,2.0,1,0,org.apache.commons.lang3.time.FastDateFormat_ESTest::::java.lang.VerifyError,1,0.0
 Lang,43,buggy_result/evosuite2019/Lang/43/2,1,True,6.0,10,0,org.apache.commons.lang.text.ExtendedMessageFormat_ESTest::test5::java.lang.Exception#org.apache.commons.lang.text.ExtendedMessageFormat_ESTest::test8::java.lang.Exception,2,8.8
 Lang,43,buggy_result/evosuite2019/Lang/43/10,1,True,2.0,11,0,org.apache.commons.lang.text.ExtendedMessageFormat_ESTest::test03::java.lang.Exception,1,4.234
 Lang,43,buggy_result/evosuite2019/Lang/43/24,1,True,2.0,14,0,org.apache.commons.lang.text.ExtendedMessageFormat_ESTest::test06::java.lang.Exception#org.apache.commons.lang.text.ExtendedMessageFormat_ESTest::test07::java.lang.Exception,2,8.272
@@ -211,7 +211,7 @@ Lang,57,buggy_result/evosuite2019/Lang/57/0,1,True,2.0,26,0,org.apache.commons.l
 Lang,61,buggy_result/evosuite2019/Lang/61/13,1,True,2.0,218,1,org.apache.commons.lang.text.StrBuilder_ESTest::test132::junit.framework.AssertionFailedError,0,2.588
 Lang,61,buggy_result/evosuite2019/Lang/61/14,1,True,2.0,218,1,org.apache.commons.lang.text.StrBuilder_ESTest::test128::junit.framework.AssertionFailedError,0,0.657
 Lang,61,buggy_result/evosuite2019/Lang/61/5,1,True,2.0,222,1,org.apache.commons.lang.text.StrBuilder_ESTest::test131::junit.framework.AssertionFailedError,0,1.228
-Lang,61,buggy_result/evosuite2019/Lang/61/25,1,True,3.0,1,0,,1,0.0
+Lang,61,buggy_result/evosuite2019/Lang/61/25,1,True,3.0,1,0,org.apache.commons.lang.text.StrBuilder_ESTest::::java.lang.VerifyError,1,0.0
 Lang,61,buggy_result/evosuite2019/Lang/61/28,1,True,2.0,212,1,org.apache.commons.lang.text.StrBuilder_ESTest::test036::junit.framework.AssertionFailedError,0,3.49
 Lang,61,buggy_result/evosuite2019/Lang/61/27,1,True,3.0,217,1,org.apache.commons.lang.text.StrBuilder_ESTest::test175::,0,3.365
 Math,25,buggy_result/evosuite2019/Math/25/2,1,True,11.0,6,1,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest::test5::junit.framework.AssertionFailedError,0,0.138

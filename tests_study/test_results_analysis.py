@@ -21,7 +21,7 @@ bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信�
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
-py_log_file = f'{result_dir_root}/analysis.log'
+py_log_file = f'{result_dir_root}/log/analysis.log'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logging.basicConfig(filename=py_log_file, level=logging.INFO)
@@ -34,8 +34,8 @@ log_file_patterns = {
     ),
     'build_error': re.compile(r"\[javac\]\s+([\d.]+)\s+error[s]?") # [javac] 2 errors
 }
-test_case_pattern = re.compile(r'^--- ([\w.]+)::(\w+).*')
-error_pattern = re.compile(r'^\s*([\w.]+(?:Error|Exception)):')
+test_case_pattern = re.compile(r'^--- ([\w.]+)(?:::(\w+))?.*') # 不一定会有出错测试函数，有可能是整个类出错
+error_pattern = re.compile(r'^\s*([\w.]+(?:Error|Exception)):') 
 
 def parse_failing(file_path):
     result = []
@@ -55,7 +55,7 @@ def parse_failing(file_path):
                 if test_case_match:
                     test_case = {
                         'class': test_case_match.group(1),
-                        'method': test_case_match.group(2),
+                        'method': test_case_match.group(2) if test_case_match.group(2) else '',
                         'exception': ''
                     }
                     next_line = lines[count]

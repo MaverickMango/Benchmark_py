@@ -1,5 +1,7 @@
 import os, sys
 import pandas as pd
+from scipy.stats import fisher_exact
+from scipy.stats import MonteCarloMethod
 from tqdm import *
 import time
 import logging
@@ -22,7 +24,7 @@ trigger_test_exceptions_file_path = '/mnt/Benchmark_py/util_scripts/trigger_exce
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
-py_log_file = f'{result_dir_root}/{py_log_file_name}'
+py_log_file = f'{result_dir_root}/log/{py_log_file_name}'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logging.basicConfig(filename=py_log_file, level=logging.INFO)
@@ -49,10 +51,16 @@ def running_stat_display(df):
     output_file = f'{result_root}/build_status{display_output_file_sufix}'
     logging.info(f'按项目统计测试执行为True的结果存放在：{output_file}')
     df_formatted.to_csv(output_file, index=False)
+    return df_formatted
 
 
 def numeric_stat_display(df):
+    pd.options.display.float_format = '{:,.2f}'.format
     stat_names = ['total_time_seconds', 'tests_run', 'test_time_elapsed_seconds']
+    numerics = df[stat_names].describe(percentiles=[.25, .5, .75])
+    output_file = f'{result_root}/nogroup_numeric_stat{display_output_file_sufix}'
+    logging.info(f'nogroup统计数值类型数据的结果存放在：{output_file}')
+    numerics.to_csv(output_file, index=False)
 
     numerics_grouped = pivot_describe(df, ['proj', 'id'], stat_names)
     
@@ -67,11 +75,10 @@ def numeric_stat_display(df):
     numerics_grouped.to_csv(output_file, index=False)
 
 
-def pivot_describe(df, groupby, describe_names):
+def pivot_describe(df, groupby, stat_names):
     copyed = df.copy()
-    pd.options.display.float_format = '{:,.2f}'.format
     grouped = (
-        copyed.groupby(groupby)[describe_names]
+        copyed.groupby(groupby)[stat_names]
         .describe(percentiles=[.25,.5,.75])
     )
     grouped.columns = grouped.columns.swaplevel(0, 1)
@@ -85,7 +92,7 @@ def pivot_describe(df, groupby, describe_names):
     return result
 
 
-def failure_error_stat_display(df):
+def failure_error_stat_display(df, output=True):
     failure_condition = (
         (df['build_status']) &
         ((df['tests_failures'] != 0) |
@@ -94,18 +101,21 @@ def failure_error_stat_display(df):
     )
     failures = df[failure_condition]
     
-    output_file = f'{result_root}/failure_stat{display_output_file_sufix}'
-    logging.info(f'有失败测试的结果存放在：{output_file}')
-    failures.to_csv(output_file, index=False)
+    if output:
+        output_file = f'{result_root}/failure_stat{display_output_file_sufix}'
+        logging.info(f'有失败测试的结果存放在：{output_file}')
+        failures.to_csv(output_file, index=False)
     
     error_condition = (
         (~df['build_status'])
     )
     errors = df[error_condition]
     
-    output_file = f'{result_root}/error_stat{display_output_file_sufix}'
-    logging.info(f'测试执行错误的结果存放在：{output_file}')
-    errors.to_csv(output_file, index=False)
+    if output:
+        output_file = f'{result_root}/error_stat{display_output_file_sufix}'
+        logging.info(f'测试执行错误的结果存放在：{output_file}')
+        errors.to_csv(output_file, index=False)
+    return failures, errors
 
 
 def different_version_compare(version_dfs):
@@ -129,7 +139,119 @@ def different_version_compare(version_dfs):
             same_count = merged['is_same'].sum()
             same_rate = (same_count / total) * 100
             logging.info(f'所有生成的测试中是揭错测试的有：{same_count}/{total}, {same_rate}')
-    print()
+
+
+def pre_process(dicts, key):
+    dices = [item for item in dicts if item['version'] == key]
+    df = dices[0]['df'] if len(dices) > 0 else None
+    if df is None:
+        return None
+    df = df[df['build_status']]
+    df['test'] = df['test'].str.replace(f'{key}_result/', '')
+    df['tests_fail'] = df['tests_failures'] + df['tests_errors']
+    df['tests_succ'] = df['tests_run'] - df['tests_fail']
+    df.drop(columns=['tests_run', 'tests_failures', 'tests_errors'], inplace=True)
+    return df
+
+
+def hypothesis_test(version_dfs):
+    original_df = pre_process(version_dfs, 'original')
+    fixing_df = pre_process(version_dfs, 'fixing')
+    if original_df is None or fixing_df is None:
+        return
+    result_df = get_joins(original_df, fixing_df)
+    hypothesis_test_result = []
+    # 通过的测试数量不分项目统计
+    res = hypothesis_test_for_groupby(result_df, None)
+    hypothesis_test_result.extend(res)
+    # 通过的测试数量按项目统计
+    res = hypothesis_test_for_groupby(result_df, ['proj'])
+    hypothesis_test_result.extend(res)
+    # 通过的测试数量按缺陷统计
+    res = hypothesis_test_for_groupby(result_df, ['proj', 'id'])
+    hypothesis_test_result.extend(res)
+
+    result = pd.DataFrame(hypothesis_test_result)
+    output_file = f'{result_root}/hypothesis_test_result{display_output_file_sufix}'
+    logging.info(f'假设检验的结果存放在：{output_file}')
+    result.to_csv(output_file, index=False)
+
+def hypothesis_test_for_groupby(result_df, groupby):
+    if groupby is None:
+        series = result_df.sum()
+        ouput_name_prefix = 'nogroup'
+    else:
+        series = (
+            result_df.reset_index()
+            .drop(columns=['test'])
+            .groupby(groupby)
+            .sum()
+        )
+        ouput_name_prefix = '_'.join(groupby)
+    
+    result_df = series.reset_index()
+    output_file = f'{result_root}/{ouput_name_prefix}_hypothesis_test_{display_output_file_sufix}'
+    logging.info(f'{ouput_name_prefix}分组的假设检验量表的统计结果存放在：{output_file}')
+    result_df.to_csv(output_file, index=False)
+
+    return test_for_series(series, groupby)
+
+
+def test_for_series(series, groupby):
+    # 传入参数有可能是一维数组，也有可能是多维，多维情况下需要做多次检验然后再进行校正
+    # 一维数组实际为一个2*2联表，多维就是多个
+    # ['org_succ_fix_succ', 'org_succ_fix_fail',
+    # 'org_fail_fix_succ', 'org_fail_fix_fail']
+    # fail数据大多为0，所以不能用卡方……
+    # 检验方法：费舍尔精确检验（Fisher's Exact Test）的Monte Carlo模拟
+    if groupby is None:
+        odds_ratio, p_value = fisher_exact_for_line(series)
+        print(p_value) # 哈哈哈算出来p值是1，没有显著区别那就是一致呗
+        res = [{
+            'group': None,
+            'odds_ratio': odds_ratio,
+            'p_value': p_value
+        }]
+        return res
+    else:
+        rows = []
+        for index, row in series.iterrows():
+            odds_ratio, p_value = fisher_exact_for_line(row)
+            rows.append({
+                'group': '_'.join(map(lambda x: str(x), index)) if isinstance(index, tuple) else index,
+                'odds_ratio': odds_ratio,
+                'p_value': p_value
+            })
+        return rows
+
+def fisher_exact_for_line(line):
+    observed = []
+    observed.append([line['org_succ_fix_succ'], line['org_succ_fix_fail']])
+    observed.append([line['org_fail_fix_succ'], line['org_fail_fix_fail']])
+    odds_ratio, p_value = fisher_exact(observed, method=MonteCarloMethod(n_resamples=10000))
+    return odds_ratio, p_value
+
+
+def get_joins(org_df, fix_df):
+    df_index = ['proj', 'id', 'test']
+    stat_index = ['tests_succ', 'tests_fail']
+    org_grouped = org_df.groupby(df_index)[stat_index].sum()
+    fix_grouped = fix_df.groupby(df_index)[stat_index].sum()
+    merged = pd.merge(
+        org_grouped,
+        fix_grouped,
+        on=df_index,
+        suffixes=('_org', '_fix')
+    )
+    merged['org_succ_fix_succ'] = merged[['tests_succ_org', 'tests_succ_fix']].min(axis=1)
+    merged['org_succ_fix_fail'] = merged[['tests_succ_org', 'tests_fail_fix']].min(axis=1)
+    merged['org_fail_fix_succ'] = merged[['tests_fail_org', 'tests_succ_fix']].min(axis=1)
+    merged['org_fail_fix_fail'] = merged[['tests_fail_org', 'tests_fail_fix']].min(axis=1)
+    result = merged[
+        ['org_succ_fix_succ', 'org_succ_fix_fail',
+         'org_fail_fix_succ', 'org_fail_fix_fail']
+    ]
+    return result
 
 
 if __name__ == '__main__':
@@ -139,7 +261,9 @@ if __name__ == '__main__':
         version = str(task)
         logging.info(f'running for {version}...')
         if task == 'compare':
+            result_root = f'{result_dir_root}/original_result/{test_prefix}'
             different_version_compare(result_dfs)
+            hypothesis_test(result_dfs)
         else:
             result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
             analysis_result = f'{result_root}/{analysis_output}'

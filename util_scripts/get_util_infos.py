@@ -19,7 +19,7 @@ original_config_path = '/mnt/experiments/bugs/{proj}/{proj}_{id}_original/.defec
 result_root = f'{result_dir_root}'
 json_file_name = 'origianl_fixing_info.json'
 mapping_file_name = 'properties/mappings/b2o'
-log_path = f'{result_root}/{py_log_file_name}'
+log_path = f'{result_root}/log/{py_log_file_name}'
 if os.path.exists(log_path):
     os.remove(log_path)
 logging.basicConfig(filename=log_path, level=logging.INFO)

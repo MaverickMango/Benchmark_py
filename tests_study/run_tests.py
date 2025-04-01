@@ -36,7 +36,7 @@ util_infos_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv' # 存放m
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/{version}_result'
-py_log_file = f'{result_dir_root}/{run_tests_log_file_name}'
+py_log_file = f'{result_dir_root}/log/{run_tests_log_file_name}'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logging.basicConfig(filename=py_log_file, level=logging.INFO)
@@ -117,6 +117,7 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
 def mapping_test_dirs(proj, id, test_dir):
     if not os.path.exists(util_infos_file_path):
         return test_dir
+    logging.info(f'mapping test_dir for {test_dir}...')
     try:
         # 获取df，判断是否有包名变换
         # **df中的路径要和test_dir下的目录结构一致！！！***
