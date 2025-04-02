@@ -81,6 +81,8 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         os.remove(last_failing_test)
     
     test_dir = f'{tests_root}/{proj}/{id}/{test_dir}' 
+    # todo 创建测试工作目录，把每个版本执行的测试直接放到result里
+    copy_tests(test_dir)
 
     if version == 'original':
         version = 'o'
@@ -113,6 +115,14 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     with open(log_file, 'x') as f:
         f.write(result.stderr + result.stdout)
         
+
+def copy_tests(test_dir):
+    # 创建临时工作目录
+    tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
+    if os.path.exists(tmp_dir):
+        shutil.rmtree(tmp_dir)
+    shutil.copytree(work_dir, tmp_dir)
+
 
 def mapping_test_dirs(proj, id, test_dir):
     if not os.path.exists(util_infos_file_path):

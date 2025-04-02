@@ -1,4 +1,4 @@
-proj,id,org_succ_fix_succ,org_succ_fix_fail,org_fail_fix_succ,org_fail_fix_fail
+proj,id,A,B,C,D
 Closure,31,340,0,0,0
 Closure,62,240,0,0,0
 Closure,92,245,0,0,0
