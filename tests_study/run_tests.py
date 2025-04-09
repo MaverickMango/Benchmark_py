@@ -10,18 +10,15 @@ import re
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
+from util_scripts import Constant
 
 # 默认参数
 run_tests_log_file_name = 'run_test.log'
-version = 'original' #执行测试的缺陷版本
-test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
+test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
 include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
 include_pattern = r'*\.java$'
-if 'evosuite' in test_prefix:
-    include = '*_ESTest.java'
-    include_pattern = r'.*_ESTest\.java$'
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
 tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
@@ -29,13 +26,11 @@ tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
 # 需要更改的目录位置
 tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
 bugs_root = '/mnt/experiments/bugs' # 下载的所有bug的根目录 缺陷目录为f'{bugs_root}/{proj}/{proj}_{id}_{version}'
-tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
 bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
 util_infos_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv' # 存放mapping结果的文件
 
 ########## 以下均不要更改 ##########
-result_root = f'{result_dir_root}/{version}_result'
 py_log_file = f'{result_dir_root}/log/{run_tests_log_file_name}'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
@@ -81,8 +76,6 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         os.remove(last_failing_test)
     
     test_dir = f'{tests_root}/{proj}/{id}/{test_dir}' 
-    # todo 创建测试工作目录，把每个版本执行的测试直接放到result里
-    copy_tests(test_dir)
 
     if version == 'original':
         version = 'o'
@@ -116,7 +109,7 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         f.write(result.stderr + result.stdout)
         
 
-def copy_tests(test_dir):
+def copy_tests(proj, id, work_dir, test_dir):
     # 创建临时工作目录
     tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
     if os.path.exists(tmp_dir):
@@ -166,7 +159,7 @@ def mapping_test_dirs(proj, id, test_dir):
         return test_dir
 
 
-def mapping_package_name(path_mappings, curr_dir, file_suffix=include):
+def mapping_package_name(path_mappings, curr_dir):
     # 1. 获取当前目录下以include结尾的文件
     # 2. 读取文件内容
     # 3. 匹配package和import开头的行
@@ -215,7 +208,7 @@ def run_cmd(work_dir, cmd):
     return result
 
 
-def main(): 
+def main(test_prefix): 
     df = pd.read_csv(bugs_info)
     proj_bugs = [item for item in df['bug_name'].tolist()]
     for proj_bug in tqdm(proj_bugs):
@@ -248,7 +241,7 @@ def main():
             run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
 
 
-def test_one(proj, id, test_dir):
+def test_one(proj, id, test_dir, test_prefix):
     version = 'original'
     # 确认目录存在，不存在则checkout
     work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
@@ -261,7 +254,7 @@ def test_one(proj, id, test_dir):
     run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
 
 
-def rerun(df):
+def rerun(df, test_prefix):
     for _, row in tqdm(df.iterrows()):
         proj = row['proj']
         id = row['id']
@@ -269,6 +262,8 @@ def rerun(df):
         # 确认目录存在，不存在则checkout
         work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
         test_dir_root = f'{tests_root}/{proj}/{id}'
+        # todo 创建测试工作目录，把每个版本执行的测试直接放到result里
+        copy_tests(test_dir)
         
         # 创建临时工作目录
         tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
@@ -287,10 +282,17 @@ if __name__ == '__main__':
     for task in tasks:
         tasks.set_description('Processing for run tests for %s' % task)
         version = str(task)
-        result_root = f'{result_dir_root}/{version}_result/'
-        logging.info(f'running for {version}...')
-        main()
-        time.sleep(.1)
+        
+        for test_prefix in test_prefixes:
+            if 'evosuite' in test_prefix:
+                include = '*_ESTest.java'
+                include_pattern = r'.*_ESTest\.java$'
+            tests_root = Constant.TESTS_ROOT[test_prefix]# 测试文件存放路径
+            
+            result_root = f'{result_dir_root}/{version}_result/'
+            logging.info(f'running for {version}...')
+            main(test_prefix)
+            time.sleep(.1)
 
     # test_one('Math', '2', '2')
 

@@ -22,7 +22,7 @@ tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路�
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}'
-py_log_file = f'{result_dir_root}/log/test_postprocess.log'
+py_log_file = f'/mnt/Benchmark_py/util_scripts/log/test_postprocess.log'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logger = logging.getLogger('test_postprocess.log')

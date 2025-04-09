@@ -3,7 +3,7 @@ import pandas as pd
 
 from scipy.stats import fisher_exact
 from scipy.stats import MonteCarloMethod
-from scipy.stats import binomtest
+from statsmodels.stats.contingency_tables import mcnemar
 from statsmodels.stats.multitest import multipletests
 
 from tqdm import *
@@ -166,7 +166,7 @@ def hypothesis_test(version_dfs, metric='fisher_exact'):
     result_df = get_joins(original_df, fixing_df, metric)
     hypothesis_test_result = []
     # 通过的测试数量不分项目统计
-    res = hypothesis_test_for_groupby(result_df, None, metric)
+    res = hypothesis_test_for_groupby(result_df, ['proj', 'id', 'test'], metric)
     hypothesis_test_result.extend(res)
     # 通过的测试数量按项目统计
     res = hypothesis_test_for_groupby(result_df, ['proj'], metric)
@@ -188,7 +188,7 @@ def hypothesis_test_for_groupby(result_df, groupby, metric='fisher_exact'):
     else:
         series = (
             result_df.reset_index()
-            .drop(columns=['test'])
+            # .drop(columns=['test'])
             .groupby(groupby)
             .sum()
         )
@@ -256,10 +256,11 @@ def mcnemar_for_line(line):
     类别一    A       B
     类别二    C       D
     """
-    if line['B'] + line['C'] > 0:
-        result = binomtest(line['C'], n=line['B'] + line['C'], p=0.9, alternative='two-sided')
-        return result.statistic, result.pvalue
-    return None, 0
+    observed = []
+    observed.append([line['A'], line['B']])
+    observed.append([line['C'], line['D']])
+    result = mcnemar(observed, exact=False)
+    return result.statistic, result.pvalue
 
 def get_joins(org_df, fix_df, metric='fisher_exact'):
     df_index = ['proj', 'id', 'test']

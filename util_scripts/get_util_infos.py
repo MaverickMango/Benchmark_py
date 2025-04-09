@@ -52,6 +52,42 @@ def get_exception(data):
         return trigger_exceptions
 
 
+def get_patched_sigs(data):
+    sigs = {
+        'patch_changes': None
+    }
+    try:
+        names = data.get('patch_changed_mths', {'qualified_names': []})
+        clz_mths = []
+        for name in names['qualified_names']:
+            #  "com.google.javascript.jscomp.Compiler:parseInputs()Lcom/google/javascript/rhino/Node;:regression"
+            splits = name.split(':')
+            assert len(splits) >= 2
+            clz_mths.append(':'.join(splits[:2]))
+        sigs['patch_changes'] = '#'.join(clz_mths)
+        return sigs
+    except AttributeError:
+        logging.error(f'json 文件格式与预期不符，数据提取错误。')
+        return sigs
+
+
+def get_fix_changes(data):
+    sigs = {
+        'patch_changes': None
+    }
+    try:
+        changes = data.get('fixing_changes', [])
+        clz_mths = []
+        for change in changes:
+            names = change['changed_functions'][0]['qualified_names']
+            clz_mths.extend(names)
+        sigs['patch_changes'] = '#'.join(clz_mths)
+        return sigs
+    except AttributeError:
+        logging.error(f'json 文件格式与预期不符，数据提取错误。')
+        return sigs
+
+
 def get_buggy_dirs(data):
     root_dirs = {
         'src.dir': None,
@@ -152,19 +188,26 @@ if __name__ == '__main__':
         proj = proj_bug.split('_')[0]
         id = proj_bug.split('_')[1]
 
-        config_path = original_config_path.format(proj=proj, id=id)
-        if not os.path.exists(config_path):
-            continue
         json_file_path = f'{info_root}/{proj}_{id}/{json_file_name}'
         if not os.path.exists(json_file_path):
+            logging.info(f'json file {json_file_path} does not exist!')
             continue
         index = {
             'proj': proj,
             'id': id
         }
         data = parse_json(json_file_path)
+        
         exps = get_exception(data)
         index = index | exps
+
+        sigs = get_fix_changes(data)
+        index = index | sigs
+
+        config_path = original_config_path.format(proj=proj, id=id)
+        # if not os.path.exists(config_path):
+        #     logging.info(f'config file {config_path} does not exist!')
+        #     continue
         buggy_dirs = get_buggy_dirs(data)
         original_dirs = get_original_dirs(config_path)
         # index = index | dirs
@@ -177,6 +220,7 @@ if __name__ == '__main__':
             index['original'] = None
             rows.append(index)
         else:
+            # 可能每个bug会有多条数据，因为这里的mapping可能是好几对
             for mapping in mappings:
                 result = index | mapping
                 rows.append(result)
