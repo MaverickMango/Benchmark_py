@@ -8,28 +8,9 @@ import subprocess
 import javalang
 from javalang.tree import ClassDeclaration, MethodDeclaration
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from util_scripts import Constant
-
-# 默认参数
-test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
-
-# 可以不更改的默认值
-log_file_name = 'logfile.txt'
-failing_output_name = 'failing_tests'
-version = 'fixing'
-include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
-include_pattern = r'*\.java$'
-
-# 需要更改的目录位置
-result_dir_root = '/mnt/Benchmark_py/util_scripts/'# 测试结果存放路径
-bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
-tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
-util_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv'
 
 ########## 以下均不要更改 ##########
-result_root = f'{result_dir_root}'
-py_log_file = f'{result_dir_root}/log/test_preprocess.log'
+py_log_file = '/mnt/Benchmark_py/util_scripts/log/test_preprocess.log'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
 logger = logging.getLogger('test_preprocess')
@@ -38,16 +19,15 @@ logger.addHandler(logging.FileHandler(filename=py_log_file))
 # logging.basicConfig(filename=py_log_file, level=logging.INFO)
 
 
-def filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir):
+def filter_irrelative_tests(proj, id, tests_root, funcs, test_dir, include_pattern):
     # 复制新的测试文件目录，命名为在原本的test_prefix后增加version_defect_relative信息
-    old_test_path = f'{test_dir_root}/{test_dir}'
-    new_root_dir = f'{tests_root}_{version}_bug_relative'
-    if os.path.exists(new_root_dir):
-        shutil.rmtree(new_root_dir)
-    shutil.copytree(old_test_path, new_root_dir)
+    old_test_path = f'{tests_root}/{proj}/{id}/{test_dir}'
+    new_test_path = f'{tests_root}_bug_relative/{proj}/{id}/{test_dir}'
+    if not any(func is not None for func in funcs):
+        return new_test_path
     # 修改文件内容
     try:
-        for root, _, files in os.walk(new_root_dir):
+        for root, _, files in os.walk(old_test_path):
             for file in files:
                 if not re.match(include_pattern, file):
                     continue
@@ -58,12 +38,9 @@ def filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir):
                 except Exception as e:
                     logger.error(f'file {file_path} reading error: {str(e)}')
                     continue
-                
-                # 处理patch_changes, 只保留函数名
-                funcs = [sig.split(':')[1] for sig in patch_changes]
 
                 # 删除缺陷无关的测试并重构文件内容
-                keep_ranges, del_count, mth_count = delete_tests_by_func(funcs, content, proj, id, test_dir)
+                keep_ranges, del_count, mth_count = delete_tests_by_func_name(funcs, content, proj, id, test_dir)
                 update_content = []
                 for start, end in keep_ranges:
                     update_content.append(content[start:end])
@@ -73,11 +50,67 @@ def filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir):
                     continue
                 
                 # 写入新目录
-                with open(file_path, 'w', encoding='utf-8') as f:
+                new_file_path = file_path.replace(tests_root, f'{tests_root}_bug_relative')
+                shutil.copytree(old_test_path, new_test_path, dirs_exist_ok=True)
+                with open(new_file_path, 'w', encoding='utf-8') as f:
                     f.write(update_content)
                 logger.info(f'update {proj}_{id}_{test_dir} relative tests successfully: changing {del_count} in {mth_count} test(s)')
     except Exception as e:
         logger.error(f'update tests for file {file_path} error: {str(e)}')
+    return new_test_path
+
+
+def get_tests(test_dir, include_pattern):
+    tests_list = []
+    try:
+        for root, _, files in os.walk(test_dir):
+            for file in files:
+                if not re.match(include_pattern, file):
+                    continue
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                except Exception as e:
+                    logger.error(f'file {file_path} reading error: {str(e)}')
+                    continue
+
+                tree = javalang.parse.parse(content)
+                # 提取包名
+                package = tree.package.name if tree.package else ''
+                for path, node in tree.filter(ClassDeclaration):
+                    for _, method_node in node.filter(MethodDeclaration):
+                        if method_node.name.startswith('test'):
+                            tests_list.append(f'{package}.{node.name}::{method_node.name}')
+    except Exception as e:
+        logger.error(f'update tests for file {file_path} error: {str(e)}')
+    return tests_list
+
+
+
+def delete_tests_by_func_name(funcs, content, proj, id, test_dir):
+    tree = javalang.parse.parse(content)
+    keep_ranges = []
+    curr_pos = 0
+    mth_count = 0
+    del_count = 0
+    try:
+        for path, method_node in tree.filter(MethodDeclaration):
+            mth_count += 1
+            start_position = method_node.position
+            if len(method_node.annotations) > 0:
+                start_position = method_node.annotations[0].position
+            start, end = get_method_end(content, start_position)
+
+            method_body = content[start:end]
+            if method_node.name not in funcs:
+                del_count += 1
+                keep_ranges.append((curr_pos, start - 1))
+                curr_pos = end + 1
+        keep_ranges.append((curr_pos, len(content)))
+    except Exception as e:
+        logger.error(f'{proj}_{id}_{test_dir}删除函数时出现异常：{str(e)}')
+    return keep_ranges, del_count, mth_count
 
 
 def has_remaining_tests(content, proj, id, test_dir):
@@ -92,7 +125,7 @@ def has_remaining_tests(content, proj, id, test_dir):
         return False
 
 
-def delete_tests_by_func(funcs, content, proj, id, test_dir):
+def delete_tests_by_func_call(funcs, content, proj, id, test_dir):
     tree = javalang.parse.parse(content)
     keep_ranges = []
     curr_pos = 0
@@ -150,7 +183,7 @@ def get_method_end(content, position):
     return start, pos
 
 
-def get_bug_relative_tests(df):
+def get_bug_relative_funcs(df):
     funcs_df = (
         df.drop(columns=['trigger_exceptions','buggy','original'])
         .drop_duplicates()
@@ -180,10 +213,26 @@ def uncompress_randoop_tar_bz2(result_root, file_path, proj=None, id=None, test_
 
 
 if __name__ == '__main__':
+    # # 默认参数
+    # test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
+
+    # 可以不更改的默认值
+    log_file_name = 'logfile.txt'
+    failing_output_name = 'failing_tests'
+    version = 'fixing'
+    include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
+    include_pattern = r'*\.java$'
+
+    # 需要更改的目录位置
+    bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
+    tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
+    util_file_path = '/mnt/Benchmark_py/util_scripts/util_infos.csv'
+
+
     # logger.info(f'running for {version}...')
     # df = pd.read_csv(util_file_path)
     # # 获取缺陷相关的测试
-    # funcs_df = get_bug_relative_tests(df)
+    # funcs_df = get_bug_relative_funcs(df)
     # for _, row in tqdm(funcs_df.iterrows()):
     #     proj = row['proj']
     #     id = row['id']
@@ -196,11 +245,13 @@ if __name__ == '__main__':
     #             logger.info(f'tests root {test_dir_root} does not exist!')
     #             continue
     #         patch_changes = row['patch_changes']
+            # # 处理patch_changes, 只保留函数名
+            # funcs = [sig.split(':')[1] for sig in patch_changes]
     #         test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
     #         # 对每个测试目录执行过滤并复制结果到新的目录
     #         for test_dir in test_dirs:
     #             # logging.info(test_dir)
-    #             filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir)
+    #             filter_irrelative_tests(proj, id, tests_root, funcs, test_dir)
 
     uncompress_randoop_tar_bz2('/mnt/experiments/APCA21/RGT/2019',
                        '/mnt/experiments/APCA21/RGT/2019/randoop/Closure/randoop/1/Closure-57f-randoop.1.tar.bz2')

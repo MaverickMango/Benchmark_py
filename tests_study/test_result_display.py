@@ -160,30 +160,30 @@ def pre_process(dicts, key):
     return df
 
 
-def hypothesis_test(version_dfs, metric='fisher_exact'):
+def hypothesis_test(version_dfs):
     original_df = pre_process(version_dfs, 'original')
     fixing_df = pre_process(version_dfs, 'fixing')
     if original_df is None or fixing_df is None:
         return
-    result_df = get_joins(original_df, fixing_df, metric)
+    result_df = get_joins(original_df, fixing_df)
     hypothesis_test_result = []
-    # 通过的测试数量不分项目统计
-    res = hypothesis_test_for_groupby(result_df, ['proj', 'id', 'test'], metric)
+    # 通过的测试数量按测试类统计
+    res = hypothesis_test_for_groupby(result_df, ['proj', 'id', 'test'])
     hypothesis_test_result.extend(res)
-    # 通过的测试数量按项目统计
-    res = hypothesis_test_for_groupby(result_df, ['proj'], metric)
-    hypothesis_test_result.extend(res)
-    # 通过的测试数量按缺陷统计
-    res = hypothesis_test_for_groupby(result_df, ['proj', 'id'], metric)
-    hypothesis_test_result.extend(res)
+    # # 通过的测试数量按项目统计
+    # res = hypothesis_test_for_groupby(result_df, ['proj'])
+    # hypothesis_test_result.extend(res)
+    # # 通过的测试数量按缺陷统计
+    # res = hypothesis_test_for_groupby(result_df, ['proj', 'id'])
+    # hypothesis_test_result.extend(res)
 
     result = pd.DataFrame(hypothesis_test_result)
-    output_file = f'{result_root}/hypothesis_test_{metric}_result{display_output_file_sufix}'
+    output_file = f'{result_root}/hypothesis_test_result{display_output_file_sufix}'
     logging.info(f'假设检验的结果存放在：{output_file}')
     result.to_csv(output_file, index=False)
 
 
-def hypothesis_test_for_groupby(result_df, groupby, metric='fisher_exact'):
+def hypothesis_test_for_groupby(result_df, groupby):
     if groupby is None:
         series = result_df.sum()
         ouput_name_prefix = 'nogroup'
@@ -197,21 +197,28 @@ def hypothesis_test_for_groupby(result_df, groupby, metric='fisher_exact'):
         ouput_name_prefix = '_'.join(groupby)
     
     result_df = series.reset_index()
-    output_file = f'{result_root}/{ouput_name_prefix}_{metric}_hypothesis_test_{display_output_file_sufix}'
-    logging.info(f'{ouput_name_prefix}分组用于{metric}的假设检验量表的统计结果存放在：{output_file}')
+    output_file = f'{result_root}/{ouput_name_prefix}_hypothesis_test_{display_output_file_sufix}'
+    logging.info(f'{ouput_name_prefix}分组的假设检验量表的统计结果存放在：{output_file}')
     result_df.to_csv(output_file, index=False)
 
-    return test_for_series(series, groupby, metric)
+    return test_for_series(series, groupby)
 
 
-def test_for_series(series, groupby, metric='fisher_exact'):
+def test_for_series(series, groupby):
     # 传入参数有可能是一维数组，也有可能是多维，多维情况下需要做多次检验然后再进行校正
     # 一维数组实际为一个2*2联表，多维就是多个
     # ['org_succ_fix_succ', 'org_succ_fix_fail',
     # 'org_fail_fix_succ', 'org_fail_fix_fail']
     # fail数据大多为0，所以不能用卡方……
-    # 检验方法：费舍尔精确检验（Fisher's Exact Test）的Monte Carlo模拟
+    # 检验方法：
+    # 小样本用费舍尔精确检验（Fisher's Exact Test）的 Monte Carlo模拟
+    # 大样本用McNemar
+    # 多组的情况用bh法做fdr校正
     if groupby is None:
+        if series['B'] + series['C'] >= 25:
+            metric = 'mcnemar'
+        else:
+            metric = 'fisher_exact'
         odds_ratio, p_value = globals()[f'{metric}_for_line'](series)
         print(p_value) # 哈哈哈算出来p值是1，没有显著区别那就是一致呗
         res = [{
@@ -224,6 +231,10 @@ def test_for_series(series, groupby, metric='fisher_exact'):
         rows = []
         p_lists = []
         for index, row in series.iterrows():
+            if row['B'] + row['C'] >= 25:
+                metric = 'mcnemar'
+            else:
+                metric = 'fisher_exact'
             odds_ratio, p_value =  globals()[f'{metric}_for_line'](row)
             rows.append({
                 'group': '_'.join(map(lambda x: str(x), index)) if isinstance(index, tuple) else index,
@@ -257,6 +268,7 @@ def mcnemar_for_line(line):
             指标一  指标二
     类别一    A       B
     类别二    C       D
+    该检验的条件是B+C>=25
     """
     observed = []
     observed.append([line['A'], line['B']])
@@ -264,7 +276,8 @@ def mcnemar_for_line(line):
     result = mcnemar(observed, exact=False)
     return result.statistic, result.pvalue
 
-def get_joins(org_df, fix_df, metric='fisher_exact'):
+
+def get_joins(org_df, fix_df):
     df_index = ['proj', 'id', 'test']
     stat_index = ['tests_succ', 'tests_fail']
     org_grouped = org_df.groupby(df_index)[stat_index].sum()
@@ -278,20 +291,20 @@ def get_joins(org_df, fix_df, metric='fisher_exact'):
     # 交集
     # 类别一是历史版本的通过测试数量，类别二是历史版本的失败测试数量
     # 指标一是修复版本的通过测试数量，指标二是修复版本的失败测试数量
-    if metric == 'mcnemar':
-        merged['A'] = merged[['tests_succ_org', 'tests_succ_fix']].min(axis=1)
-        merged['B'] = merged['tests_fail_fix']
-        merged['C'] = merged['tests_fail_org']
-        merged['D'] = merged[['tests_fail_org', 'tests_fail_fix']].min(axis=1)
+    # if metric == 'mcnemar':
+    merged['A'] = merged[['tests_succ_org', 'tests_succ_fix']].min(axis=1)
+    merged['B'] = merged['tests_fail_fix']
+    merged['C'] = merged['tests_fail_org']
+    merged['D'] = merged[['tests_fail_org', 'tests_fail_fix']].min(axis=1)
     
-    # 直接看两个版本的
-    # 第一行是历史版本测试执行的通过数和失败数
-    # 第二行是修复版本测试执行的通过数和失败数
-    if metric == 'fisher_exact':
-        merged['A'] = merged['tests_succ_org']
-        merged['B'] = merged['tests_fail_org']
-        merged['C'] = merged['tests_succ_fix']
-        merged['D'] = merged['tests_fail_fix']
+    # # 直接看两个版本的
+    # # 第一行是历史版本测试执行的通过数和失败数
+    # # 第二行是修复版本测试执行的通过数和失败数
+    # if metric == 'fisher_exact':
+    #     merged['A'] = merged['tests_succ_org']
+    #     merged['B'] = merged['tests_fail_org']
+    #     merged['C'] = merged['tests_succ_fix']
+    #     merged['D'] = merged['tests_fail_fix']
     
     result = merged[
         ['A', 'B',

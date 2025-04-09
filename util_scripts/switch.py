@@ -11,6 +11,8 @@ jar_path = '/mnt/Benchmark_py/lib/SwitchAndClean.jar'#jar包的路径
 
 ########## 以下均不要更改 ##########
 result_root = f'{result_dir_root}/original_result'
+if not os.path.exists(result_root):
+      os.makedirs(result_root)
 switch_log_file = f'{result_root}/{switch_log_file_name}'
 if os.path.exists(switch_log_file):
       os.remove(switch_log_file)

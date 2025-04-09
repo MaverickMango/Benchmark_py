@@ -1,16 +1,19 @@
 import os, sys
 from pathlib import Path
 import subprocess
+import multiprocessing
 import shutil
 import pandas as pd
 from tqdm import *
 import time
 import logging
 import re
+import xml.etree.ElementTree as ET
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from util_scripts import switch
 from util_scripts import Constant
+from util_scripts import test_preprocess
 
 # 默认参数
 run_tests_log_file_name = 'run_test.log'
@@ -21,7 +24,7 @@ include = '*.java' #如果只执行目录下指定名字的测试类则更改该
 include_pattern = r'*\.java$'
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
-tasks = tqdm(['original']) # 'fixing', 'original', 'buggy'
+tasks = tqdm(['fixing', 'original', 'buggy']) # 
 
 # 需要更改的目录位置
 tmp_dir_root = '/tmp' # 临时工作文件夹的根目录
@@ -38,7 +41,8 @@ logging.basicConfig(filename=py_log_file, level=logging.INFO)
 # print(logging.getLogger().handlers[0].baseFilename)
 # defects4j_root = os.getenv('DEFECTS4J_HOME')
 # run_tests_cmd = '/'.join([defects4j_root, 'framework', 'bin', 'run_external_tests.pl'])
-run_tests_cmd = 'defects4j external.test'
+run_tests_cmd = 'defects4j external.test -p {proj} -v {id}{version} -w {work_dir} -t {test_dir_root} -i {include} -o {failing_output}'
+run_tests_with_coverage_cmd = 'defects4j extTestsWithCov -w {work_dir} -t {test_dir} -s {single_test} -i {include} -o {failing_output}'
 cwd = os.getcwd()
 
 
@@ -65,7 +69,7 @@ def checkout(proj, id, work_dir, version, sha=None):
             logging.info(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
 
 
-def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir_root):
+def run_tests(patch_changes, tmp_dir, proj, id, version, test_prefix, test_dir_root):
     test_dir = os.path.basename(test_dir_root)
     log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{log_file_name}'
     if os.path.exists(log_file):
@@ -82,20 +86,32 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir_root):
     if version == 'original':
         version = 'o'
         # 如果是original版本的话需要对齐包名=》复制测试目录到新的包名目录
+        test_dir_root = test_dir_root.replace(tests_root, f'{tests_root}_bug_relative')
+        if not os.path.exists(test_dir_root):
+            return
         test_dir_root = mapping_test_dirs(proj, id, test_dir_root)
         if proj == 'Time' and os.path.exists(f'{tmp_dir}/JodaTime'):
             tmp_dir = f'{tmp_dir}/JodaTime'
     elif version == 'inducing':
         version = 'i'
-    elif 'bug' in version:
-        version = 'b'
+        test_dir_root = test_dir_root.replace(tests_root, f'{tests_root}_bug_relative')
     elif 'fix' in version:
         version = 'f'
+        # 如果是fixing版本的话，需要先执行一遍测试，收集覆盖信息，然后排除缺陷无关的测试
+        test_dir_root = delete_bug_irrelative_tests(patch_changes, tmp_dir, proj, id, test_dir_root, test_dir, failing_output)
     else:
         version = 'b'
+        test_dir_root = test_dir_root.replace(tests_root, f'{tests_root}_bug_relative')
     
+    if not os.path.exists(test_dir_root):
+        return
+    # 测试工作目录，把每个版本执行的测试直接放到result里
+    target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}'
+    shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
+    test_dir_root = target_test_root
+
     logging.info(f'running tests for {proj}_{id}{version}...')
-    cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir_root} -i {include} -o {failing_output}' # 加了-o之后没有junit执行的报错信息
+    cmd = run_tests_cmd.format(proj=proj, id=id, version=version, work_dir=tmp_dir, test_dir_root=test_dir_root, include=include, failing_output=failing_output)
     logging.info(cmd)
     cmd = cmd.split(' ')
     result = run_cmd(tmp_dir, cmd)
@@ -109,6 +125,61 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir_root):
         logging.info('tests running failied.')
     with open(log_file, 'x') as f:
         f.write(result.stderr + result.stdout)
+
+
+def delete_bug_irrelative_tests(patch_changes, tmp_dir, proj, id, test_dir_root, test_dir, failing_output):
+    # 获取缺陷相关的行号，处理patch_changes, 只保留行号
+    lines = [sig.split(':')[-1] for sig in patch_changes]
+    # 执行测试收集覆盖
+    funcs = []
+    tests_list = test_preprocess.get_tests(test_dir_root, include_pattern)
+    args = []
+    count = 0
+    for test in tests_list:
+        tmp_dir_subprocess = f'{tmp_dir}_{str(count)}'
+        shutil.copytree(tmp_dir, tmp_dir_subprocess)
+        count += 1
+        cmd = run_tests_with_coverage_cmd.format(work_dir=tmp_dir_subprocess, test_dir=test_dir_root, single_test=test, include=include, failing_output=failing_output)
+        args.append((tmp_dir_subprocess, cmd, test, lines))
+    with multiprocessing.Pool(processes=len(tests_list)) as pool:
+        results = pool.imap_unordered(
+            process_coverage_for_each_test,
+            args
+        )
+        funcs.extend(results)
+    # 删除缺陷无关的测试
+    logging.info(f'deleting irrelative tests for {proj}_{id}-{test_dir}...')
+    new_test_root = test_preprocess.filter_irrelative_tests(proj, id, tests_root, funcs, test_dir, include_pattern)
+    return new_test_root
+
+
+def process_coverage_for_each_test(args):
+    work_dir, cmd, test, lines = args
+    logging.info(f'running cmd {cmd}')
+    result = run_cmd(work_dir, cmd.split(' '))
+    coverage_file_path = f'{work_dir}/coverage.xml'
+    covered = read_coverage(coverage_file_path, lines)
+    if covered:
+        test_name = test.split('::')[-1]
+        return test_name
+    return None
+
+
+def read_coverage(file_path, lines):
+    try:
+        tree = ET.parse(file_path)
+        root = tree.getroot()
+        for cls in root.findall(".//class"):
+            cls_name = cls.get('name')
+            # todo 更准确的做法还需要比较类名和函数名……
+            for line in cls.findall(".//line"):
+                line_number = int(line.get('number'))
+                hits = int(line.get('hits'))
+                if line_number in lines:
+                    return hits > 0
+    except Exception as e:
+        logging.error(f'解析xml文件{file_path}时出现错误：{str(e)}')
+    return False
 
 
 def mapping_test_dirs(proj, id, test_dir):
@@ -203,12 +274,13 @@ def run_cmd(work_dir, cmd):
     return result
 
 
-def main(test_prefix): 
+def main(funcs_df, test_prefix): 
     df = pd.read_csv(bugs_info)
     proj_bugs = [item for item in df['bug_name'].tolist()]
     for proj_bug in tqdm(proj_bugs):
         proj = proj_bug.split('_')[0]
         id = proj_bug.split('_')[1]
+        patch_changes = funcs_df.query(f"proj == '{proj}' and id == {id}").iloc[0]['patch_changes']
         test_dir_root = f'{tests_root}/{proj}/{id}'
         if not os.path.exists(test_dir_root):
             continue
@@ -226,15 +298,11 @@ def main(test_prefix):
             shutil.rmtree(tmp_dir)
         shutil.copytree(work_dir, tmp_dir)
 
-        # 复制测试到对应的结果目录
-        target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}'
-        shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
-
-        test_dirs = [entry.name for entry in os.scandir(target_test_root) if entry.is_dir()]
+        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
         # 对每个测试目录运行测试
         for test_dir in test_dirs:
             # logging.info(test_dir)
-            run_tests(tmp_dir, proj, id, version, test_prefix, f'{target_test_root}/{test_dir}')
+            run_tests(patch_changes, tmp_dir, proj, id, version, test_prefix, f'{test_dir_root}/{test_dir}')
 
 
 def test_one(proj, id, test_dir, test_prefix):
@@ -269,15 +337,11 @@ def rerun(df, test_prefix):
             shutil.rmtree(tmp_dir)
         shutil.copytree(work_dir, tmp_dir)
 
-        # 测试工作目录，把每个版本执行的测试直接放到result里
-        target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}'
-        shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
-
-        test_dirs = [entry.name for entry in os.scandir(target_test_root) if entry.is_dir()]
+        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
         # 对每个测试目录运行测试
         for test_dir in test_dirs:
             # logging.info(test_dir)
-            run_tests(tmp_dir, proj, id, version, test_prefix, f'{target_test_root}/{test_dir}')
+            run_tests(tmp_dir, proj, id, version, test_prefix, f'{test_dir_root}/{test_dir}')
 
 
 
@@ -285,6 +349,8 @@ if __name__ == '__main__':
     for task in tasks:
         tasks.set_description('Processing for run tests for %s' % task)
         version = str(task)
+        df = pd.read_csv(util_infos_file_path)
+        funcs_df = test_preprocess.get_bug_relative_funcs(df)
         
         for test_prefix in test_prefixes:
             if 'evosuite' in test_prefix:
@@ -294,7 +360,7 @@ if __name__ == '__main__':
             
             result_root = f'{result_dir_root}/{version}_result/'
             logging.info(f'running for {version}...')
-            main(test_prefix)
+            main(funcs_df, test_prefix)
             time.sleep(.1)
 
     # test_one('Math', '2', '2')

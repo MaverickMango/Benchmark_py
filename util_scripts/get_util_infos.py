@@ -80,7 +80,9 @@ def get_fix_changes(data):
         clz_mths = []
         for change in changes:
             names = change['changed_functions'][0]['qualified_names']
-            clz_mths.extend(names)
+            lines = change['changed_lines'][0]['qualified_names']
+            res = list(map(lambda x, y: f'{x}:{y}', names, lines))
+            clz_mths.extend(res)
         sigs['patch_changes'] = '#'.join(clz_mths)
         return sigs
     except AttributeError:
