@@ -1,2 +1,0 @@
-/usr/lib/oracleJdk/jdk-11.0.21/bin/java -cp /mnt/Benchmark_py/lib/SwitchAndClean.jar root.script.SwitchAndClean Time 7 original /mnt/experiments/bugs/Time/Time_7_original/ e1225752
-EXECUTION FAILED!

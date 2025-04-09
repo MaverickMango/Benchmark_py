@@ -5,9 +5,11 @@ import time
 from tqdm import *
 import logging
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from util_scripts import Constant
+
 # 默认参数
-version = 'fixing' #执行测试的缺陷版本
-test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
+test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
 log_file_name = 'logfile.txt'
@@ -20,7 +22,6 @@ result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
 bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
 
 ########## 以下均不要更改 ##########
-result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
 py_log_file = f'{result_dir_root}/log/analysis.log'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
@@ -158,11 +159,12 @@ if __name__ == '__main__':
         tasks.set_description('Processing for %s analysis' % task)
         version = str(task)
         logging.info(f'running for {version}...')
-        result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
-        df = get_result()
+        for test_prefix in test_prefixes:            
+            result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+            df = get_result()
 
-        output_file = f'{result_root}/{analysis_output}'
-        logging.info(f'分析结果结果存放在：{output_file}')
-        df.to_csv(output_file, index=False)
-        time.sleep(.1)
+            output_file = f'{result_root}/{analysis_output}'
+            logging.info(f'分析结果结果存放在：{output_file}')
+            df.to_csv(output_file, index=False)
+            time.sleep(.1)
         

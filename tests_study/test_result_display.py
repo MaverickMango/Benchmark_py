@@ -10,9 +10,12 @@ from tqdm import *
 import time
 import logging
 
-# 默认参数，会在__main__中修改
-version = 'fixing' #执行测试的缺陷版本
-test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from util_scripts import Constant
+
+# 默认参数
+test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值(最好别改)
 analysis_output = 'build_results.csv' # 传入的测试统计结果
@@ -27,7 +30,6 @@ bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信�
 trigger_test_exceptions_file_path = '/mnt/Benchmark_py/util_scripts/trigger_exceptions.csv' # 存放每个缺陷触发错误的exception
 
 ########## 以下均不要更改 ##########
-result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
 py_log_file = f'{result_dir_root}/log/{py_log_file_name}'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
@@ -304,20 +306,21 @@ if __name__ == '__main__':
         tasks.set_description('Processing for %s results display' % task)
         version = str(task)
         logging.info(f'running for {version}...')
-        if task == 'compare':
-            result_root = f'{result_dir_root}/original_result/{test_prefix}'
-            different_version_compare(result_dfs)
-            hypothesis_test(result_dfs)#, metric='mcnemar'
-        else:
-            result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
-            analysis_result = f'{result_root}/{analysis_output}'
-            df = pd.read_csv(analysis_result)
-            result_dfs.append({'version': version,'df': df.copy()})
+        for test_prefix in test_prefixes:
+            if task == 'compare':
+                result_root = f'{result_dir_root}/original_result/{test_prefix}'
+                different_version_compare(result_dfs)
+                hypothesis_test(result_dfs)#, metric='mcnemar'
+            else:
+                result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+                analysis_result = f'{result_root}/{analysis_output}'
+                df = pd.read_csv(analysis_result)
+                result_dfs.append({'version': version,'df': df.copy()})
 
-            for display in tqdm(displays):
-                func = f'{display}_display'
-                globals()[func](df.copy())
-            
-            time.sleep(.1)
+                for display in tqdm(displays):
+                    func = f'{display}_display'
+                    globals()[func](df.copy())
+                
+                time.sleep(.1)
     
         

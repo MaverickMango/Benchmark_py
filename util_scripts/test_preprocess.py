@@ -4,23 +4,22 @@ import pandas as pd
 import re, shutil
 from tqdm import *
 import logging
+import subprocess
 import javalang
 from javalang.tree import ClassDeclaration, MethodDeclaration
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from util_scripts import Constant
 
 # 默认参数
-version = 'fixing' #执行测试的缺陷版本
-test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
+test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
 log_file_name = 'logfile.txt'
 failing_output_name = 'failing_tests'
-tasks = tqdm(['fixing'])
+version = 'fixing'
 include = '*.java' #如果只执行目录下指定名字的测试类则更改该参数
 include_pattern = r'*\.java$'
-if 'evosuite' in test_prefix:
-    include = '*_ESTest.java'
-    include_pattern = r'.*_ESTest\.java$'
 
 # 需要更改的目录位置
 result_dir_root = '/mnt/Benchmark_py/util_scripts/'# 测试结果存放路径
@@ -39,9 +38,9 @@ logger.addHandler(logging.FileHandler(filename=py_log_file))
 # logging.basicConfig(filename=py_log_file, level=logging.INFO)
 
 
-def filter_irrelative_tests(patch_changes, target_path):
+def filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir):
     # 复制新的测试文件目录，命名为在原本的test_prefix后增加version_defect_relative信息
-    old_test_path = f'{test_dir_root}/{target_path}'
+    old_test_path = f'{test_dir_root}/{test_dir}'
     new_root_dir = f'{tests_root}_{version}_bug_relative'
     if os.path.exists(new_root_dir):
         shutil.rmtree(new_root_dir)
@@ -64,13 +63,13 @@ def filter_irrelative_tests(patch_changes, target_path):
                 funcs = [sig.split(':')[1] for sig in patch_changes]
 
                 # 删除缺陷无关的测试并重构文件内容
-                keep_ranges, del_count, mth_count = delete_tests_by_func(funcs, content)
+                keep_ranges, del_count, mth_count = delete_tests_by_func(funcs, content, proj, id, test_dir)
                 update_content = []
                 for start, end in keep_ranges:
                     update_content.append(content[start:end])
                 update_content = ''.join(update_content)
-                if not has_remaining_tests(update_content):
-                    logger.info(f'{proj}_{id}_{test_dir}所有测试方法均缺陷无关，跳过该测试类{target_path}')
+                if not has_remaining_tests(update_content, proj, id, test_dir):
+                    logger.info(f'{proj}_{id}_{test_dir}所有测试方法均缺陷无关，跳过该测试类{test_dir}')
                     continue
                 
                 # 写入新目录
@@ -81,7 +80,7 @@ def filter_irrelative_tests(patch_changes, target_path):
         logger.error(f'update tests for file {file_path} error: {str(e)}')
 
 
-def has_remaining_tests(content):
+def has_remaining_tests(content, proj, id, test_dir):
     try:
         new_tree = javalang.parse.parse(content)
         return any(
@@ -93,7 +92,7 @@ def has_remaining_tests(content):
         return False
 
 
-def delete_tests_by_func(funcs, content):
+def delete_tests_by_func(funcs, content, proj, id, test_dir):
     tree = javalang.parse.parse(content)
     keep_ranges = []
     curr_pos = 0
@@ -161,21 +160,47 @@ def get_bug_relative_tests(df):
     return funcs_df
 
 
+def uncompress_randoop_tar_bz2(result_root, file_path, proj=None, id=None, test_id=None):
+    # Closure-57f-randoop.1.tar.bz2
+    pattern = r'(?P<proj>\S+)-(?P<id>\d+)[bf]*-randoop\.(?P<test_id>\d+)\.tar\.bz2'
+    if not os.path.exists(file_path):
+        print("File does not exist")
+        return
+    if proj is None or id is None or test_id is None:
+        file_name = os.path.basename(file_path)
+        if match := re.match(pattern, file_name):
+            proj = match.group('proj')
+            id = match.group('id')
+            test_id = match.group('test_id')
+    out_dir = os.path.join(result_root, 'randoop_unzip', proj, str(id))
+    os.makedirs(out_dir, exist_ok=True)
+    command = f'tar -jxvf {file_path} -C {out_dir}'
+    print(command)
+    result = subprocess.run(command, shell=True)
+
+
 if __name__ == '__main__':
-    logger.info(f'running for {version}...')
-    df = pd.read_csv(util_file_path)
-    # 获取缺陷相关的测试
-    funcs_df = get_bug_relative_tests(df)
-    for _, row in tqdm(funcs_df.iterrows()):
-        proj = row['proj']
-        id = row['id']
-        test_dir_root = f'{tests_root}/{proj}/{id}'
-        if not os.path.exists(test_dir_root):
-            logger.info(f'tests root {test_dir_root} does not exist!')
-            continue
-        patch_changes = row['patch_changes']
-        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
-        # 对每个测试目录执行过滤并复制结果到新的目录
-        for test_dir in test_dirs:
-            # logging.info(test_dir)
-            filter_irrelative_tests(patch_changes, test_dir)
+    # logger.info(f'running for {version}...')
+    # df = pd.read_csv(util_file_path)
+    # # 获取缺陷相关的测试
+    # funcs_df = get_bug_relative_tests(df)
+    # for _, row in tqdm(funcs_df.iterrows()):
+    #     proj = row['proj']
+    #     id = row['id']
+    #     test_dir_root = f'{tests_root}/{proj}/{id}'
+    #     for test_prefix in test_prefixes:
+    #         if 'evosuite' in test_prefix:
+    #             include = '*_ESTest.java'
+    #             include_pattern = r'.*_ESTest\.java$'
+    #         if not os.path.exists(test_dir_root):
+    #             logger.info(f'tests root {test_dir_root} does not exist!')
+    #             continue
+    #         patch_changes = row['patch_changes']
+    #         test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
+    #         # 对每个测试目录执行过滤并复制结果到新的目录
+    #         for test_dir in test_dirs:
+    #             # logging.info(test_dir)
+    #             filter_irrelative_tests(proj, id, test_dir_root, patch_changes, test_dir)
+
+    uncompress_randoop_tar_bz2('/mnt/experiments/APCA21/RGT/2019',
+                       '/mnt/experiments/APCA21/RGT/2019/randoop/Closure/randoop/1/Closure-57f-randoop.1.tar.bz2')

@@ -42,7 +42,7 @@ run_tests_cmd = 'defects4j external.test'
 cwd = os.getcwd()
 
 
-def checkout(proj, id, work_dir, version):
+def checkout(proj, id, work_dir, version, sha=None):
     if os.path.exists(work_dir):
         return
     if version == 'original':
@@ -59,10 +59,14 @@ def checkout(proj, id, work_dir, version):
     checkout_cmd = f'defects4j checkout -p {proj} -v {id}{version} -w {work_dir}'
     checkout_cmd = checkout_cmd.split(' ')
     run_cmd(cwd, checkout_cmd)
+    if version == 'original':
+        change_res = switch.run(proj, id, version, work_dir, sha)
+        if change_res != 0:
+            logging.info(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
 
 
-def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
-
+def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir_root):
+    test_dir = os.path.basename(test_dir_root)
     log_file = f'{result_root}/{test_prefix}/{proj}/{id}/{test_dir}/{log_file_name}'
     if os.path.exists(log_file):
         os.remove(log_file)
@@ -74,13 +78,11 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
     last_failing_test = f'{tmp_dir}/failing-tests.txt'
     if os.path.exists(last_failing_test):
         os.remove(last_failing_test)
-    
-    test_dir = f'{tests_root}/{proj}/{id}/{test_dir}' 
 
     if version == 'original':
         version = 'o'
         # 如果是original版本的话需要对齐包名=》复制测试目录到新的包名目录
-        test_dir = mapping_test_dirs(proj, id, test_dir)
+        test_dir_root = mapping_test_dirs(proj, id, test_dir_root)
         if proj == 'Time' and os.path.exists(f'{tmp_dir}/JodaTime'):
             tmp_dir = f'{tmp_dir}/JodaTime'
     elif version == 'inducing':
@@ -93,7 +95,7 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         version = 'b'
     
     logging.info(f'running tests for {proj}_{id}{version}...')
-    cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir} -i {include} -o {failing_output}' # 加了-o之后没有junit执行的报错信息
+    cmd = f'{run_tests_cmd} -p {proj} -v {id}{version} -w {tmp_dir} -t {test_dir_root} -i {include} -o {failing_output}' # 加了-o之后没有junit执行的报错信息
     logging.info(cmd)
     cmd = cmd.split(' ')
     result = run_cmd(tmp_dir, cmd)
@@ -107,14 +109,6 @@ def run_tests(tmp_dir, proj, id, version, test_prefix, test_dir):
         logging.info('tests running failied.')
     with open(log_file, 'x') as f:
         f.write(result.stderr + result.stdout)
-        
-
-def copy_tests(proj, id, work_dir, test_dir):
-    # 创建临时工作目录
-    tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
-    if os.path.exists(tmp_dir):
-        shutil.rmtree(tmp_dir)
-    shutil.copytree(work_dir, tmp_dir)
 
 
 def mapping_test_dirs(proj, id, test_dir):
@@ -130,11 +124,12 @@ def mapping_test_dirs(proj, id, test_dir):
         if info_df.empty:
             return test_dir
 
-        # 复制test文件到新的目录并修改目录名
-        cp_test_dir = f'{test_dir}_original'
-        if os.path.exists(cp_test_dir):
-            return cp_test_dir
-        shutil.copytree(test_dir, cp_test_dir)
+        # # 复制test文件到新的目录并修改目录名
+        # cp_test_dir = f'{test_dir}_original'
+        # if os.path.exists(cp_test_dir):
+        #     return cp_test_dir
+        # shutil.copytree(test_dir, cp_test_dir)
+        cp_test_dir = test_dir
 
         path_mappings = []
         for index, row in info_df.iterrows():
@@ -220,13 +215,10 @@ def main(test_prefix):
 
         # 确认目录存在，不存在则checkout
         work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
-        checkout(proj, id, work_dir, version)
+        sha = None
         if version == 'original':
             sha = df.set_index('bug_name')['originalCommit'].get(proj_bug)
-            change_res = switch.run(proj, id, version, work_dir, sha)
-            if change_res != '0':
-                logging.info(f'Error occurred when switch {proj}_{id}_{version}, skip this defect.')
-                continue
+        checkout(proj, id, work_dir, version, sha)
         
         # 创建临时工作目录
         tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
@@ -234,11 +226,15 @@ def main(test_prefix):
             shutil.rmtree(tmp_dir)
         shutil.copytree(work_dir, tmp_dir)
 
-        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
+        # 复制测试到对应的结果目录
+        target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}'
+        shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
+
+        test_dirs = [entry.name for entry in os.scandir(target_test_root) if entry.is_dir()]
         # 对每个测试目录运行测试
         for test_dir in test_dirs:
             # logging.info(test_dir)
-            run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
+            run_tests(tmp_dir, proj, id, version, test_prefix, f'{target_test_root}/{test_dir}')
 
 
 def test_one(proj, id, test_dir, test_prefix):
@@ -251,7 +247,11 @@ def test_one(proj, id, test_dir, test_prefix):
     if os.path.exists(tmp_dir):
         shutil.rmtree(tmp_dir)
     shutil.copytree(work_dir, tmp_dir)
-    run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
+    # 复制测试到对应的结果目录
+    test_dir_root = f'{tests_root}/{proj}/{id}'
+    target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}'
+    shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
+    run_tests(tmp_dir, proj, id, version, test_prefix, f'{target_test_root}/{test_dir}')
 
 
 def rerun(df, test_prefix):
@@ -262,8 +262,6 @@ def rerun(df, test_prefix):
         # 确认目录存在，不存在则checkout
         work_dir = f'{bugs_root}/{proj}/{proj}_{id}_{version}'
         test_dir_root = f'{tests_root}/{proj}/{id}'
-        # todo 创建测试工作目录，把每个版本执行的测试直接放到result里
-        copy_tests(test_dir)
         
         # 创建临时工作目录
         tmp_dir = f'{tmp_dir_root}/{proj}_{id}'
@@ -271,11 +269,16 @@ def rerun(df, test_prefix):
             shutil.rmtree(tmp_dir)
         shutil.copytree(work_dir, tmp_dir)
 
-        test_dirs = [entry.name for entry in os.scandir(test_dir_root) if entry.is_dir()]
+        # 测试工作目录，把每个版本执行的测试直接放到result里
+        target_test_root = f'{result_root}/{test_prefix}/{proj}/{id}'
+        shutil.copytree(test_dir_root, target_test_root, dirs_exist_ok=True)
+
+        test_dirs = [entry.name for entry in os.scandir(target_test_root) if entry.is_dir()]
         # 对每个测试目录运行测试
         for test_dir in test_dirs:
             # logging.info(test_dir)
-            run_tests(tmp_dir, proj, id, version, test_prefix, test_dir)
+            run_tests(tmp_dir, proj, id, version, test_prefix, f'{target_test_root}/{test_dir}')
+
 
 
 if __name__ == '__main__':

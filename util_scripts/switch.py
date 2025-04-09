@@ -45,7 +45,7 @@ def run(p, i, v, w, s):
       #       logging.info('changing successly.')
       # else:
       #       logging.info('error occurred!')
-      return res
+      return res.stdout
 
 
 if __name__ == '__main__':

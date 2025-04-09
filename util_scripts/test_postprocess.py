@@ -5,9 +5,11 @@ from tqdm import *
 import logging
 
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from util_scripts import Constant
+
 # 默认参数
-version = 'fixing' #执行测试的缺陷版本
-test_prefix = 'evosuite2019' #跟结果文件存放的路径名以及inclue的Test类文件名有关
+test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
 # 可以不更改的默认值
 log_file_name = 'logfile.txt'
@@ -18,10 +20,8 @@ tasks = tqdm(['buggy', 'fixing', 'original'])
 # 需要更改的目录位置
 result_dir_root = '/mnt/Benchmark_py/tests_study/'# 测试结果存放路径
 bugs_info = '/mnt/Benchmark_py/bugs_inputs.csv' #存放需要测试的缺陷信息
-tests_root = '/mnt/experiments/APCA21/RGT/2019/evosuite'# 测试文件存放路径
 
 ########## 以下均不要更改 ##########
-result_root = f'{result_dir_root}'
 py_log_file = f'/mnt/Benchmark_py/util_scripts/log/test_postprocess.log'
 if os.path.exists(py_log_file):
     os.remove(py_log_file)
@@ -99,20 +99,23 @@ if __name__ == '__main__':
         version = str(task)
         logging.info(f'running for {version}...')
         
-        result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
-        error_stat_file_path = f'{result_root}/error_stat_display.csv'
-        df = pd.read_csv(error_stat_file_path)
-        rows = []
-        for _, row in df.iterrows():
-            proj = row['proj']
-            id = row['id']
-            test = row['test']
-            log_file_path = f'{result_dir_root}/{test}/{log_file_name}'
-            results = get_test_errors(proj, id, version, log_file_path)
-            rows.extend(results)
-        
-        df = pd.DataFrame(rows)
-        output_file = f'{result_root}/{test_compile_error_output_name}'
-        logging.info(f'测试编译错误的结果存放在：{output_file}')
-        df.to_csv(output_file, index=False)
-        time.sleep(.1)
+        for test_prefix in test_prefixes:
+            tests_root = Constant.TESTS_ROOT[test_prefix]# 测试文件存放路径
+                
+            result_root = f'{result_dir_root}/{version}_result/{test_prefix}'
+            error_stat_file_path = f'{result_root}/error_stat_display.csv'
+            df = pd.read_csv(error_stat_file_path)
+            rows = []
+            for _, row in df.iterrows():
+                proj = row['proj']
+                id = row['id']
+                test = row['test']
+                log_file_path = f'{result_dir_root}/{test}/{log_file_name}'
+                results = get_test_errors(proj, id, version, log_file_path)
+                rows.extend(results)
+            
+            df = pd.DataFrame(rows)
+            output_file = f'{result_root}/{test_compile_error_output_name}'
+            logging.info(f'测试编译错误的结果存放在：{output_file}')
+            df.to_csv(output_file, index=False)
+            time.sleep(.1)
