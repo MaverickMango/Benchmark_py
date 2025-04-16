@@ -10,13 +10,7 @@ from javalang.tree import ClassDeclaration, MethodDeclaration
 
 
 ########## 以下均不要更改 ##########
-py_log_file = '/mnt/Benchmark_py/util_scripts/log/test_preprocess.log'
-if os.path.exists(py_log_file):
-    os.remove(py_log_file)
-logger = logging.getLogger('test_preprocess')
-logger.setLevel(logging.INFO)
-logger.addHandler(logging.FileHandler(filename=py_log_file))
-# logging.basicConfig(filename=py_log_file, level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def filter_irrelative_tests(proj, id, tests_root, funcs, test_dir, include_pattern):
@@ -85,7 +79,6 @@ def get_tests(test_dir, include_pattern):
     except Exception as e:
         logger.error(f'update tests for file {file_path} error: {str(e)}')
     return tests_list
-
 
 
 def delete_tests_by_func_name(funcs, content, proj, id, test_dir):
@@ -213,6 +206,12 @@ def uncompress_randoop_tar_bz2(result_root, file_path, proj=None, id=None, test_
 
 
 if __name__ == '__main__':
+    py_log_file = '/mnt/Benchmark_py/util_scripts/log/test_preprocess.log'
+    if os.path.exists(py_log_file):
+        os.remove(py_log_file)
+    logger = logging.getLogger('test_preprocess')
+    logger.setLevel(logging.INFO)
+    logger.addHandler(logging.FileHandler(filename=py_log_file))
     # # 默认参数
     # test_prefixes = Constant.TEST_PREFIX #跟结果文件存放的路径名以及inclue的Test类文件名有关
 
